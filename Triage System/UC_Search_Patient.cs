@@ -16,5 +16,18 @@ namespace Triage_System
         {
             InitializeComponent();
         }
+        private NewPatient _newPatientForm = null;
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if (_newPatientForm == null || _newPatientForm.IsDisposed)
+            {
+                _newPatientForm = new NewPatient();
+                _newPatientForm.Show();
+            }
+            else
+            {
+                _newPatientForm.BringToFront();
+            }
+        }
     }
 }

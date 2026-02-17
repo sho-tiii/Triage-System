@@ -39,5 +39,15 @@ namespace Triage_System
             guna2DataGridView1.Rows.Add("C-036", "Ana Reyes", "10:48 AM", "Consultation", "Regular", "Serving Now");
             guna2DataGridView1.Rows.Add("C-023", "Jose Mario", "11:01 AM", "Consultation", "Regular", "Completed");
         }
+
+        private void UC_Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

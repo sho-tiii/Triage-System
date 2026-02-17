@@ -71,8 +71,8 @@ namespace Triage_System
             MoveIndicator(sender as Control);
 
             // LOAD SEARCH SCREEN (Create UC_SearchPatient.cs first!)
-            // UC_SearchPatient uc = new UC_SearchPatient();
-            // addUserControl(uc);
+            UC_Search_Patient uc = new UC_Search_Patient();
+            addUserControl(uc);
         }
 
         private void patientqueueBtn_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace Triage_System
             MoveIndicator(sender as Control);
 
             // LOAD QUEUE SCREEN (Create UC_PatientQueue.cs first!)
-            // UC_PatientQueue uc = new UC_PatientQueue();
+            //UC_Patient_Queue uc = new UC_Patient_Queue();
             // addUserControl(uc);
         }
 
@@ -112,6 +112,8 @@ namespace Triage_System
             // 2. Actually load the Dashboard screen
             UC_Dashboard uc = new UC_Dashboard();
             addUserControl(uc);
+
+
         }
 
         private void guna2VSeparator1_Click(object sender, EventArgs e)
