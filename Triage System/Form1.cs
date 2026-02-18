@@ -14,6 +14,9 @@ namespace Triage_System
 {
     public partial class Form1 : Form
     {
+
+        public static UserControl ActiveTriageSession = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -79,9 +82,24 @@ namespace Triage_System
         {
             MoveIndicator(sender as Control);
 
-            // LOAD QUEUE SCREEN (Create UC_PatientQueue.cs first!)
-            //UC_Patient_Queue uc = new UC_Patient_Queue();
-            // addUserControl(uc);
+            // Clear the panel first
+            mainPanel.Controls.Clear();
+
+            // CHECK: Do we have an active triage session saved?
+            if (ActiveTriageSession != null)
+            {
+                // YES: Load the SAVED screen (with all your typed data)
+                ActiveTriageSession.Dock = DockStyle.Fill;
+                mainPanel.Controls.Add(ActiveTriageSession);
+                ActiveTriageSession.BringToFront();
+            }
+            else
+            {
+                // NO: Load the normal Queue list
+                UC_Patient_Queue myQueue = new UC_Patient_Queue(); // <--- Create it
+                myQueue.Dock = DockStyle.Fill;                     // <--- Use the variable "myQueue"
+                mainPanel.Controls.Add(myQueue);                   // <--- Add the variable
+            }
         }
 
         private void doctorBtn_Click(object sender, EventArgs e)

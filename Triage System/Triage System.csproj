@@ -72,11 +72,23 @@
     <Compile Include="UC_Dashboard.Designer.cs">
       <DependentUpon>UC_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_Patient_Queue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Patient_Queue.Designer.cs">
+      <DependentUpon>UC_Patient_Queue.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Search_Patient.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_Search_Patient.Designer.cs">
       <DependentUpon>UC_Search_Patient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Start_Triage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Start_Triage.Designer.cs">
+      <DependentUpon>UC_Start_Triage.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -97,8 +109,14 @@
     <EmbeddedResource Include="UC_Dashboard.resx">
       <DependentUpon>UC_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_Patient_Queue.resx">
+      <DependentUpon>UC_Patient_Queue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Search_Patient.resx">
       <DependentUpon>UC_Search_Patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Start_Triage.resx">
+      <DependentUpon>UC_Start_Triage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -149,6 +167,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AddButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Call Patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Start Triage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Call Patient1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddButton1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\No Show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CallAgain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CallPatient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BloodPressure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Temperature.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heart_and_Oxygen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Weight_Height.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaleAvatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bday.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oxygen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Weight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\height.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -207,7 +207,7 @@
             this.img_slide.FillColor = System.Drawing.Color.White;
             this.img_slide.Location = new System.Drawing.Point(0, 32);
             this.img_slide.Name = "img_slide";
-            this.img_slide.Size = new System.Drawing.Size(10, 50);
+            this.img_slide.Size = new System.Drawing.Size(5, 50);
             this.img_slide.TabIndex = 0;
             // 
             // dashboardBtn
