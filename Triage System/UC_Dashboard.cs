@@ -49,5 +49,14 @@ namespace Triage_System
         {
 
         }
+
+        private void btnQueue_Click(object sender, EventArgs e)
+        {
+            // 1. Create a new instance (copy) of the QueueMonitor form
+            QueueMonitor monitorScreen = new QueueMonitor();
+
+            // 2. Display it as an independent window
+            monitorScreen.Show();
+        }
     }
 }

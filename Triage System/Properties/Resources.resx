@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="height" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\height.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AddButton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddButton1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dashboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dashboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PatientsWaiting1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PatientsWaiting1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,11 +193,14 @@
   <data name="Weight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Weight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Doctors on Duty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Doctors on Duty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PatientsWaiting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PatientsWaiting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Doctors on Duty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Doctors on Duty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PatientsWaiting1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PatientsWaiting1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Sex" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,7 +214,7 @@
   <data name="PatientsServing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PatientsServing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="height" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\height.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="QueueImg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QueueImg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

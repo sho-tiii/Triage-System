@@ -62,9 +62,10 @@
             this.sideBar.Controls.Add(this.img_slide);
             this.sideBar.Controls.Add(this.dashboardBtn);
             this.sideBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sideBar.Location = new System.Drawing.Point(0, 110);
+            this.sideBar.Location = new System.Drawing.Point(0, 135);
+            this.sideBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sideBar.Name = "sideBar";
-            this.sideBar.Size = new System.Drawing.Size(252, 658);
+            this.sideBar.Size = new System.Drawing.Size(336, 810);
             this.sideBar.TabIndex = 1;
             // 
             // triageHistoryBtn
@@ -86,13 +87,14 @@
             this.triageHistoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.triageHistoryBtn.ImageOffset = new System.Drawing.Point(10, 0);
             this.triageHistoryBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.triageHistoryBtn.Location = new System.Drawing.Point(25, 296);
+            this.triageHistoryBtn.Location = new System.Drawing.Point(33, 364);
+            this.triageHistoryBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.triageHistoryBtn.Name = "triageHistoryBtn";
             this.triageHistoryBtn.ShadowDecoration.BorderRadius = 15;
             this.triageHistoryBtn.ShadowDecoration.Depth = 15;
             this.triageHistoryBtn.ShadowDecoration.Enabled = true;
             this.triageHistoryBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.triageHistoryBtn.Size = new System.Drawing.Size(243, 50);
+            this.triageHistoryBtn.Size = new System.Drawing.Size(324, 62);
             this.triageHistoryBtn.TabIndex = 4;
             this.triageHistoryBtn.Text = "Triage History";
             this.triageHistoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -119,13 +121,14 @@
             this.doctorsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.doctorsBtn.ImageOffset = new System.Drawing.Point(10, 0);
             this.doctorsBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.doctorsBtn.Location = new System.Drawing.Point(25, 230);
+            this.doctorsBtn.Location = new System.Drawing.Point(33, 283);
+            this.doctorsBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.doctorsBtn.Name = "doctorsBtn";
             this.doctorsBtn.ShadowDecoration.BorderRadius = 15;
             this.doctorsBtn.ShadowDecoration.Depth = 15;
             this.doctorsBtn.ShadowDecoration.Enabled = true;
             this.doctorsBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.doctorsBtn.Size = new System.Drawing.Size(243, 50);
+            this.doctorsBtn.Size = new System.Drawing.Size(324, 62);
             this.doctorsBtn.TabIndex = 3;
             this.doctorsBtn.Text = "Doctors";
             this.doctorsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -152,13 +155,14 @@
             this.patientQueueBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.patientQueueBtn.ImageOffset = new System.Drawing.Point(10, 0);
             this.patientQueueBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.patientQueueBtn.Location = new System.Drawing.Point(25, 164);
+            this.patientQueueBtn.Location = new System.Drawing.Point(33, 202);
+            this.patientQueueBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.patientQueueBtn.Name = "patientQueueBtn";
             this.patientQueueBtn.ShadowDecoration.BorderRadius = 15;
             this.patientQueueBtn.ShadowDecoration.Depth = 15;
             this.patientQueueBtn.ShadowDecoration.Enabled = true;
             this.patientQueueBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.patientQueueBtn.Size = new System.Drawing.Size(243, 50);
+            this.patientQueueBtn.Size = new System.Drawing.Size(324, 62);
             this.patientQueueBtn.TabIndex = 2;
             this.patientQueueBtn.Text = "Patient Queue";
             this.patientQueueBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -185,13 +189,14 @@
             this.searchPatientBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.searchPatientBtn.ImageOffset = new System.Drawing.Point(10, 0);
             this.searchPatientBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.searchPatientBtn.Location = new System.Drawing.Point(25, 98);
+            this.searchPatientBtn.Location = new System.Drawing.Point(33, 121);
+            this.searchPatientBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchPatientBtn.Name = "searchPatientBtn";
             this.searchPatientBtn.ShadowDecoration.BorderRadius = 15;
             this.searchPatientBtn.ShadowDecoration.Depth = 15;
             this.searchPatientBtn.ShadowDecoration.Enabled = true;
             this.searchPatientBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.searchPatientBtn.Size = new System.Drawing.Size(243, 50);
+            this.searchPatientBtn.Size = new System.Drawing.Size(324, 62);
             this.searchPatientBtn.TabIndex = 1;
             this.searchPatientBtn.Text = "Search Patient";
             this.searchPatientBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -205,9 +210,10 @@
             this.img_slide.CustomizableEdges.BottomLeft = false;
             this.img_slide.CustomizableEdges.TopLeft = false;
             this.img_slide.FillColor = System.Drawing.Color.White;
-            this.img_slide.Location = new System.Drawing.Point(0, 32);
+            this.img_slide.Location = new System.Drawing.Point(0, 39);
+            this.img_slide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.img_slide.Name = "img_slide";
-            this.img_slide.Size = new System.Drawing.Size(5, 50);
+            this.img_slide.Size = new System.Drawing.Size(7, 62);
             this.img_slide.TabIndex = 0;
             // 
             // dashboardBtn
@@ -229,13 +235,14 @@
             this.dashboardBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.dashboardBtn.ImageOffset = new System.Drawing.Point(10, 0);
             this.dashboardBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.dashboardBtn.Location = new System.Drawing.Point(25, 32);
+            this.dashboardBtn.Location = new System.Drawing.Point(33, 39);
+            this.dashboardBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dashboardBtn.Name = "dashboardBtn";
             this.dashboardBtn.ShadowDecoration.BorderRadius = 15;
             this.dashboardBtn.ShadowDecoration.Depth = 15;
             this.dashboardBtn.ShadowDecoration.Enabled = true;
             this.dashboardBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.dashboardBtn.Size = new System.Drawing.Size(243, 50);
+            this.dashboardBtn.Size = new System.Drawing.Size(324, 62);
             this.dashboardBtn.TabIndex = 0;
             this.dashboardBtn.Text = "Dashboard";
             this.dashboardBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -249,12 +256,13 @@
             this.mainPanel.CustomizableEdges.BottomLeft = false;
             this.mainPanel.CustomizableEdges.TopRight = false;
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(252, 110);
+            this.mainPanel.Location = new System.Drawing.Point(336, 135);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.ShadowDecoration.CustomizableEdges.TopLeft = false;
             this.mainPanel.ShadowDecoration.CustomizableEdges.TopRight = false;
             this.mainPanel.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.mainPanel.Size = new System.Drawing.Size(1114, 658);
+            this.mainPanel.Size = new System.Drawing.Size(1485, 810);
             this.mainPanel.TabIndex = 2;
             // 
             // guna2ControlBox1
@@ -263,9 +271,10 @@
             this.guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1216, 2);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1621, 2);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 41);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(60, 50);
             this.guna2ControlBox1.TabIndex = 0;
             // 
             // guna2ControlBox2
@@ -274,9 +283,10 @@
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1267, 2);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1689, 2);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 41);
+            this.guna2ControlBox2.Size = new System.Drawing.Size(60, 50);
             this.guna2ControlBox2.TabIndex = 1;
             // 
             // guna2ControlBox3
@@ -284,9 +294,10 @@
             this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(1318, 2);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1757, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 41);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(60, 50);
             this.guna2ControlBox3.TabIndex = 2;
             // 
             // topBar
@@ -302,8 +313,9 @@
             this.topBar.Controls.Add(this.guna2ControlBox1);
             this.topBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.topBar.Location = new System.Drawing.Point(0, 0);
+            this.topBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topBar.Name = "topBar";
-            this.topBar.Size = new System.Drawing.Size(1366, 110);
+            this.topBar.Size = new System.Drawing.Size(1821, 135);
             this.topBar.TabIndex = 0;
             // 
             // guna2HtmlLabel3
@@ -311,9 +323,10 @@
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Poppins", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(293, 27);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(391, 33);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(254, 64);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(321, 80);
             this.guna2HtmlLabel3.TabIndex = 7;
             this.guna2HtmlLabel3.Text = "Triage Station";
             // 
@@ -322,9 +335,10 @@
             this.guna2VSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.guna2VSeparator1.FillColor = System.Drawing.Color.White;
             this.guna2VSeparator1.FillThickness = 2;
-            this.guna2VSeparator1.Location = new System.Drawing.Point(249, 30);
+            this.guna2VSeparator1.Location = new System.Drawing.Point(332, 37);
+            this.guna2VSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2VSeparator1.Name = "guna2VSeparator1";
-            this.guna2VSeparator1.Size = new System.Drawing.Size(8, 63);
+            this.guna2VSeparator1.Size = new System.Drawing.Size(11, 78);
             this.guna2VSeparator1.TabIndex = 6;
             this.guna2VSeparator1.Click += new System.EventHandler(this.guna2VSeparator1_Click);
             // 
@@ -333,9 +347,10 @@
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Poppins Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(82, 61);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(109, 75);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(151, 30);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(187, 38);
             this.guna2HtmlLabel2.TabIndex = 5;
             this.guna2HtmlLabel2.Text = "General Hospital";
             // 
@@ -344,9 +359,10 @@
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(84, 30);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(112, 37);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(149, 44);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(185, 55);
             this.guna2HtmlLabel1.TabIndex = 4;
             this.guna2HtmlLabel1.Text = "North Metro";
             // 
@@ -355,10 +371,11 @@
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox1.Image = global::Triage_System.Properties.Resources.Triage_History1;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(12, 27);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(16, 33);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(85, 79);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 3;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -371,13 +388,14 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.ClientSize = new System.Drawing.Size(1821, 945);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.sideBar);
             this.Controls.Add(this.topBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TriageMainForm";
