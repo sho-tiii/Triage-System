@@ -59,8 +59,22 @@ namespace Triage_System
                         // 4. Execute the command
                         cmd.ExecuteNonQuery();
 
-                        // 5. Success Message
+                        // 5. Grab the auto-generated ID from MySQL
+                        long rawId = cmd.LastInsertedId;
+
+                        // 6. Format the IDs
+                        // Grabs the current year and adds the ID padded with 4 zeros
+                        string formattedPatientID = "P-" + DateTime.Now.Year.ToString() + "-" + rawId.ToString("D4");
+
+                        // For the Queue Number, let's just use "N-" and the last 3 digits of their ID for now
+                        string currentQueue = "N-" + rawId.ToString("D3");
+
+                        // 7. Success Message
                         MessageBox.Show("New patient record saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // 8. Open the Receipt and pass the data!
+                        Queue_Number receiptForm = new Queue_Number(currentQueue, formattedPatientID);
+                        receiptForm.ShowDialog(); // ShowDialog forces them to close the receipt before continuing
 
                         // Optional: Clear fields after save
                         ClearFields();

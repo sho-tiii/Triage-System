@@ -37,5 +37,14 @@ namespace Triage_System
         {
 
         }
+
+        private void QueueMonitor_Load(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.URL = @"C:\Users\xx\Downloads\Healthcare commercial video -Hospital promotional advertisement video Best video production company.mp4";
+            axWindowsMediaPlayer1.uiMode = "none";
+            axWindowsMediaPlayer1.settings.setMode("loop", true);
+            axWindowsMediaPlayer1.settings.mute = true; // Crucial!
+            axWindowsMediaPlayer1.stretchToFit = true;
+        }
     }
 }
