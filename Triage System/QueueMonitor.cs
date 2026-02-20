@@ -46,5 +46,10 @@ namespace Triage_System
             axWindowsMediaPlayer1.settings.mute = true; // Crucial!
             axWindowsMediaPlayer1.stretchToFit = true;
         }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

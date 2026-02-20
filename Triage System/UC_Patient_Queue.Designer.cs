@@ -45,7 +45,7 @@
             this.btnCallPatient = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label1 = new System.Windows.Forms.Label();
             this.lblQueueNumber = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblPriority = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
@@ -72,9 +72,9 @@
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 7;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 286F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 381F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -89,20 +89,21 @@
             this.tableLayoutPanel1.Controls.Add(this.btnCallPatient, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblQueueNumber, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.lblPriority, 1, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 94F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1028, 332);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 116F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1371, 409);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // label4
@@ -111,10 +112,10 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.label4.Location = new System.Drawing.Point(20, 272);
-            this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.label4.Location = new System.Drawing.Point(26, 335);
+            this.label4.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(471, 31);
+            this.label4.Size = new System.Drawing.Size(629, 38);
             this.label4.TabIndex = 10;
             this.label4.Text = "Service: Consultation";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -125,10 +126,10 @@
             this.lblPatientName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPatientName.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPatientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.lblPatientName.Location = new System.Drawing.Point(20, 238);
-            this.lblPatientName.Margin = new System.Windows.Forms.Padding(7, 7, 3, 0);
+            this.lblPatientName.Location = new System.Drawing.Point(26, 294);
+            this.lblPatientName.Margin = new System.Windows.Forms.Padding(9, 9, 4, 0);
             this.lblPatientName.Name = "lblPatientName";
-            this.lblPatientName.Size = new System.Drawing.Size(468, 34);
+            this.lblPatientName.Size = new System.Drawing.Size(625, 41);
             this.lblPatientName.TabIndex = 9;
             this.lblPatientName.Text = "Patient: Kyle Christian Camacho";
             this.lblPatientName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -152,10 +153,10 @@
             this.btnTransfer.Image = global::Triage_System.Properties.Resources.Transfer;
             this.btnTransfer.ImageOffset = new System.Drawing.Point(0, 17);
             this.btnTransfer.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnTransfer.Location = new System.Drawing.Point(852, 137);
-            this.btnTransfer.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnTransfer.Location = new System.Drawing.Point(1138, 169);
+            this.btnTransfer.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.btnTransfer.Name = "btnTransfer";
-            this.btnTransfer.Size = new System.Drawing.Size(171, 94);
+            this.btnTransfer.Size = new System.Drawing.Size(226, 116);
             this.btnTransfer.TabIndex = 8;
             this.btnTransfer.Text = "Transfer";
             this.btnTransfer.Tile = true;
@@ -179,10 +180,10 @@
             this.btnNoShow.Image = global::Triage_System.Properties.Resources.No_Show;
             this.btnNoShow.ImageOffset = new System.Drawing.Point(0, 17);
             this.btnNoShow.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnNoShow.Location = new System.Drawing.Point(674, 137);
-            this.btnNoShow.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnNoShow.Location = new System.Drawing.Point(900, 169);
+            this.btnNoShow.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.btnNoShow.Name = "btnNoShow";
-            this.btnNoShow.Size = new System.Drawing.Size(168, 94);
+            this.btnNoShow.Size = new System.Drawing.Size(224, 116);
             this.btnNoShow.TabIndex = 8;
             this.btnNoShow.Text = "No Show";
             this.btnNoShow.Tile = true;
@@ -206,10 +207,10 @@
             this.btnStartTriage.Image = global::Triage_System.Properties.Resources.Start_Triage;
             this.btnStartTriage.ImageOffset = new System.Drawing.Point(0, 17);
             this.btnStartTriage.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnStartTriage.Location = new System.Drawing.Point(496, 137);
-            this.btnStartTriage.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnStartTriage.Location = new System.Drawing.Point(662, 169);
+            this.btnStartTriage.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.btnStartTriage.Name = "btnStartTriage";
-            this.btnStartTriage.Size = new System.Drawing.Size(168, 94);
+            this.btnStartTriage.Size = new System.Drawing.Size(224, 116);
             this.btnStartTriage.TabIndex = 7;
             this.btnStartTriage.Text = "Start Triage";
             this.btnStartTriage.Tile = true;
@@ -221,10 +222,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.label11, 4);
             this.label11.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.label11.Location = new System.Drawing.Point(20, 67);
-            this.label11.Margin = new System.Windows.Forms.Padding(7, 0, 3, 0);
+            this.label11.Location = new System.Drawing.Point(26, 83);
+            this.label11.Margin = new System.Windows.Forms.Padding(9, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(586, 23);
+            this.label11.Size = new System.Drawing.Size(781, 28);
             this.label11.TabIndex = 3;
             this.label11.Text = "Manage patient flow, call numbers, and assign triage priority.";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -234,10 +235,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.label10, 3);
             this.label10.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.label10.Location = new System.Drawing.Point(16, 27);
-            this.label10.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label10.Location = new System.Drawing.Point(21, 34);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 9, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(440, 40);
+            this.label10.Size = new System.Drawing.Size(587, 49);
             this.label10.TabIndex = 2;
             this.label10.Text = "Queue Management";
             this.label10.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -261,10 +262,10 @@
             this.btnCallPatient.Image = global::Triage_System.Properties.Resources.CallPatient;
             this.btnCallPatient.ImageOffset = new System.Drawing.Point(0, 17);
             this.btnCallPatient.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnCallPatient.Location = new System.Drawing.Point(318, 137);
-            this.btnCallPatient.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCallPatient.Location = new System.Drawing.Point(424, 169);
+            this.btnCallPatient.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.btnCallPatient.Name = "btnCallPatient";
-            this.btnCallPatient.Size = new System.Drawing.Size(168, 94);
+            this.btnCallPatient.Size = new System.Drawing.Size(224, 116);
             this.btnCallPatient.TabIndex = 6;
             this.btnCallPatient.Text = "Call Patient";
             this.btnCallPatient.Tile = true;
@@ -275,10 +276,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.label1, 3);
             this.label1.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.label1.Location = new System.Drawing.Point(20, 106);
-            this.label1.Margin = new System.Windows.Forms.Padding(7, 7, 3, 0);
+            this.label1.Location = new System.Drawing.Point(26, 131);
+            this.label1.Margin = new System.Windows.Forms.Padding(9, 9, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(440, 31);
+            this.label1.Size = new System.Drawing.Size(587, 38);
             this.label1.TabIndex = 4;
             this.label1.Text = "Next In Line";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -288,27 +289,27 @@
             this.lblQueueNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblQueueNumber.Font = new System.Drawing.Font("Poppins", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQueueNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.lblQueueNumber.Location = new System.Drawing.Point(13, 137);
-            this.lblQueueNumber.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.lblQueueNumber.Location = new System.Drawing.Point(17, 169);
+            this.lblQueueNumber.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.lblQueueNumber.Name = "lblQueueNumber";
-            this.lblQueueNumber.Size = new System.Drawing.Size(283, 94);
+            this.lblQueueNumber.Size = new System.Drawing.Size(377, 116);
             this.lblQueueNumber.TabIndex = 5;
             this.lblQueueNumber.Text = "C-050";
             this.lblQueueNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label5
+            // lblPriority
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.label5, 3);
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.label5.Location = new System.Drawing.Point(20, 303);
-            this.label5.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(471, 29);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Priority: Senior Citizen";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.tableLayoutPanel1.SetColumnSpan(this.lblPriority, 3);
+            this.lblPriority.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPriority.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPriority.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
+            this.lblPriority.Location = new System.Drawing.Point(26, 373);
+            this.lblPriority.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblPriority.Name = "lblPriority";
+            this.lblPriority.Size = new System.Drawing.Size(629, 36);
+            this.lblPriority.TabIndex = 11;
+            this.lblPriority.Text = "Priority: Senior Citizen";
+            this.lblPriority.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // guna2Panel1
             // 
@@ -324,9 +325,10 @@
             this.guna2Panel1.Controls.Add(this.label9);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 332);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 409);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1028, 358);
+            this.guna2Panel1.Size = new System.Drawing.Size(1371, 440);
             this.guna2Panel1.TabIndex = 4;
             // 
             // guna2Button4
@@ -345,9 +347,10 @@
             this.guna2Button4.FillColor = System.Drawing.Color.White;
             this.guna2Button4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.Location = new System.Drawing.Point(901, 13);
+            this.guna2Button4.Location = new System.Drawing.Point(1201, 16);
+            this.guna2Button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(112, 31);
+            this.guna2Button4.Size = new System.Drawing.Size(149, 38);
             this.guna2Button4.TabIndex = 6;
             this.guna2Button4.Text = "Completed";
             // 
@@ -367,9 +370,10 @@
             this.guna2Button3.FillColor = System.Drawing.Color.White;
             this.guna2Button3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.Location = new System.Drawing.Point(815, 13);
+            this.guna2Button3.Location = new System.Drawing.Point(1087, 16);
+            this.guna2Button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(80, 31);
+            this.guna2Button3.Size = new System.Drawing.Size(107, 38);
             this.guna2Button3.TabIndex = 5;
             this.guna2Button3.Text = "Serving";
             // 
@@ -389,9 +393,10 @@
             this.guna2Button2.FillColor = System.Drawing.Color.White;
             this.guna2Button2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.Location = new System.Drawing.Point(729, 13);
+            this.guna2Button2.Location = new System.Drawing.Point(972, 16);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(80, 31);
+            this.guna2Button2.Size = new System.Drawing.Size(107, 38);
             this.guna2Button2.TabIndex = 4;
             this.guna2Button2.Text = "Waiting";
             // 
@@ -412,9 +417,10 @@
             this.guna2Button1.FillColor = System.Drawing.Color.White;
             this.guna2Button1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(643, 14);
+            this.guna2Button1.Location = new System.Drawing.Point(857, 17);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(80, 31);
+            this.guna2Button1.Size = new System.Drawing.Size(107, 38);
             this.guna2Button1.TabIndex = 3;
             this.guna2Button1.Text = "All";
             // 
@@ -433,13 +439,13 @@
             this.guna2TextBox1.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(326, 13);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBox1.Location = new System.Drawing.Point(435, 16);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.guna2TextBox1.PlaceholderText = "Search Queue ID or Name...";
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(311, 32);
+            this.guna2TextBox1.Size = new System.Drawing.Size(415, 39);
             this.guna2TextBox1.TabIndex = 2;
             // 
             // guna2Panel6
@@ -452,10 +458,11 @@
             this.guna2Panel6.BorderThickness = 5;
             this.guna2Panel6.Controls.Add(this.guna2DataGridView1);
             this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(23, 56);
+            this.guna2Panel6.Location = new System.Drawing.Point(31, 69);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Padding = new System.Windows.Forms.Padding(2);
-            this.guna2Panel6.Size = new System.Drawing.Size(990, 275);
+            this.guna2Panel6.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Panel6.Size = new System.Drawing.Size(1320, 337);
             this.guna2Panel6.TabIndex = 1;
             // 
             // guna2DataGridView1
@@ -495,7 +502,7 @@
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(149)))), ((int)(((byte)(178)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(2, 2);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(3, 2);
             this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.ReadOnly = true;
@@ -507,12 +514,13 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.guna2DataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.guna2DataGridView1.RowHeadersVisible = false;
+            this.guna2DataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 9F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.guna2DataGridView1.RowTemplate.Height = 40;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(986, 271);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(1314, 333);
             this.guna2DataGridView1.TabIndex = 1;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -539,36 +547,42 @@
             // visitID
             // 
             this.visitID.HeaderText = "Queue No.";
+            this.visitID.MinimumWidth = 6;
             this.visitID.Name = "visitID";
             this.visitID.ReadOnly = true;
             // 
             // studentName
             // 
             this.studentName.HeaderText = "Patient Name";
+            this.studentName.MinimumWidth = 6;
             this.studentName.Name = "studentName";
             this.studentName.ReadOnly = true;
             // 
             // dateTime
             // 
             this.dateTime.HeaderText = "Time";
+            this.dateTime.MinimumWidth = 6;
             this.dateTime.Name = "dateTime";
             this.dateTime.ReadOnly = true;
             // 
             // reason
             // 
             this.reason.HeaderText = "Service";
+            this.reason.MinimumWidth = 6;
             this.reason.Name = "reason";
             this.reason.ReadOnly = true;
             // 
             // treatment
             // 
             this.treatment.HeaderText = "Priority";
+            this.treatment.MinimumWidth = 6;
             this.treatment.Name = "treatment";
             this.treatment.ReadOnly = true;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Status";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
@@ -577,9 +591,10 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(17, 13);
+            this.label9.Location = new System.Drawing.Point(23, 16);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(149, 32);
+            this.label9.Size = new System.Drawing.Size(187, 41);
             this.label9.TabIndex = 0;
             this.label9.Text = "Waiting List";
             // 
@@ -590,12 +605,13 @@
             // 
             // UC_Patient_Queue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UC_Patient_Queue";
-            this.Size = new System.Drawing.Size(1028, 690);
+            this.Size = new System.Drawing.Size(1371, 849);
             this.Load += new System.EventHandler(this.UC_Patient_Queue_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
@@ -619,7 +635,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnNoShow;
         internal System.Windows.Forms.Label lblPatientName;
         internal System.Windows.Forms.Label label4;
-        internal System.Windows.Forms.Label label5;
+        internal System.Windows.Forms.Label lblPriority;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;

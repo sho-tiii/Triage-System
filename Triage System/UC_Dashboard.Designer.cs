@@ -63,7 +63,6 @@
             this.treatment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnQueue = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
@@ -303,6 +302,7 @@
             this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 20);
             this.guna2Panel2.Size = new System.Drawing.Size(308, 204);
             this.guna2Panel2.TabIndex = 0;
+            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // label2
             // 
@@ -510,7 +510,6 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.BorderThickness = 2;
-            this.guna2Panel1.Controls.Add(this.btnQueue);
             this.guna2Panel1.Controls.Add(this.guna2Button4);
             this.guna2Panel1.Controls.Add(this.guna2Button3);
             this.guna2Panel1.Controls.Add(this.guna2Button2);
@@ -525,29 +524,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1371, 504);
             this.guna2Panel1.TabIndex = 1;
-            // 
-            // btnQueue
-            // 
-            this.btnQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQueue.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(129)))), ((int)(((byte)(175)))));
-            this.btnQueue.BorderRadius = 7;
-            this.btnQueue.BorderThickness = 1;
-            this.btnQueue.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnQueue.CheckedState.ForeColor = System.Drawing.Color.White;
-            this.btnQueue.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnQueue.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnQueue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnQueue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnQueue.FillColor = System.Drawing.Color.White;
-            this.btnQueue.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQueue.ForeColor = System.Drawing.Color.Black;
-            this.btnQueue.Location = new System.Drawing.Point(1141, 452);
-            this.btnQueue.Margin = new System.Windows.Forms.Padding(4);
-            this.btnQueue.Name = "btnQueue";
-            this.btnQueue.Size = new System.Drawing.Size(209, 38);
-            this.btnQueue.TabIndex = 7;
-            this.btnQueue.Text = "Open Queue Monitor";
-            this.btnQueue.Click += new System.EventHandler(this.btnQueue_Click);
             // 
             // guna2Button4
             // 
@@ -739,7 +715,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button btnQueue;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
     }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient; // ADD THIS!
+using MySql.Data.MySqlClient;
 
 namespace Triage_System
 {
@@ -51,9 +51,25 @@ namespace Triage_System
                             string mName = reader["middle_name"].ToString();
                             string lName = reader["last_name"].ToString();
 
-                            // UPDATE YOUR LABELS HERE (Change these names to match your actual label names in the designer)
-                            lblQueueNumber.Text = "N-" + rawId.ToString("D3"); // e.g., C-050
+                            // Calculate Age dynamically
+                            DateTime birthdate = Convert.ToDateTime(reader["birthdate"]);
+                            int age = DateTime.Today.Year - birthdate.Year;
+
+                            // Adjust age if they haven't had their birthday yet this year
+                            if (birthdate.Date > DateTime.Today.AddYears(-age))
+                            {
+                                age--;
+                            }
+
+                            // Determine Priority
+                            string priority = (age >= 60) ? "Senior Citizen" : "Regular";
+
+                            // UPDATE YOUR LABELS HERE
+                            lblQueueNumber.Text = "N-" + rawId.ToString("D3");
                             lblPatientName.Text = $"Patient: {fName} {mName} {lName}";
+
+                            // Update Priority Label
+                            lblPriority.Text = "Priority: " + priority;
 
                             // Enable the call button because we have a patient
                             btnCallPatient.Enabled = true;
@@ -64,6 +80,7 @@ namespace Triage_System
                             currentPatientId = "";
                             lblQueueNumber.Text = "---";
                             lblPatientName.Text = "Patient: No waiting patients";
+                            lblPriority.Text = "Priority: ---"; // Reset priority label
                             btnCallPatient.Enabled = false;
                         }
                     }
@@ -136,7 +153,6 @@ namespace Triage_System
             {
                 // --- 2. LOGIC FOR "CALL AGAIN" ---
                 MessageBox.Show("Calling patient again...");
-                // (Optional: You could trigger the database to play a sound on the monitor here later)
             }
         }
 
@@ -156,13 +172,50 @@ namespace Triage_System
 
             if (result == DialogResult.Yes)
             {
-                // Update Database to show they are inside with the nurse
+                // 1. Update Database to show they are inside with the nurse
                 UpdatePatientStatus("Serving");
+
+                // --- 2. FETCH THE REAL PATIENT DATA ---
+                string pName = "Unknown";
+                string pSex = "Unknown";
+                int pAge = 0;
+                string pQueueId = lblQueueNumber.Text; // Grabs "N-1008" directly from your screen
+
+                // Quick query to grab their exact details before changing screens
+                string query = "SELECT first_name, last_name, sex, birthdate FROM patient_registration WHERE patient_id = @id";
+
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@id", currentPatientId);
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    pName = reader["first_name"].ToString() + " " + reader["last_name"].ToString();
+                                    pSex = reader["sex"].ToString();
+
+                                    // Calculate Age dynamically
+                                    DateTime bday = Convert.ToDateTime(reader["birthdate"]);
+                                    pAge = DateTime.Today.Year - bday.Year;
+                                    if (bday.Date > DateTime.Today.AddYears(-pAge)) pAge--;
+                                }
+                            }
+                        }
+                    }
+                    catch { /* Silent fail */ }
+                }
 
                 ResetButtons();
 
-                // Load the Triage Screen
-                UC_Start_Triage nextScreen = new UC_Start_Triage();
+                // --- 3. OPEN THE TRIAGE SCREEN WITH THE REAL DATA ---
+                // We pass all the variables we just grabbed into the new screen! No more red error!
+                UC_Start_Triage nextScreen = new UC_Start_Triage(Convert.ToInt32(currentPatientId), pName, pQueueId, pSex, pAge);
+
                 Form1.ActiveTriageSession = nextScreen;
 
                 Control mainPanel = this.Parent;
