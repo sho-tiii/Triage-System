@@ -27,5 +27,15 @@ namespace Triage_System
             // "dddd" = Full day name, "MMMM" = Full month name, "dd" = Day number, "yyyy" = Year
             lblDate.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
         }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
