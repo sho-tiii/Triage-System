@@ -322,5 +322,20 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Patient Record.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Patient Record1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search Patient1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View Queue Monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Generate Daily Report.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

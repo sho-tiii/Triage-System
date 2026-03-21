@@ -183,6 +183,16 @@ namespace Triage_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Generate_Daily_Report {
+            get {
+                object obj = ResourceManager.GetObject("Generate Daily Report", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Heart {
             get {
                 object obj = ResourceManager.GetObject("Heart", resourceCulture);
@@ -216,6 +226,26 @@ namespace Triage_System.Properties {
         internal static System.Drawing.Bitmap MaleAvatar {
             get {
                 object obj = ResourceManager.GetObject("MaleAvatar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap New_Patient_Record {
+            get {
+                object obj = ResourceManager.GetObject("New Patient Record", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap New_Patient_Record1 {
+            get {
+                object obj = ResourceManager.GetObject("New Patient Record1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,6 +333,16 @@ namespace Triage_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Search_Patient1 {
+            get {
+                object obj = ResourceManager.GetObject("Search Patient1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sex {
             get {
                 object obj = ResourceManager.GetObject("Sex", resourceCulture);
@@ -366,6 +406,16 @@ namespace Triage_System.Properties {
         internal static System.Drawing.Bitmap Triage_History1 {
             get {
                 object obj = ResourceManager.GetObject("Triage History1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap View_Queue_Monitor {
+            get {
+                object obj = ResourceManager.GetObject("View Queue Monitor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
