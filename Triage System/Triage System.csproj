@@ -112,6 +112,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogoutModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogoutModal.Designer.cs">
+      <DependentUpon>LogoutModal.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +170,12 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogoutModal.resx">
+      <DependentUpon>LogoutModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>
@@ -345,6 +363,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Notification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlusPlus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Security.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BG Login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

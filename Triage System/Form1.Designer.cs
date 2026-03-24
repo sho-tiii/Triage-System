@@ -40,17 +40,17 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.topBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.redNotif = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
+            this.lblDateTwo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.redNotif = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblTime = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.loginBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.triageHistoryBtn = new Guna.UI2.WinForms.Guna2Button();
             this.doctorsBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -59,6 +59,7 @@
             this.dashboardBtn = new Guna.UI2.WinForms.Guna2Button();
             this.imgBell = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sideBar.SuspendLayout();
             this.topBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBell)).BeginInit();
@@ -68,7 +69,7 @@
             // sideBar
             // 
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
-            this.sideBar.Controls.Add(this.guna2Button2);
+            this.sideBar.Controls.Add(this.loginBtn);
             this.sideBar.Controls.Add(this.guna2Button1);
             this.sideBar.Controls.Add(this.guna2HtmlLabel5);
             this.sideBar.Controls.Add(this.guna2Separator1);
@@ -171,7 +172,7 @@
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(1216, 2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 41);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 27);
             this.guna2ControlBox1.TabIndex = 0;
             // 
             // guna2ControlBox2
@@ -182,7 +183,7 @@
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(1267, 2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 41);
+            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 27);
             this.guna2ControlBox2.TabIndex = 1;
             // 
             // guna2ControlBox3
@@ -192,7 +193,7 @@
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox3.Location = new System.Drawing.Point(1318, 2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 41);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 27);
             this.guna2ControlBox3.TabIndex = 2;
             // 
             // topBar
@@ -202,7 +203,7 @@
             this.topBar.Controls.Add(this.guna2HtmlLabel3);
             this.topBar.Controls.Add(this.imgBell);
             this.topBar.Controls.Add(this.guna2VSeparator1);
-            this.topBar.Controls.Add(this.guna2HtmlLabel6);
+            this.topBar.Controls.Add(this.lblDateTwo);
             this.topBar.Controls.Add(this.guna2HtmlLabel2);
             this.topBar.Controls.Add(this.guna2VSeparator2);
             this.topBar.Controls.Add(this.guna2HtmlLabel1);
@@ -217,6 +218,26 @@
             this.topBar.Name = "topBar";
             this.topBar.Size = new System.Drawing.Size(1366, 110);
             this.topBar.TabIndex = 0;
+            // 
+            // redNotif
+            // 
+            this.redNotif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.redNotif.BackColor = System.Drawing.Color.Transparent;
+            this.redNotif.BorderColor = System.Drawing.Color.Transparent;
+            this.redNotif.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.redNotif.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.redNotif.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.redNotif.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.redNotif.FillColor = System.Drawing.Color.Red;
+            this.redNotif.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.redNotif.ForeColor = System.Drawing.Color.Transparent;
+            this.redNotif.HoverState.FillColor = System.Drawing.Color.Red;
+            this.redNotif.Location = new System.Drawing.Point(1323, 45);
+            this.redNotif.Name = "redNotif";
+            this.redNotif.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.redNotif.Size = new System.Drawing.Size(15, 15);
+            this.redNotif.TabIndex = 20;
+            this.redNotif.Text = "guna2CircleButton2";
             // 
             // guna2HtmlLabel3
             // 
@@ -240,6 +261,19 @@
             this.guna2VSeparator1.TabIndex = 6;
             this.guna2VSeparator1.Click += new System.EventHandler(this.guna2VSeparator1_Click);
             // 
+            // lblDateTwo
+            // 
+            this.lblDateTwo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDateTwo.AutoSize = false;
+            this.lblDateTwo.BackColor = System.Drawing.Color.Transparent;
+            this.lblDateTwo.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTwo.ForeColor = System.Drawing.Color.White;
+            this.lblDateTwo.Location = new System.Drawing.Point(1135, 63);
+            this.lblDateTwo.Name = "lblDateTwo";
+            this.lblDateTwo.Size = new System.Drawing.Size(165, 30);
+            this.lblDateTwo.TabIndex = 18;
+            this.lblDateTwo.Text = "March 24, 2026";
+            // 
             // guna2HtmlLabel2
             // 
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
@@ -250,6 +284,16 @@
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(151, 30);
             this.guna2HtmlLabel2.TabIndex = 5;
             this.guna2HtmlLabel2.Text = "General Hospital";
+            // 
+            // guna2VSeparator2
+            // 
+            this.guna2VSeparator2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2VSeparator2.FillColor = System.Drawing.Color.White;
+            this.guna2VSeparator2.FillThickness = 2;
+            this.guna2VSeparator2.Location = new System.Drawing.Point(1118, 35);
+            this.guna2VSeparator2.Name = "guna2VSeparator2";
+            this.guna2VSeparator2.Size = new System.Drawing.Size(8, 58);
+            this.guna2VSeparator2.TabIndex = 17;
             // 
             // guna2HtmlLabel1
             // 
@@ -262,55 +306,6 @@
             this.guna2HtmlLabel1.TabIndex = 4;
             this.guna2HtmlLabel1.Text = "North Metro";
             // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // redNotif
-            // 
-            this.redNotif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.redNotif.BackColor = System.Drawing.Color.Transparent;
-            this.redNotif.BorderColor = System.Drawing.Color.Transparent;
-            this.redNotif.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.redNotif.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.redNotif.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.redNotif.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.redNotif.FillColor = System.Drawing.Color.Red;
-            this.redNotif.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.redNotif.ForeColor = System.Drawing.Color.Transparent;
-            this.redNotif.HoverState.FillColor = System.Drawing.Color.Red;
-            this.redNotif.Location = new System.Drawing.Point(1326, 49);
-            this.redNotif.Name = "redNotif";
-            this.redNotif.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.redNotif.Size = new System.Drawing.Size(15, 15);
-            this.redNotif.TabIndex = 20;
-            this.redNotif.Text = "guna2CircleButton2";
-            // 
-            // guna2HtmlLabel6
-            // 
-            this.guna2HtmlLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2HtmlLabel6.AutoSize = false;
-            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(1138, 63);
-            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(165, 30);
-            this.guna2HtmlLabel6.TabIndex = 18;
-            this.guna2HtmlLabel6.Text = "March 24, 2026";
-            // 
-            // guna2VSeparator2
-            // 
-            this.guna2VSeparator2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2VSeparator2.FillColor = System.Drawing.Color.White;
-            this.guna2VSeparator2.FillThickness = 2;
-            this.guna2VSeparator2.Location = new System.Drawing.Point(1124, 35);
-            this.guna2VSeparator2.Name = "guna2VSeparator2";
-            this.guna2VSeparator2.Size = new System.Drawing.Size(8, 58);
-            this.guna2VSeparator2.TabIndex = 17;
-            // 
             // lblDate
             // 
             this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -318,9 +313,9 @@
             this.lblDate.BackColor = System.Drawing.Color.Transparent;
             this.lblDate.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(1138, 38);
+            this.lblDate.Location = new System.Drawing.Point(1135, 35);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(87, 30);
+            this.lblDate.Size = new System.Drawing.Size(156, 33);
             this.lblDate.TabIndex = 16;
             this.lblDate.Text = "Tuesday";
             // 
@@ -331,35 +326,43 @@
             this.lblTime.BackColor = System.Drawing.Color.Transparent;
             this.lblTime.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(887, 27);
+            this.lblTime.Location = new System.Drawing.Point(884, 27);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(231, 60);
             this.lblTime.TabIndex = 15;
             this.lblTime.Text = "10:45 AM";
             this.lblTime.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
             // 
-            // guna2Button2
+            // guna2BorderlessForm1
             // 
-            this.guna2Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.BorderColor = System.Drawing.Color.White;
-            this.guna2Button2.BorderRadius = 7;
-            this.guna2Button2.BorderThickness = 2;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Image = global::Triage_System.Properties.Resources.Logout;
-            this.guna2Button2.ImageOffset = new System.Drawing.Point(-5, -1);
-            this.guna2Button2.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button2.Location = new System.Drawing.Point(16, 582);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(221, 49);
-            this.guna2Button2.TabIndex = 12;
-            this.guna2Button2.Text = "Logout";
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // loginBtn
+            // 
+            this.loginBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.loginBtn.BackColor = System.Drawing.Color.Transparent;
+            this.loginBtn.BorderColor = System.Drawing.Color.White;
+            this.loginBtn.BorderRadius = 7;
+            this.loginBtn.BorderThickness = 2;
+            this.loginBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.loginBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.loginBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.loginBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.loginBtn.FillColor = System.Drawing.Color.Transparent;
+            this.loginBtn.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.ForeColor = System.Drawing.Color.White;
+            this.loginBtn.Image = global::Triage_System.Properties.Resources.Logout;
+            this.loginBtn.ImageOffset = new System.Drawing.Point(-5, -1);
+            this.loginBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.loginBtn.Location = new System.Drawing.Point(16, 582);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(221, 49);
+            this.loginBtn.TabIndex = 12;
+            this.loginBtn.Text = "Logout";
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // guna2Button1
             // 
@@ -552,7 +555,7 @@
             this.imgBell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imgBell.Image = global::Triage_System.Properties.Resources.Notification;
             this.imgBell.ImageRotate = 0F;
-            this.imgBell.Location = new System.Drawing.Point(1309, 46);
+            this.imgBell.Location = new System.Drawing.Point(1304, 42);
             this.imgBell.Name = "imgBell";
             this.imgBell.Size = new System.Drawing.Size(37, 37);
             this.imgBell.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -571,6 +574,12 @@
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 3;
             this.guna2CirclePictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -618,14 +627,15 @@
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button loginBtn;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2CircleButton redNotif;
         private Guna.UI2.WinForms.Guna2PictureBox imgBell;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblDateTwo;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator2;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblDate;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTime;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
