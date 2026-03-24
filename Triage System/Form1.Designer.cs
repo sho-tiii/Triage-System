@@ -45,6 +45,11 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.redNotif = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
+            this.lblDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblTime = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.triageHistoryBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -52,9 +57,11 @@
             this.patientQueueBtn = new Guna.UI2.WinForms.Guna2Button();
             this.searchPatientBtn = new Guna.UI2.WinForms.Guna2Button();
             this.dashboardBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.imgBell = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.sideBar.SuspendLayout();
             this.topBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBell)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,11 +198,17 @@
             // topBar
             // 
             this.topBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(171)))), ((int)(((byte)(239)))));
+            this.topBar.Controls.Add(this.redNotif);
             this.topBar.Controls.Add(this.guna2HtmlLabel3);
+            this.topBar.Controls.Add(this.imgBell);
             this.topBar.Controls.Add(this.guna2VSeparator1);
+            this.topBar.Controls.Add(this.guna2HtmlLabel6);
             this.topBar.Controls.Add(this.guna2HtmlLabel2);
+            this.topBar.Controls.Add(this.guna2VSeparator2);
             this.topBar.Controls.Add(this.guna2HtmlLabel1);
+            this.topBar.Controls.Add(this.lblDate);
             this.topBar.Controls.Add(this.guna2CirclePictureBox1);
+            this.topBar.Controls.Add(this.lblTime);
             this.topBar.Controls.Add(this.guna2ControlBox3);
             this.topBar.Controls.Add(this.guna2ControlBox2);
             this.topBar.Controls.Add(this.guna2ControlBox1);
@@ -210,7 +223,7 @@
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Poppins", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(293, 27);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(294, 31);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(254, 64);
             this.guna2HtmlLabel3.TabIndex = 7;
@@ -254,6 +267,76 @@
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // redNotif
+            // 
+            this.redNotif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.redNotif.BackColor = System.Drawing.Color.Transparent;
+            this.redNotif.BorderColor = System.Drawing.Color.Transparent;
+            this.redNotif.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.redNotif.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.redNotif.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.redNotif.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.redNotif.FillColor = System.Drawing.Color.Red;
+            this.redNotif.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.redNotif.ForeColor = System.Drawing.Color.Transparent;
+            this.redNotif.HoverState.FillColor = System.Drawing.Color.Red;
+            this.redNotif.Location = new System.Drawing.Point(1326, 49);
+            this.redNotif.Name = "redNotif";
+            this.redNotif.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.redNotif.Size = new System.Drawing.Size(15, 15);
+            this.redNotif.TabIndex = 20;
+            this.redNotif.Text = "guna2CircleButton2";
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2HtmlLabel6.AutoSize = false;
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(1138, 63);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(165, 30);
+            this.guna2HtmlLabel6.TabIndex = 18;
+            this.guna2HtmlLabel6.Text = "March 24, 2026";
+            // 
+            // guna2VSeparator2
+            // 
+            this.guna2VSeparator2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2VSeparator2.FillColor = System.Drawing.Color.White;
+            this.guna2VSeparator2.FillThickness = 2;
+            this.guna2VSeparator2.Location = new System.Drawing.Point(1124, 35);
+            this.guna2VSeparator2.Name = "guna2VSeparator2";
+            this.guna2VSeparator2.Size = new System.Drawing.Size(8, 58);
+            this.guna2VSeparator2.TabIndex = 17;
+            // 
+            // lblDate
+            // 
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.AutoSize = false;
+            this.lblDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblDate.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(1138, 38);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(87, 30);
+            this.lblDate.TabIndex = 16;
+            this.lblDate.Text = "Tuesday";
+            // 
+            // lblTime
+            // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.AutoSize = false;
+            this.lblTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblTime.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.White;
+            this.lblTime.Location = new System.Drawing.Point(887, 27);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(231, 60);
+            this.lblTime.TabIndex = 15;
+            this.lblTime.Text = "10:45 AM";
+            this.lblTime.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             // 
             // guna2Button2
             // 
@@ -464,6 +547,18 @@
             this.dashboardBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.dashboardBtn.Click += new System.EventHandler(this.dashboardBtn_Click);
             // 
+            // imgBell
+            // 
+            this.imgBell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgBell.Image = global::Triage_System.Properties.Resources.Notification;
+            this.imgBell.ImageRotate = 0F;
+            this.imgBell.Location = new System.Drawing.Point(1309, 46);
+            this.imgBell.Name = "imgBell";
+            this.imgBell.Size = new System.Drawing.Size(37, 37);
+            this.imgBell.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgBell.TabIndex = 19;
+            this.imgBell.TabStop = false;
+            // 
             // guna2CirclePictureBox1
             // 
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
@@ -494,6 +589,7 @@
             this.sideBar.PerformLayout();
             this.topBar.ResumeLayout(false);
             this.topBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBell)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -524,6 +620,12 @@
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2CircleButton redNotif;
+        private Guna.UI2.WinForms.Guna2PictureBox imgBell;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblDate;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTime;
     }
 }
 
