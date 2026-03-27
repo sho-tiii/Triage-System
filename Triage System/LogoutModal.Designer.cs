@@ -46,7 +46,7 @@
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(150, 33);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(139, 44);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(255, 44);
             this.guna2HtmlLabel3.TabIndex = 8;
@@ -57,13 +57,14 @@
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(65, 81);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(52, 90);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(422, 70);
             this.guna2HtmlLabel6.TabIndex = 15;
             this.guna2HtmlLabel6.Text = "Are you sure you want to log out of the<br> \r\n<b>North Metro General Hospital</b>" +
     " Triage Station";
             this.guna2HtmlLabel6.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.guna2HtmlLabel6.Click += new System.EventHandler(this.guna2HtmlLabel6_Click);
             // 
             // confirmLogout
             // 
@@ -75,7 +76,7 @@
             this.confirmLogout.FillColor = System.Drawing.Color.Red;
             this.confirmLogout.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmLogout.ForeColor = System.Drawing.Color.White;
-            this.confirmLogout.Location = new System.Drawing.Point(283, 170);
+            this.confirmLogout.Location = new System.Drawing.Point(268, 170);
             this.confirmLogout.Name = "confirmLogout";
             this.confirmLogout.Size = new System.Drawing.Size(200, 45);
             this.confirmLogout.TabIndex = 24;
@@ -92,7 +93,7 @@
             this.cancelBtn.FillColor = System.Drawing.Color.Silver;
             this.cancelBtn.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(77, 170);
+            this.cancelBtn.Location = new System.Drawing.Point(63, 170);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(200, 45);
             this.cancelBtn.TabIndex = 25;
@@ -104,7 +105,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(557, 262);
+            this.ClientSize = new System.Drawing.Size(536, 262);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.confirmLogout);
             this.Controls.Add(this.guna2HtmlLabel6);

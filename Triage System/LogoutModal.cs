@@ -25,5 +25,10 @@ namespace Triage_System
             this.DialogResult = DialogResult.No;
             this.Close();
         }
+
+        private void guna2HtmlLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
