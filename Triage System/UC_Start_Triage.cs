@@ -25,34 +25,64 @@ namespace Triage_System
             activePatientId = passedPatientId;
 
             // 2. Update the UI placeholders with the REAL data!
-            lblName.Text = patientName;
             lblPatientID.Text = "Patient ID: " + queueId;
-            lblSex.Text = "Sex: " + sex;
             lblAge.Text = "Age: " + age.ToString();
+
+            // NOTE: Kung may lblSex ka, doon mo ilagay yung sex. 
         }
 
         private void UC_Start_Triage_Load(object sender, EventArgs e)
         {
-   
+            // --- AUTOMATIC KEYPRESS VALIDATIONS ---
+            txtSpO2.KeyPress += new KeyPressEventHandler(OnlyNumbers_KeyPress);
+            txtHeartRate.KeyPress += new KeyPressEventHandler(OnlyNumbers_KeyPress);
+            txtTemperature.KeyPress += new KeyPressEventHandler(Temperature_KeyPress);
+            txtblood_Pressure.KeyPress += new KeyPressEventHandler(BloodPressure_KeyPress);
+
+            CalculateTriageScore();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        // --- THE KEYPRESS VALIDATION LOGIC (FIXED FOR GUNA UI) ---
+        private void OnlyNumbers_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
-        private void label19_Click(object sender, EventArgs e)
+        private void Temperature_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // THE BUG FIX: Cast as Guna2TextBox instead of normal TextBox
+            if ((e.KeyChar == '.') && ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
 
+        private void BloodPressure_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '/'))
+            {
+                e.Handled = true;
+            }
+            // THE BUG FIX: Cast as Guna2TextBox instead of normal TextBox
+            if ((e.KeyChar == '/') && ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf('/') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        // --- YOUR ORIGINAL SAVE BUTTON ---
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            // 1. Set Default Status
             string priorityLevel = "Regular";
             string assignedDepartment = "General Medicine";
 
-            // 2. Safely Parse Vitals Data
             int systolic = 120, diastolic = 80;
             if (txtblood_Pressure.Text.Contains("/"))
             {
@@ -61,13 +91,10 @@ namespace Triage_System
                 int.TryParse(bpParts[1].Trim(), out diastolic);
             }
 
-            int.TryParse(txtheart_Rate.Text, out int heartRate);
-            int.TryParse(txtOxygen.Text, out int oxygen);
+            int.TryParse(txtHeartRate.Text, out int heartRate);
+            int.TryParse(txtSpO2.Text, out int oxygen);
             double.TryParse(txtTemperature.Text, out double temp);
 
-            // --- SMART EXTRACTION ---
-            // Make sure your Patient ID label is named lblPatientID for this to work!
-            // Takes "Patient ID: N-1001", removes the letters, leaving just "1001"
             string idText = lblPatientID.Text.Replace("Patient ID:", "").Replace("N-", "").Trim();
             int patientId = 0;
             int.TryParse(idText, out patientId);
@@ -76,7 +103,6 @@ namespace Triage_System
             int age = 0;
             int.TryParse(ageText, out age);
 
-            // --- 3. AUTO-TRIAGE ALGORITHM ---
             if ((oxygen > 0 && oxygen < 90) ||
                 (heartRate > 130 || (heartRate > 0 && heartRate < 40)) ||
                 (systolic >= 180 || diastolic >= 120) ||
@@ -96,7 +122,6 @@ namespace Triage_System
                 }
             }
 
-            // --- 4. CHIEF COMPLAINT ROUTING ---
             string complaint = txtchief_Complaint.Text.ToLower();
 
             if (complaint.Contains("chest pain") || complaint.Contains("heart") || complaint.Contains("palpitation")) { assignedDepartment = "Cardiology"; priorityLevel = "Emergency"; }
@@ -104,7 +129,6 @@ namespace Triage_System
             else if (complaint.Contains("dizzy") || complaint.Contains("headache") || complaint.Contains("stroke") || complaint.Contains("numb")) { assignedDepartment = "Neurology"; if (complaint.Contains("stroke")) priorityLevel = "Emergency"; }
             else if (complaint.Contains("bone") || complaint.Contains("fracture") || complaint.Contains("sprain")) { assignedDepartment = "Orthopedics"; if (complaint.Contains("fracture")) priorityLevel = "Priority"; }
 
-            // --- 5. CONFIRMATION & DATABASE SAVING ---
             string resultMessage = $"Calculated Priority: {priorityLevel.ToUpper()}\n" +
                                    $"Assigned Department: {assignedDepartment}\n\n" +
                                    $"Send patient to the doctor's queue?";
@@ -115,12 +139,10 @@ namespace Triage_System
             {
                 string connectionString = "server=localhost;user=root;password=;database=triage_system";
 
-                // Query 1: Save all vitals to the new table
                 string insertQuery = @"INSERT INTO triage_records 
                               (patient_id, blood_pressure, heart_rate, oxygen_level, temperature, weight, height, chief_complaint, priority_level, assigned_department) 
                               VALUES (@id, @bp, @hr, @oxy, @temp, @weight, @height, @complaint, @priority, @dept)";
 
-                // Query 2: Change status so they drop off the Nurse Queue
                 string updateQuery = "UPDATE patient_registration SET status = 'Waiting for Doctor' WHERE patient_id = @id";
 
                 try
@@ -129,7 +151,6 @@ namespace Triage_System
                     {
                         conn.Open();
 
-                        // 1. Execute Insert
                         using (MySqlCommand cmdInsert = new MySqlCommand(insertQuery, conn))
                         {
                             cmdInsert.Parameters.AddWithValue("@id", patientId);
@@ -138,12 +159,8 @@ namespace Triage_System
                             cmdInsert.Parameters.AddWithValue("@oxy", oxygen);
                             cmdInsert.Parameters.AddWithValue("@temp", temp);
 
-                            // Safely parse weight and height
-                            double.TryParse(txtWeight.Text, out double weight);
-                            cmdInsert.Parameters.AddWithValue("@weight", weight);
-
-                            double.TryParse(txtHeight.Text, out double height);
-                            cmdInsert.Parameters.AddWithValue("@height", height);
+                            cmdInsert.Parameters.AddWithValue("@weight", 0);
+                            cmdInsert.Parameters.AddWithValue("@height", 0);
 
                             cmdInsert.Parameters.AddWithValue("@complaint", txtchief_Complaint.Text.Trim());
                             cmdInsert.Parameters.AddWithValue("@priority", priorityLevel);
@@ -152,7 +169,6 @@ namespace Triage_System
                             cmdInsert.ExecuteNonQuery();
                         }
 
-                        // 2. Execute Update
                         using (MySqlCommand cmdUpdate = new MySqlCommand(updateQuery, conn))
                         {
                             cmdUpdate.Parameters.AddWithValue("@id", patientId);
@@ -160,10 +176,8 @@ namespace Triage_System
                         }
                     }
 
-                    // --- 6. RETURN TO QUEUE DASHBOARD ---
                     MessageBox.Show($"Success! Patient routed to {assignedDepartment}.", "Triage Complete");
 
-                    // Load the Queue Screen back up
                     UC_Patient_Queue queueScreen = new UC_Patient_Queue();
                     Control mainPanel = this.Parent;
                     mainPanel.Controls.Clear();
@@ -176,6 +190,208 @@ namespace Triage_System
                     MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        // --- THE UPGRADED REAL-TIME TRIAGE CALCULATOR WITH COLORS ---
+        private void CalculateTriageScore()
+        {
+            // --- 1. RESET ALL COLORS FIRST ---
+            Color defaultBorder = Color.FromArgb(213, 218, 223); // Default Guna Gray
+            Color defaultFill = Color.White;
+
+            panelSpO2.BorderColor = defaultBorder; panelSpO2.FillColor = defaultFill;
+            txtSpO2.BorderColor = defaultBorder; txtSpO2.FillColor = defaultFill;
+
+            panelHeartRate.BorderColor = defaultBorder; panelHeartRate.FillColor = defaultFill;
+            txtHeartRate.BorderColor = defaultBorder; txtHeartRate.FillColor = defaultFill;
+
+            panelTemperature.BorderColor = defaultBorder; panelTemperature.FillColor = defaultFill;
+            txtTemperature.BorderColor = defaultBorder; txtTemperature.FillColor = defaultFill;
+
+            panelBloodPressure.BorderColor = defaultBorder; panelBloodPressure.FillColor = defaultFill;
+            txtblood_Pressure.BorderColor = defaultBorder; txtblood_Pressure.FillColor = defaultFill;
+
+
+            // --- 2. THE BLANK STATE CHECK ---
+            if (string.IsNullOrWhiteSpace(txtSpO2.Text) &&
+                string.IsNullOrWhiteSpace(txtHeartRate.Text) &&
+                string.IsNullOrWhiteSpace(txtTemperature.Text) &&
+                string.IsNullOrWhiteSpace(txtblood_Pressure.Text))
+            {
+                lblPriorityStatus.Text = "---";
+                lblPriorityStatus.ForeColor = Color.Gray;
+                lblUrgencyScore.Text = "URGENCY SCALE: ---";
+                pbUrgencyScale.Value = 0;
+                return;
+            }
+
+            // 3. SAFELY PARSE VITALS
+            bool hasSpO2 = int.TryParse(txtSpO2.Text, out int spo2);
+            bool hasHR = int.TryParse(txtHeartRate.Text, out int heartRate);
+            bool hasTemp = double.TryParse(txtTemperature.Text, out double temp);
+
+            int systolic = 0;
+            int diastolic = 0;
+            bool hasBP = false;
+
+            if (!string.IsNullOrWhiteSpace(txtblood_Pressure.Text))
+            {
+                if (!txtblood_Pressure.Text.Contains("/") || txtblood_Pressure.Text.Length < 3)
+                {
+                    lblPriorityStatus.Text = "INVALID BP FORMAT";
+                    lblPriorityStatus.ForeColor = Color.Red;
+                    lblUrgencyScore.Text = "URGENCY SCALE: ERR";
+                    pbUrgencyScale.Value = 0;
+                    return;
+                }
+
+                string[] bpParts = txtblood_Pressure.Text.Split('/');
+                if (bpParts.Length == 2 &&
+                    int.TryParse(bpParts[0].Trim(), out systolic) &&
+                    int.TryParse(bpParts[1].Trim(), out diastolic))
+                {
+                    hasBP = true;
+                }
+            }
+
+            // 4. THE HUMAN BOUNDARY CHECK (ABSURD VALUES)
+            if ((hasSpO2 && spo2 > 100) ||
+                (hasHR && heartRate > 300) ||
+                (hasTemp && (temp > 45.0 || temp < 20.0)) ||
+                (hasBP && (systolic > 300 || diastolic > 200)))
+            {
+                lblPriorityStatus.Text = "INVALID INPUT";
+                lblPriorityStatus.ForeColor = Color.Red;
+                lblUrgencyScore.Text = "URGENCY SCALE: ERR";
+                pbUrgencyScale.Value = 0;
+                return;
+            }
+
+            // 5. Baseline Status
+            int score = 3;
+            string statusText = "NORMAL";
+            Color statusColor = Color.MediumSeaGreen;
+
+            // --- 6. INDIVIDUAL CARD COLORING & MAIN SCORE CALCULATION ---
+
+            // SpO2 Logic
+            if (hasSpO2 && spo2 < 85)
+            {
+                panelSpO2.BorderColor = Color.Crimson; panelSpO2.FillColor = Color.MistyRose;
+                txtSpO2.BorderColor = Color.Crimson; txtSpO2.FillColor = Color.MistyRose;
+            }
+            else if (hasSpO2 && spo2 <= 90)
+            {
+                panelSpO2.BorderColor = Color.Crimson; panelSpO2.FillColor = Color.MistyRose;
+                txtSpO2.BorderColor = Color.Crimson; txtSpO2.FillColor = Color.MistyRose;
+            }
+
+            // Heart Rate Logic
+            if (hasHR && heartRate < 40)
+            {
+                panelHeartRate.BorderColor = Color.Crimson; panelHeartRate.FillColor = Color.MistyRose;
+                txtHeartRate.BorderColor = Color.Crimson; txtHeartRate.FillColor = Color.MistyRose;
+            }
+            else if (hasHR && heartRate > 150)
+            {
+                panelHeartRate.BorderColor = Color.Crimson; panelHeartRate.FillColor = Color.MistyRose;
+                txtHeartRate.BorderColor = Color.Crimson; txtHeartRate.FillColor = Color.MistyRose;
+            }
+            else if (hasHR && heartRate > 120)
+            {
+                panelHeartRate.BorderColor = Color.DarkOrange; panelHeartRate.FillColor = Color.LemonChiffon;
+                txtHeartRate.BorderColor = Color.DarkOrange; txtHeartRate.FillColor = Color.LemonChiffon;
+            }
+
+            // Temperature Logic
+            if (hasTemp && temp <= 32.0)
+            {
+                panelTemperature.BorderColor = Color.Crimson; panelTemperature.FillColor = Color.MistyRose;
+                txtTemperature.BorderColor = Color.Crimson; txtTemperature.FillColor = Color.MistyRose;
+            }
+            else if (hasTemp && (temp >= 40.0 || temp <= 34.0))
+            {
+                panelTemperature.BorderColor = Color.Crimson; panelTemperature.FillColor = Color.MistyRose;
+                txtTemperature.BorderColor = Color.Crimson; txtTemperature.FillColor = Color.MistyRose;
+            }
+            else if (hasTemp && (temp >= 38.5 || temp <= 35.5))
+            {
+                panelTemperature.BorderColor = Color.DarkOrange; panelTemperature.FillColor = Color.LemonChiffon;
+                txtTemperature.BorderColor = Color.DarkOrange; txtTemperature.FillColor = Color.LemonChiffon;
+            }
+
+            // Blood Pressure Logic
+            if (hasBP && systolic < 70)
+            {
+                panelBloodPressure.BorderColor = Color.Crimson; panelBloodPressure.FillColor = Color.MistyRose;
+                txtblood_Pressure.BorderColor = Color.Crimson; txtblood_Pressure.FillColor = Color.MistyRose;
+            }
+            else if (hasBP && (systolic >= 180 || diastolic >= 120 || systolic <= 80))
+            {
+                panelBloodPressure.BorderColor = Color.Crimson; panelBloodPressure.FillColor = Color.MistyRose;
+                txtblood_Pressure.BorderColor = Color.Crimson; txtblood_Pressure.FillColor = Color.MistyRose;
+            }
+            else if (hasBP && (systolic >= 140 || diastolic >= 90 || systolic <= 90))
+            {
+                panelBloodPressure.BorderColor = Color.DarkOrange; panelBloodPressure.FillColor = Color.LemonChiffon;
+                txtblood_Pressure.BorderColor = Color.DarkOrange; txtblood_Pressure.FillColor = Color.LemonChiffon;
+            }
+
+            // --- 7. OVERALL TRIAGE SCORE DECISION ---
+            if ((hasSpO2 && spo2 < 85) || (hasHR && heartRate < 40) || (hasBP && systolic < 70) || (hasTemp && temp <= 32.0))
+            {
+                score = 10;
+                statusText = "RESUSCITATION";
+                statusColor = Color.DarkRed;
+            }
+            else if ((hasSpO2 && spo2 <= 90) || (hasTemp && temp >= 40.0) || (hasTemp && temp <= 34.0) || (hasBP && (systolic >= 180 || diastolic >= 120)) || (hasBP && (systolic <= 80)))
+            {
+                score = 9;
+                statusText = "CRITICAL";
+                statusColor = Color.Crimson;
+            }
+            else if ((hasHR && heartRate > 120) || (hasTemp && temp >= 38.5) || (hasTemp && temp <= 35.5) || (hasBP && (systolic >= 140 || diastolic >= 90)) || (hasBP && (systolic <= 90)))
+            {
+                score = 7;
+                statusText = "URGENT";
+                statusColor = Color.DarkOrange;
+            }
+
+            // 8. Update UI text and Progress Bar
+            lblPriorityStatus.Text = statusText;
+            lblPriorityStatus.ForeColor = statusColor;
+            lblUrgencyScore.Text = $"URGENCY SCALE: {score}/10";
+
+            pbUrgencyScale.Value = score;
+            pbUrgencyScale.ProgressColor = statusColor;
+            pbUrgencyScale.ProgressColor2 = statusColor;
+        }
+
+        // --- TEXT CHANGED EVENTS TO TRIGGER CALCULATION ---
+        private void txtOxygen_TextChanged(object sender, EventArgs e) { CalculateTriageScore(); }
+        private void txtTemperature_TextChanged(object sender, EventArgs e) { CalculateTriageScore(); }
+        private void txtheart_Rate_TextChanged(object sender, EventArgs e) { CalculateTriageScore(); }
+        private void txtblood_Pressure_TextChanged(object sender, EventArgs e) { CalculateTriageScore(); }
+
+        // Empty events
+        private void txtchief_Complaint_TextChanged(object sender, EventArgs e) { }
+        private void label5_Click(object sender, EventArgs e) { }
+        private void label19_Click(object sender, EventArgs e) { }
+        private void guna2VSeparator2_Click(object sender, EventArgs e) { }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPriorityStatus_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

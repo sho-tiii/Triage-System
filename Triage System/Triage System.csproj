@@ -192,6 +192,12 @@
     <Compile Include="UC_Start_Triage.Designer.cs">
       <DependentUpon>UC_Start_Triage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_Triage_History.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Triage_History.Designer.cs">
+      <DependentUpon>UC_Triage_History.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Added_Patient_Queue.resx">
       <DependentUpon>Added_Patient_Queue.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Start_Triage.resx">
       <DependentUpon>UC_Start_Triage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Triage_History.resx">
+      <DependentUpon>UC_Triage_History.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

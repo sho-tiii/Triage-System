@@ -121,8 +121,11 @@ namespace Triage_System
             btnCallPatient.FillColor = greenColor;
             btnCallPatient.FillColor2 = greenColor;
 
-            // 3. Reset Image
-            btnCallPatient.Image = Properties.Resources.CallPatient;
+            // 3. THE FIX: Wrap in new Bitmap() para hindi ma-delete ng system sa memory!
+            if (Properties.Resources.CallPatient != null)
+            {
+                btnCallPatient.Image = new Bitmap(Properties.Resources.CallPatient);
+            }
 
             // 4. Lock Start Triage
             btnStartTriage.Enabled = false;
@@ -140,7 +143,12 @@ namespace Triage_System
                 btnCallPatient.Text = "CALL AGAIN";
                 btnCallPatient.FillColor = orangeColor;
                 btnCallPatient.FillColor2 = orangeColor;
-                btnCallPatient.Image = Properties.Resources.CallAgain;
+
+                // THE FIX: Wrap in new Bitmap() again!
+                if (Properties.Resources.CallAgain != null)
+                {
+                    btnCallPatient.Image = new Bitmap(Properties.Resources.CallAgain);
+                }
 
                 btnStartTriage.Enabled = true;
                 btnStartTriage.FillColor = Color.FromArgb(46, 204, 113);
@@ -216,13 +224,17 @@ namespace Triage_System
                 // We pass all the variables we just grabbed into the new screen! No more red error!
                 UC_Start_Triage nextScreen = new UC_Start_Triage(Convert.ToInt32(currentPatientId), pName, pQueueId, pSex, pAge);
 
-                Form1.ActiveTriageSession = nextScreen;
+                // If you are tracking the active session in Form1, uncomment this:
+                // Form1.ActiveTriageSession = nextScreen; 
 
                 Control mainPanel = this.Parent;
-                mainPanel.Controls.Clear();
-                nextScreen.Dock = DockStyle.Fill;
-                mainPanel.Controls.Add(nextScreen);
-                nextScreen.BringToFront();
+                if (mainPanel != null)
+                {
+                    mainPanel.Controls.Clear();
+                    nextScreen.Dock = DockStyle.Fill;
+                    mainPanel.Controls.Add(nextScreen);
+                    nextScreen.BringToFront();
+                }
             }
         }
     }
