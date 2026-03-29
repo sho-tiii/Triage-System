@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.topBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -45,7 +46,6 @@
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtFirst_Name = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.slideOutTimer = new System.Windows.Forms.Timer(this.components);
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -80,6 +80,17 @@
             this.topBar.Name = "topBar";
             this.topBar.Size = new System.Drawing.Size(452, 96);
             this.topBar.TabIndex = 3;
+            // 
+            // guna2HtmlLabel14
+            // 
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel14.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel14.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel14.Location = new System.Drawing.Point(217, 53);
+            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
+            this.guna2HtmlLabel14.Size = new System.Drawing.Size(205, 24);
+            this.guna2HtmlLabel14.TabIndex = 8;
+            this.guna2HtmlLabel14.Text = "Filter and export clinical data logs.";
             // 
             // guna2HtmlLabel3
             // 
@@ -193,14 +204,8 @@
             this.cbSex.ItemHeight = 30;
             this.cbSex.Items.AddRange(new object[] {
             "All Priorities",
-            "",
-            "",
             "Critical",
-            "",
-            "",
             "Urgent",
-            "",
-            "",
             "Non-Urgent"});
             this.cbSex.Location = new System.Drawing.Point(12, 342);
             this.cbSex.Name = "cbSex";
@@ -284,17 +289,6 @@
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(77, 24);
             this.guna2HtmlLabel4.TabIndex = 28;
             this.guna2HtmlLabel4.Text = "Report Title";
-            // 
-            // guna2HtmlLabel14
-            // 
-            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel14.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel14.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel14.Location = new System.Drawing.Point(217, 53);
-            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            this.guna2HtmlLabel14.Size = new System.Drawing.Size(205, 24);
-            this.guna2HtmlLabel14.TabIndex = 8;
-            this.guna2HtmlLabel14.Text = "Filter and export clinical data logs.";
             // 
             // slideOutTimer
             // 
@@ -380,11 +374,7 @@
             this.guna2ComboBox2.ItemHeight = 30;
             this.guna2ComboBox2.Items.AddRange(new object[] {
             "Portable Document Format (.pdf)",
-            "",
-            "",
             "Excel Spreadsheet (.xlsx)",
-            "",
-            "",
             "Comma Separated Values (.csv)"});
             this.guna2ComboBox2.Location = new System.Drawing.Point(236, 342);
             this.guna2ComboBox2.Name = "guna2ComboBox2";

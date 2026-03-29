@@ -16,6 +16,7 @@ namespace Triage_System
         // Connection string sa iyong XAMPP database
         string connectionString = "server=localhost;user=root;password=;database=triage_system";
         private NewPatient _newPatientForm = null;
+        private string currentStatusFilter = "";
 
         public UC_Search_Patient()
         {
@@ -30,12 +31,19 @@ namespace Triage_System
             guna2DataGridView1.AutoGenerateColumns = false;
             guna2DataGridView1.Rows.Clear();
 
-            // SQL Query: Supporta para sa P-2026-XXXXXX format at real-time search
+            // SQL Query: CONCAT_WS na para iwas error sa search, tapos may Dynamic Filter
             string query = @"SELECT patient_id, first_name, last_name, birthdate, mobile_number, created_at, status 
-                 FROM patient_registration 
-                 WHERE (CONCAT_WS(' ', first_name, last_name) LIKE @search 
-                 OR patient_id LIKE @search)
-                 ORDER BY created_at DESC";
+                             FROM patient_registration 
+                             WHERE (CONCAT_WS(' ', first_name, last_name) LIKE @search 
+                             OR patient_id LIKE @search)";
+
+            // Kung hindi "All" ang pinili, idadagdag natin yung filter sa query!
+            if (!string.IsNullOrEmpty(currentStatusFilter))
+            {
+                query += " AND status = @statusFilter";
+            }
+
+            query += " ORDER BY created_at DESC";
 
             try
             {
@@ -44,28 +52,27 @@ namespace Triage_System
                     conn.Open();
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        // Ang '%' wildcard ay para sa partial matching sa search
                         cmd.Parameters.AddWithValue("@search", "%" + searchTerm + "%");
+
+                        // I-pass natin ang status kung may piniling filter button
+                        if (!string.IsNullOrEmpty(currentStatusFilter))
+                        {
+                            cmd.Parameters.AddWithValue("@statusFilter", currentStatusFilter);
+                        }
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                // Gamitin ang direct string dahil VARCHAR na ang patient_id
                                 string formattedId = reader["patient_id"].ToString();
                                 string fullName = reader["first_name"].ToString() + " " + reader["last_name"].ToString();
-
                                 DateTime dob = Convert.ToDateTime(reader["birthdate"]);
                                 string dobString = dob.ToString("MMM dd, yyyy");
-
                                 string contact = reader["mobile_number"].ToString();
-
                                 DateTime lastVisit = Convert.ToDateTime(reader["created_at"]);
                                 string lastVisitString = lastVisit.ToString("MMM dd, yyyy");
-
                                 string status = reader["status"].ToString();
 
-                                // Determine which IMAGE to show based on status
                                 Image actionIcon;
                                 if (status.Equals("Waiting", StringComparison.OrdinalIgnoreCase) ||
                                     status.Equals("Waiting for Doctor", StringComparison.OrdinalIgnoreCase))
@@ -77,8 +84,11 @@ namespace Triage_System
                                     actionIcon = Properties.Resources.Add_To_Queue;
                                 }
 
-                                // Siguraduhing may 7 columns ang DataGridView mo sa designer
-                                guna2DataGridView1.Rows.Add(formattedId, fullName, dobString, contact, lastVisitString, status, actionIcon);
+                                // DITO NA YUNG BAGONG LOGO MO! 
+                                Image EditProfile = Properties.Resources.EditProfile;
+
+                                // Idagdag ang editIcon sa dulo (pang-8 na item)
+                                guna2DataGridView1.Rows.Add(formattedId, fullName, dobString, contact, lastVisitString, status, actionIcon, EditProfile);
                             }
                         }
                     }
@@ -105,34 +115,63 @@ namespace Triage_System
         // --- HANDLE THE ACTION BUTTON CLICK & UPDATE DATABASE ---
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == 6) // Action Button Column
+            // Siguraduhing hindi header ang na-click
+            if (e.RowIndex >= 0)
             {
-                string status = guna2DataGridView1.Rows[e.RowIndex].Cells[5].Value?.ToString();
-
-                // Clickable lang kung wala pa sa queue
-                if (!string.Equals(status, "Waiting", StringComparison.OrdinalIgnoreCase) &&
-                    !string.Equals(status, "Waiting for Doctor", StringComparison.OrdinalIgnoreCase))
+                // ==========================================
+                // ACTION 1: ADD TO QUEUE BUTTON (Column Index 6)
+                // ==========================================
+                if (e.ColumnIndex == 6)
                 {
-                    string patientId = guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    string patientName = guna2DataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    string status = guna2DataGridView1.Rows[e.RowIndex].Cells[5].Value?.ToString();
 
-                    // Confirmation modal
-                    using (Add_In_Queue confirmModal = new Add_In_Queue(patientName, patientId))
+                    if (!string.Equals(status, "Waiting", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(status, "Waiting for Doctor", StringComparison.OrdinalIgnoreCase))
                     {
-                        confirmModal.StartPosition = FormStartPosition.CenterScreen;
-                        if (confirmModal.ShowDialog() == DialogResult.Yes)
+                        string patientId = guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        string patientName = guna2DataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+                        using (Add_In_Queue confirmModal = new Add_In_Queue(patientName, patientId))
                         {
-                            UpdatePatientStatus(patientId, "Waiting");
+                            confirmModal.StartPosition = FormStartPosition.CenterScreen;
+                            if (confirmModal.ShowDialog() == DialogResult.Yes)
+                            {
+                                UpdatePatientStatus(patientId, "Waiting");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        using (Already_In_Queue noticeModal = new Already_In_Queue())
+                        {
+                            noticeModal.StartPosition = FormStartPosition.CenterScreen;
+                            noticeModal.ShowDialog();
                         }
                     }
                 }
-                else
+
+                // ==========================================
+                // ACTION 2: EDIT PROFILE BUTTON (Column Index 7)
+                // ==========================================
+                else if (e.ColumnIndex == 7)
                 {
-                    // Modal kapag nasa queue na ang pasyente
-                    using (Already_In_Queue noticeModal = new Already_In_Queue())
+                    // Kunin ang Patient ID mula sa unang column
+                    string patientId = guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                    // Tawagin yung Edit Profile form nang may slide-in animation natin kanina
+                    using (Edit_Profile_Patient editForm = new Edit_Profile_Patient(patientId))
                     {
-                        noticeModal.StartPosition = FormStartPosition.CenterScreen;
-                        noticeModal.ShowDialog();
+                        editForm.StartPosition = FormStartPosition.Manual;
+                        Point absoluteLocation = this.PointToScreen(Point.Empty);
+                        int targetX = absoluteLocation.X + this.Width - editForm.Width;
+                        editForm.Location = new Point(targetX, absoluteLocation.Y);
+                        editForm.Height = this.Height;
+
+                        if (editForm.ShowDialog() == DialogResult.OK)
+                        {
+                            // Mag-refresh kapag may binago at na-save
+                            LoadPatientData("");
+                        }
                     }
                 }
             }
@@ -178,10 +217,26 @@ namespace Triage_System
 
         // Iba pang buttons
         private void guna2Button1_Click(object sender, EventArgs e) { /* Existing functionality */ }
-        private void guna2Button5_Click(object sender, EventArgs e) { }
-        private void guna2Button1_Click_1(object sender, EventArgs e) { }
-        private void guna2Button3_Click(object sender, EventArgs e) { }
-        private void guna2Button4_Click(object sender, EventArgs e) { }
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            currentStatusFilter = ""; // Blank means kunin lahat
+            LoadPatientData(""); // Refresh table
+        }
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            currentStatusFilter = "Waiting"; // Dapat eksaktong tugma sa spelling sa database mo!
+            LoadPatientData("");
+        }
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            currentStatusFilter = "Serving";
+            LoadPatientData("");
+        }
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            currentStatusFilter = "Completed";
+            LoadPatientData("");
+        }
 
         private void txtSearchBox_TextChanged(object sender, EventArgs e)
         {
@@ -192,6 +247,40 @@ namespace Triage_System
             // 2. I-pass ang trimmed text sa LoadPatientData.
             // Siguraduhin na ang LoadPatientData mo ay gamit na ang CONCAT_WS sa SQL query.
             LoadPatientData(searchBox.Text.Trim());
+        }
+
+        private void guna2DataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string patientId = guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                using (Edit_Profile_Patient editForm = new Edit_Profile_Patient(patientId))
+                {
+                    // 1. Set to Manual para tayo ang magdikta kung saan siya lilitaw
+                    editForm.StartPosition = FormStartPosition.Manual;
+
+                    // 2. Kunin ang exact screen location ng white panel mo
+                    Point absoluteLocation = this.PointToScreen(Point.Empty);
+
+                    // 3. I-calculate ang X (Right edge minus width ng edit form) at Y
+                    int targetX = absoluteLocation.X + this.Width - editForm.Width;
+
+                    editForm.Location = new Point(targetX, absoluteLocation.Y);
+
+                    // 4. Pantayin ang height niya sa main panel mo
+                    editForm.Height = this.Height;
+
+                    // I-show ang form
+                    DialogResult result = editForm.ShowDialog();
+
+                    // Refresh table kapag nag-save at nag-close
+                    if (result == DialogResult.OK)
+                    {
+                        LoadPatientData("");
+                    }
+                }
+            }
         }
     }
 }

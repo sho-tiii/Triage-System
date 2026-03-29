@@ -223,6 +223,26 @@ namespace Triage_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EditProfile {
+            get {
+                object obj = ResourceManager.GetObject("EditProfile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditProfilePatient {
+            get {
+                object obj = ResourceManager.GetObject("EditProfilePatient", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Generate_Daily_Report {
             get {
                 object obj = ResourceManager.GetObject("Generate Daily Report", resourceCulture);

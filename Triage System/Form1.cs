@@ -217,5 +217,10 @@ namespace Triage_System
             notifForm.Location = new Point(spawnX, spawnY);
             notifForm.Show();
         }
+
+        private void redNotif_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

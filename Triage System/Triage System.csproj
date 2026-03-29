@@ -130,6 +130,12 @@
     <Compile Include="Edit_Profile.Designer.cs">
       <DependentUpon>Edit_Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edit_Profile_Patient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Profile_Patient.Designer.cs">
+      <DependentUpon>Edit_Profile_Patient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Profile.resx">
       <DependentUpon>Edit_Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Profile_Patient.resx">
+      <DependentUpon>Edit_Profile_Patient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -471,6 +480,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NotificationMessage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditProfilePatient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditProfile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
