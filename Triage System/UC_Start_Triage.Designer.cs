@@ -68,12 +68,12 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblAge = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.lblSex = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblPatientID = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.Label7 = new System.Windows.Forms.Label();
+            this.lblLastVisit = new System.Windows.Forms.Label();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panelBloodPressure = new Guna.UI2.WinForms.Guna2Panel();
@@ -98,8 +98,8 @@
             this.guna2Panel22 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cmbDepartment = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cmbPhysician = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
@@ -772,12 +772,12 @@
             this.tableLayoutPanel1.SetColumnSpan(this.guna2Panel1, 3);
             this.guna2Panel1.Controls.Add(this.lblAge);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox2);
-            this.guna2Panel1.Controls.Add(this.lblSex);
+            this.guna2Panel1.Controls.Add(this.lblGender);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Controls.Add(this.lblPatientID);
             this.guna2Panel1.Controls.Add(this.lblName);
             this.guna2Panel1.Controls.Add(this.guna2CircleButton1);
-            this.guna2Panel1.Controls.Add(this.Label7);
+            this.guna2Panel1.Controls.Add(this.lblLastVisit);
             this.guna2Panel1.Controls.Add(this.guna2VSeparator1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(166)))), ((int)(((byte)(228)))));
@@ -815,20 +815,20 @@
             this.guna2PictureBox2.TabIndex = 18;
             this.guna2PictureBox2.TabStop = false;
             // 
-            // lblSex
+            // lblGender
             // 
-            this.lblSex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblGender.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblSex.BackColor = System.Drawing.Color.Transparent;
-            this.lblSex.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSex.ForeColor = System.Drawing.Color.White;
-            this.lblSex.Location = new System.Drawing.Point(142, 74);
-            this.lblSex.Margin = new System.Windows.Forms.Padding(7, 0, 3, 0);
-            this.lblSex.Name = "lblSex";
-            this.lblSex.Size = new System.Drawing.Size(74, 37);
-            this.lblSex.TabIndex = 17;
-            this.lblSex.Text = "Sex: Male";
-            this.lblSex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblGender.BackColor = System.Drawing.Color.Transparent;
+            this.lblGender.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.ForeColor = System.Drawing.Color.White;
+            this.lblGender.Location = new System.Drawing.Point(142, 74);
+            this.lblGender.Margin = new System.Windows.Forms.Padding(7, 0, 3, 0);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(74, 37);
+            this.lblGender.TabIndex = 17;
+            this.lblGender.Text = "Sex: Male";
+            this.lblGender.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2PictureBox1
             // 
@@ -893,20 +893,20 @@
             this.guna2CircleButton1.Text = "KC";
             this.guna2CircleButton1.TextOffset = new System.Drawing.Point(0, 2);
             // 
-            // Label7
+            // lblLastVisit
             // 
-            this.Label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblLastVisit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Label7.AutoSize = true;
-            this.Label7.BackColor = System.Drawing.Color.Transparent;
-            this.Label7.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label7.ForeColor = System.Drawing.Color.White;
-            this.Label7.Location = new System.Drawing.Point(492, 42);
-            this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(416, 37);
-            this.Label7.TabIndex = 12;
-            this.Label7.Text = "Last visit: October 05, 2025 at 2:00 PM\r\n";
-            this.Label7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblLastVisit.AutoSize = true;
+            this.lblLastVisit.BackColor = System.Drawing.Color.Transparent;
+            this.lblLastVisit.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastVisit.ForeColor = System.Drawing.Color.White;
+            this.lblLastVisit.Location = new System.Drawing.Point(492, 42);
+            this.lblLastVisit.Name = "lblLastVisit";
+            this.lblLastVisit.Size = new System.Drawing.Size(416, 37);
+            this.lblLastVisit.TabIndex = 12;
+            this.lblLastVisit.Text = "Last visit: October 05, 2025 at 2:00 PM\r\n";
+            this.lblLastVisit.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // guna2VSeparator1
             // 
@@ -1222,6 +1222,7 @@
             this.guna2Button4.Size = new System.Drawing.Size(305, 34);
             this.guna2Button4.TabIndex = 15;
             this.guna2Button4.Text = "Send to Doctor";
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click_1);
             // 
             // guna2Panel20
             // 
@@ -1275,8 +1276,8 @@
             this.tableLayoutPanel9.ColumnCount = 1;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.guna2ComboBox1, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.guna2ComboBox2, 0, 3);
+            this.tableLayoutPanel9.Controls.Add(this.cmbDepartment, 0, 1);
+            this.tableLayoutPanel9.Controls.Add(this.cmbPhysician, 0, 3);
             this.tableLayoutPanel9.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 0, 4);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1305,20 +1306,20 @@
             this.label2.Text = "SELECT SPECIALTY / DEPARTMENT:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // guna2ComboBox1
+            // cmbDepartment
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2ComboBox1.BorderRadius = 4;
-            this.guna2ComboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.ItemHeight = 20;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
+            this.cmbDepartment.BackColor = System.Drawing.Color.Transparent;
+            this.cmbDepartment.BorderColor = System.Drawing.Color.DarkGray;
+            this.cmbDepartment.BorderRadius = 4;
+            this.cmbDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartment.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbDepartment.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbDepartment.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDepartment.ForeColor = System.Drawing.Color.Black;
+            this.cmbDepartment.ItemHeight = 20;
+            this.cmbDepartment.Items.AddRange(new object[] {
             "--Select Department--",
             "General Medicine",
             "Cardiology (Heart)",
@@ -1331,34 +1332,34 @@
             "ENT / Otolaryngology (Ear, Nose, Throat)",
             "OB-GYN (Women\'s Health)",
             "General Surgery"});
-            this.guna2ComboBox1.Location = new System.Drawing.Point(3, 23);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(442, 26);
-            this.guna2ComboBox1.StartIndex = 0;
-            this.guna2ComboBox1.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.guna2ComboBox1.TabIndex = 19;
+            this.cmbDepartment.Location = new System.Drawing.Point(3, 23);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(442, 26);
+            this.cmbDepartment.StartIndex = 0;
+            this.cmbDepartment.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.cmbDepartment.TabIndex = 19;
             // 
-            // guna2ComboBox2
+            // cmbPhysician
             // 
-            this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox2.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2ComboBox2.BorderRadius = 4;
-            this.guna2ComboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2ComboBox2.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox2.ItemHeight = 20;
-            this.guna2ComboBox2.Items.AddRange(new object[] {
+            this.cmbPhysician.BackColor = System.Drawing.Color.Transparent;
+            this.cmbPhysician.BorderColor = System.Drawing.Color.DarkGray;
+            this.cmbPhysician.BorderRadius = 4;
+            this.cmbPhysician.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbPhysician.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbPhysician.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPhysician.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbPhysician.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbPhysician.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPhysician.ForeColor = System.Drawing.Color.Black;
+            this.cmbPhysician.ItemHeight = 20;
+            this.cmbPhysician.Items.AddRange(new object[] {
             "--Select Doctor--"});
-            this.guna2ComboBox2.Location = new System.Drawing.Point(3, 74);
-            this.guna2ComboBox2.Name = "guna2ComboBox2";
-            this.guna2ComboBox2.Size = new System.Drawing.Size(442, 26);
-            this.guna2ComboBox2.StartIndex = 0;
-            this.guna2ComboBox2.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.guna2ComboBox2.TabIndex = 22;
+            this.cmbPhysician.Location = new System.Drawing.Point(3, 74);
+            this.cmbPhysician.Name = "cmbPhysician";
+            this.cmbPhysician.Size = new System.Drawing.Size(442, 26);
+            this.cmbPhysician.StartIndex = 0;
+            this.cmbPhysician.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.cmbPhysician.TabIndex = 22;
             // 
             // label3
             // 
@@ -1634,7 +1635,7 @@
         internal System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
-        internal System.Windows.Forms.Label Label7;
+        internal System.Windows.Forms.Label lblLastVisit;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
@@ -1689,7 +1690,7 @@
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         internal System.Windows.Forms.Label lblAge;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        internal System.Windows.Forms.Label lblSex;
+        internal System.Windows.Forms.Label lblGender;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         internal System.Windows.Forms.Label lblPatientID;
         internal System.Windows.Forms.Label lblName;
@@ -1697,10 +1698,10 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel21;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel22;
         internal System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbDepartment;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         internal System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbPhysician;
         internal System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Label lblPriorityStatus;
         internal System.Windows.Forms.Label label4;

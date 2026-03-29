@@ -216,31 +216,47 @@ namespace Triage_System
             {
                 UpdatePatientStatus("Serving");
 
-                string pName = "", pSex = "", qId = lblQueueNumber.Text;
+                // Variables para saluhin ang data
+                string pName = "Unknown Patient";
+                string pSex = "N/A";
+                string qId = lblQueueNumber.Text;
                 int pAge = 0;
+
+                // Kukunin ang specifics sa database gamit ang gender at birthdate
                 string query = "SELECT first_name, last_name, gender, birthdate FROM patient_registration WHERE patient_id = @id";
 
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
-                    conn.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    try
                     {
-                        cmd.Parameters.AddWithValue("@id", currentPatientId);
-                        using (MySqlDataReader r = cmd.ExecuteReader())
+                        conn.Open();
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
                         {
-                            if (r.Read())
+                            cmd.Parameters.AddWithValue("@id", currentPatientId);
+                            using (MySqlDataReader r = cmd.ExecuteReader())
                             {
-                                pName = r["first_name"].ToString() + " " + r["last_name"].ToString();
-                                pSex = r["gender"].ToString();
-                                DateTime bday = Convert.ToDateTime(r["birthdate"]);
-                                pAge = DateTime.Today.Year - bday.Year;
-                                if (bday.Date > DateTime.Today.AddYears(-pAge)) pAge--;
+                                if (r.Read())
+                                {
+                                    pName = r["first_name"].ToString() + " " + r["last_name"].ToString();
+                                    pSex = r["gender"].ToString();
+
+                                    // Age Calculation logic mo
+                                    DateTime bday = Convert.ToDateTime(r["birthdate"]);
+                                    pAge = DateTime.Today.Year - bday.Year;
+                                    if (bday.Date > DateTime.Today.AddYears(-pAge)) pAge--;
+                                }
                             }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading patient data: " + ex.Message);
+                    }
                 }
 
+                // DITO NAIPAPASA NGAYON ANG KUMPLETONG DATA
                 UC_Start_Triage nextScreen = new UC_Start_Triage(currentPatientId, pName, qId, pSex, pAge, currentQueueType);
+
                 Control p = this.Parent;
                 p.Controls.Clear();
                 nextScreen.Dock = DockStyle.Fill;

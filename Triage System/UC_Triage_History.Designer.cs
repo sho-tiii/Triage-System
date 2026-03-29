@@ -95,7 +95,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.62162F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.43243F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel1.Controls.Add(this.guna2Button2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel2, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.label11, 1, 2);
@@ -145,10 +145,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.guna2Panel2, 2);
             this.guna2Panel2.Controls.Add(this.tableLayoutPanel2);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(679, 94);
+            this.guna2Panel2.Location = new System.Drawing.Point(678, 94);
             this.guna2Panel2.Name = "guna2Panel2";
             this.tableLayoutPanel1.SetRowSpan(this.guna2Panel2, 2);
-            this.guna2Panel2.Size = new System.Drawing.Size(415, 91);
+            this.guna2Panel2.Size = new System.Drawing.Size(416, 91);
             this.guna2Panel2.TabIndex = 10;
             // 
             // tableLayoutPanel2
@@ -171,7 +171,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(415, 91);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(416, 91);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // guna2Button4
@@ -193,7 +193,7 @@
             this.guna2Button4.Location = new System.Drawing.Point(298, 29);
             this.guna2Button4.Margin = new System.Windows.Forms.Padding(3, 9, 3, 9);
             this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(114, 33);
+            this.guna2Button4.Size = new System.Drawing.Size(115, 33);
             this.guna2Button4.TabIndex = 10;
             this.guna2Button4.Text = "Non-Urgent";
             // 
@@ -340,11 +340,11 @@
             this.btnTransfer.Image = global::Triage_System.Properties.Resources.Generate_Daily_Report;
             this.btnTransfer.ImageOffset = new System.Drawing.Point(0, 10);
             this.btnTransfer.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnTransfer.Location = new System.Drawing.Point(946, 24);
+            this.btnTransfer.Location = new System.Drawing.Point(945, 24);
             this.btnTransfer.Margin = new System.Windows.Forms.Padding(270, 4, 0, 4);
             this.btnTransfer.Name = "btnTransfer";
             this.tableLayoutPanel1.SetRowSpan(this.btnTransfer, 2);
-            this.btnTransfer.Size = new System.Drawing.Size(151, 63);
+            this.btnTransfer.Size = new System.Drawing.Size(152, 63);
             this.btnTransfer.TabIndex = 9;
             this.btnTransfer.Text = "Generate Report";
             this.btnTransfer.TextOffset = new System.Drawing.Point(0, 3);
@@ -374,7 +374,7 @@
             this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
             this.tableLayoutPanel1.SetRowSpan(this.guna2ComboBox1, 2);
-            this.guna2ComboBox1.Size = new System.Drawing.Size(167, 46);
+            this.guna2ComboBox1.Size = new System.Drawing.Size(166, 46);
             this.guna2ComboBox1.StartIndex = 0;
             this.guna2ComboBox1.TabIndex = 20;
             // 

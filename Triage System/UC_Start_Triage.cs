@@ -14,24 +14,21 @@ namespace Triage_System
     public partial class UC_Start_Triage : UserControl
     {
         // Holds the real database ID so we can save their vitals later
-        // --- ADDED: Changed to string to handle "P-2026-XXXX" format ---
         string activePatientId = "";
-        string activeQueueType = ""; // --- ADDED: To track if they are Diagnostics or Consultation ---
+        string activeQueueType = "";
 
-        // Updated Constructor to receive ALL patient details when opened
-        // --- ADDED: Constructor now accepts string patientId and queueType ---
+        // --- ADDED: Connection string sa taas para magamit ng Combobox at Save button ---
+        string connectionString = "server=localhost;user=root;password=;database=triage_system";
+
         public UC_Start_Triage(string passedPatientId, string patientName, string queueId, string sex, int age, string queueType)
         {
             InitializeComponent();
 
-            // 1. Save the ID and Queue Type for your "Send to Doctor" button
             activePatientId = passedPatientId;
             activeQueueType = queueType;
 
-            // 2. Update the UI placeholders with the REAL data!
             lblPatientID.Text = "Patient ID: " + queueId;
             lblAge.Text = "Age: " + age.ToString();
-            // NOTE: Kung may lblPatientName at lblSex ka, doon mo ilagay yung name at sex dito.
         }
 
         private void UC_Start_Triage_Load(object sender, EventArgs e)
@@ -42,46 +39,70 @@ namespace Triage_System
             txtTemperature.KeyPress += new KeyPressEventHandler(Temperature_KeyPress);
             txtblood_Pressure.KeyPress += new KeyPressEventHandler(BloodPressure_KeyPress);
 
-            CalculateTriageScore();
+            // --- ADDED: Keypress para sa weight at height ---
+            txtWeight.KeyPress += new KeyPressEventHandler(Temperature_KeyPress);
+            txtHeight.KeyPress += new KeyPressEventHandler(Temperature_KeyPress);
 
-            // --- ADDED: Run the setup to configure UI based on Queue Type ---
+            CalculateTriageScore();
             SetupTriageScreenBasedOnQueueType();
         }
 
-        // --- ADDED: THE DYNAMIC UI LOGIC FOR DIAGNOSTICS ---
+        // --- ADDED: DYNAMIC DOCTOR LOADING BASED SA DEPARTMENT ---
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbDepartment.SelectedIndex <= 0) return;
+
+            cmbPhysician.Items.Clear(); // Linisin muna
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT doctor_name FROM doctors WHERE specialization = @dept AND status = 'Available'";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@dept", cmbDepartment.Text);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                cmbPhysician.Items.Add(reader["doctor_name"].ToString());
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex) { Console.WriteLine("Error loading doctors: " + ex.Message); }
+            }
+        }
+
         private void SetupTriageScreenBasedOnQueueType()
         {
             if (activeQueueType == "Diagnostics (Lab/Rad)")
             {
-                // I-disable ang doctor fields
-                // NOTE: Replace 'cmbSpecialty' and 'cmbDoctor' with your actual control names if different
                 txtchief_Complaint.Enabled = false;
                 txtchief_Complaint.Text = "External Referral - For Diagnostics (Lab/Rad). No doctor consultation required.";
 
-                // If you have these combo boxes on your form, uncomment these lines:
-                // cmbSpecialty.Enabled = false;  
-                // cmbDoctor.Enabled = false;     
+                // --- UNCOMMENTED AND UPDATED ---
+                cmbDepartment.Enabled = false;
+                cmbPhysician.Enabled = false;
 
-                // Palitan ang button text (Assuming guna2Button4 is your 'Send' button)
                 guna2Button4.Text = "Send to Diagnostics";
-                guna2Button4.FillColor = Color.Orange; // Optional: Change color to indicate a different flow
+                guna2Button4.FillColor = Color.Orange;
             }
             else
             {
-                // Normal Consultation Flow
                 txtchief_Complaint.Enabled = true;
                 txtchief_Complaint.Text = "";
 
-                // If you have these combo boxes on your form, uncomment these lines:
-                // cmbSpecialty.Enabled = true;
-                // cmbDoctor.Enabled = true;
+                // --- UNCOMMENTED AND UPDATED ---
+                cmbDepartment.Enabled = true;
+                cmbPhysician.Enabled = true;
 
                 guna2Button4.Text = "Send to Doctor";
-                guna2Button4.FillColor = Color.FromArgb(46, 204, 113); // Back to standard Green
+                guna2Button4.FillColor = Color.FromArgb(46, 204, 113);
             }
         }
 
-        // --- THE KEYPRESS VALIDATION LOGIC (FIXED FOR GUNA UI) ---
         private void OnlyNumbers_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -96,7 +117,6 @@ namespace Triage_System
             {
                 e.Handled = true;
             }
-            // THE BUG FIX: Cast as Guna2TextBox instead of normal TextBox
             if ((e.KeyChar == '.') && ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
@@ -109,24 +129,24 @@ namespace Triage_System
             {
                 e.Handled = true;
             }
-            // THE BUG FIX: Cast as Guna2TextBox instead of normal TextBox
             if ((e.KeyChar == '/') && ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf('/') > -1))
             {
                 e.Handled = true;
             }
         }
 
-        // --- YOUR ORIGINAL SAVE BUTTON ---
         private void guna2Button4_Click(object sender, EventArgs e)
         {
+            // --- KINUHA YUNG DOCTOR SA COMBOBOX ---
+            string selectedDoctor = (activeQueueType == "Diagnostics (Lab/Rad)") ? "N/A" : cmbPhysician.Text;
+
             string priorityLevel = "Regular";
             string assignedDepartment = "General Medicine";
 
-            // --- ADDED: Modify assigned department if Diagnostics ---
             if (activeQueueType == "Diagnostics (Lab/Rad)")
             {
                 assignedDepartment = "Diagnostics (Lab/Rad)";
-                priorityLevel = "N/A"; // Priority isn't typically used for straight lab work
+                priorityLevel = "N/A";
             }
 
             int systolic = 120, diastolic = 80;
@@ -141,11 +161,14 @@ namespace Triage_System
             int.TryParse(txtSpO2.Text, out int oxygen);
             double.TryParse(txtTemperature.Text, out double temp);
 
+            // --- ADDED: PARSING PARA SA WEIGHT AT HEIGHT ---
+            double.TryParse(txtWeight.Text, out double weight);
+            double.TryParse(txtHeight.Text, out double height);
+
             string ageText = lblAge.Text.Replace("Age:", "").Trim();
             int age = 0;
             int.TryParse(ageText, out age);
 
-            // Calculate priority ONLY if it's a consultation
             if (activeQueueType != "Diagnostics (Lab/Rad)")
             {
                 if ((oxygen > 0 && oxygen < 90) ||
@@ -173,6 +196,12 @@ namespace Triage_System
                 else if (complaint.Contains("breath") || complaint.Contains("asthma") || complaint.Contains("cough")) { assignedDepartment = "Pulmonology"; if (complaint.Contains("difficulty")) priorityLevel = "Emergency"; }
                 else if (complaint.Contains("dizzy") || complaint.Contains("headache") || complaint.Contains("stroke") || complaint.Contains("numb")) { assignedDepartment = "Neurology"; if (complaint.Contains("stroke")) priorityLevel = "Emergency"; }
                 else if (complaint.Contains("bone") || complaint.Contains("fracture") || complaint.Contains("sprain")) { assignedDepartment = "Orthopedics"; if (complaint.Contains("fracture")) priorityLevel = "Priority"; }
+
+                // --- ADDED: If the user manually chose a department from the combobox, use that instead of the default/keyword one. ---
+                if (cmbDepartment.SelectedIndex > 0 && !string.IsNullOrEmpty(cmbDepartment.Text))
+                {
+                    assignedDepartment = cmbDepartment.Text;
+                }
             }
 
             string targetDestination = (activeQueueType == "Diagnostics (Lab/Rad)") ? "Diagnostics (Lab/Rad)" : "Doctor's queue";
@@ -185,13 +214,11 @@ namespace Triage_System
 
             if (confirm == DialogResult.Yes)
             {
-                string connectionString = "server=localhost;user=root;password=;database=triage_system";
-
+                // --- ADDED: assigned_physician sa insert query ---
                 string insertQuery = @"INSERT INTO triage_records 
-                              (patient_id, blood_pressure, heart_rate, oxygen_level, temperature, weight, height, chief_complaint, priority_level, assigned_department) 
-                              VALUES (@id, @bp, @hr, @oxy, @temp, @weight, @height, @complaint, @priority, @dept)";
+                              (patient_id, blood_pressure, heart_rate, oxygen_level, temperature, weight, height, chief_complaint, priority_level, assigned_department, assigned_physician) 
+                              VALUES (@id, @bp, @hr, @oxy, @temp, @weight, @height, @complaint, @priority, @dept, @doc)";
 
-                // --- ADDED: Determine next status based on Queue Type ---
                 string nextStatus = (activeQueueType == "Diagnostics (Lab/Rad)") ? "Waiting for Lab/Rad" : "Waiting for Doctor";
                 string updateQuery = "UPDATE patient_registration SET status = @nextStatus WHERE patient_id = @id";
 
@@ -203,25 +230,29 @@ namespace Triage_System
 
                         using (MySqlCommand cmdInsert = new MySqlCommand(insertQuery, conn))
                         {
-                            cmdInsert.Parameters.AddWithValue("@id", activePatientId); // --- FIXED: Using the string ID ---
+                            cmdInsert.Parameters.AddWithValue("@id", activePatientId);
                             cmdInsert.Parameters.AddWithValue("@bp", txtblood_Pressure.Text.Trim());
                             cmdInsert.Parameters.AddWithValue("@hr", heartRate);
                             cmdInsert.Parameters.AddWithValue("@oxy", oxygen);
                             cmdInsert.Parameters.AddWithValue("@temp", temp);
 
-                            cmdInsert.Parameters.AddWithValue("@weight", 0);
-                            cmdInsert.Parameters.AddWithValue("@height", 0);
+                            // --- FIXED: Ipapasok na yung tunay na variables imbes na 0 ---
+                            cmdInsert.Parameters.AddWithValue("@weight", weight);
+                            cmdInsert.Parameters.AddWithValue("@height", height);
 
                             cmdInsert.Parameters.AddWithValue("@complaint", txtchief_Complaint.Text.Trim());
                             cmdInsert.Parameters.AddWithValue("@priority", priorityLevel);
                             cmdInsert.Parameters.AddWithValue("@dept", assignedDepartment);
+
+                            // --- ADDED: Parameter para sa doctor ---
+                            cmdInsert.Parameters.AddWithValue("@doc", selectedDoctor);
 
                             cmdInsert.ExecuteNonQuery();
                         }
 
                         using (MySqlCommand cmdUpdate = new MySqlCommand(updateQuery, conn))
                         {
-                            cmdUpdate.Parameters.AddWithValue("@id", activePatientId); // --- FIXED: Using the string ID ---
+                            cmdUpdate.Parameters.AddWithValue("@id", activePatientId);
                             cmdUpdate.Parameters.AddWithValue("@nextStatus", nextStatus);
                             cmdUpdate.ExecuteNonQuery();
                         }
@@ -243,21 +274,19 @@ namespace Triage_System
             }
         }
 
-        // --- THE UPGRADED REAL-TIME TRIAGE CALCULATOR WITH COLORS ---
+        // --- THE UPGRADED REAL-TIME TRIAGE CALCULATOR WITH COLORS (WALANG GINALAW DITO) ---
         private void CalculateTriageScore()
         {
-            // --- ADDED: Bypass color changing if it's just Diagnostics ---
             if (activeQueueType == "Diagnostics (Lab/Rad)")
             {
                 lblPriorityStatus.Text = "DIAGNOSTICS";
                 lblPriorityStatus.ForeColor = Color.Orange;
                 lblUrgencyScore.Text = "URGENCY SCALE: N/A";
                 pbUrgencyScale.Value = 0;
-                return; // Stop the rest of the calculation
+                return;
             }
 
-            // --- 1. RESET ALL COLORS FIRST ---
-            Color defaultBorder = Color.FromArgb(213, 218, 223); // Default Guna Gray
+            Color defaultBorder = Color.FromArgb(213, 218, 223);
             Color defaultFill = Color.White;
 
             panelSpO2.BorderColor = defaultBorder; panelSpO2.FillColor = defaultFill;
@@ -272,8 +301,6 @@ namespace Triage_System
             panelBloodPressure.BorderColor = defaultBorder; panelBloodPressure.FillColor = defaultFill;
             txtblood_Pressure.BorderColor = defaultBorder; txtblood_Pressure.FillColor = defaultFill;
 
-
-            // --- 2. THE BLANK STATE CHECK ---
             if (string.IsNullOrWhiteSpace(txtSpO2.Text) &&
                 string.IsNullOrWhiteSpace(txtHeartRate.Text) &&
                 string.IsNullOrWhiteSpace(txtTemperature.Text) &&
@@ -286,7 +313,6 @@ namespace Triage_System
                 return;
             }
 
-            // 3. SAFELY PARSE VITALS
             bool hasSpO2 = int.TryParse(txtSpO2.Text, out int spo2);
             bool hasHR = int.TryParse(txtHeartRate.Text, out int heartRate);
             bool hasTemp = double.TryParse(txtTemperature.Text, out double temp);
@@ -315,7 +341,6 @@ namespace Triage_System
                 }
             }
 
-            // 4. THE HUMAN BOUNDARY CHECK (ABSURD VALUES)
             if ((hasSpO2 && spo2 > 100) ||
                 (hasHR && heartRate > 300) ||
                 (hasTemp && (temp > 45.0 || temp < 20.0)) ||
@@ -328,14 +353,10 @@ namespace Triage_System
                 return;
             }
 
-            // 5. Baseline Status
             int score = 3;
             string statusText = "NORMAL";
             Color statusColor = Color.MediumSeaGreen;
 
-            // --- 6. INDIVIDUAL CARD COLORING & MAIN SCORE CALCULATION ---
-
-            // SpO2 Logic
             if (hasSpO2 && spo2 < 85)
             {
                 panelSpO2.BorderColor = Color.Crimson; panelSpO2.FillColor = Color.MistyRose;
@@ -347,7 +368,6 @@ namespace Triage_System
                 txtSpO2.BorderColor = Color.Crimson; txtSpO2.FillColor = Color.MistyRose;
             }
 
-            // Heart Rate Logic
             if (hasHR && heartRate < 40)
             {
                 panelHeartRate.BorderColor = Color.Crimson; panelHeartRate.FillColor = Color.MistyRose;
@@ -364,7 +384,6 @@ namespace Triage_System
                 txtHeartRate.BorderColor = Color.DarkOrange; txtHeartRate.FillColor = Color.LemonChiffon;
             }
 
-            // Temperature Logic
             if (hasTemp && temp <= 32.0)
             {
                 panelTemperature.BorderColor = Color.Crimson; panelTemperature.FillColor = Color.MistyRose;
@@ -381,7 +400,6 @@ namespace Triage_System
                 txtTemperature.BorderColor = Color.DarkOrange; txtTemperature.FillColor = Color.LemonChiffon;
             }
 
-            // Blood Pressure Logic
             if (hasBP && systolic < 70)
             {
                 panelBloodPressure.BorderColor = Color.Crimson; panelBloodPressure.FillColor = Color.MistyRose;
@@ -398,7 +416,6 @@ namespace Triage_System
                 txtblood_Pressure.BorderColor = Color.DarkOrange; txtblood_Pressure.FillColor = Color.LemonChiffon;
             }
 
-            // --- 7. OVERALL TRIAGE SCORE DECISION ---
             if ((hasSpO2 && spo2 < 85) || (hasHR && heartRate < 40) || (hasBP && systolic < 70) || (hasTemp && temp <= 32.0))
             {
                 score = 10;
@@ -418,7 +435,6 @@ namespace Triage_System
                 statusColor = Color.DarkOrange;
             }
 
-            // 8. Update UI text and Progress Bar
             lblPriorityStatus.Text = statusText;
             lblPriorityStatus.ForeColor = statusColor;
             lblUrgencyScore.Text = $"URGENCY SCALE: {score}/10";
@@ -428,31 +444,103 @@ namespace Triage_System
             pbUrgencyScale.ProgressColor2 = statusColor;
         }
 
-        // --- TEXT CHANGED EVENTS TO TRIGGER CALCULATION ---
         private void txtOxygen_TextChanged(object sender, EventArgs e) { CalculateTriageScore(); }
         private void txtTemperature_TextChanged(object sender, EventArgs e) { CalculateTriageScore(); }
         private void txtheart_Rate_TextChanged(object sender, EventArgs e) { CalculateTriageScore(); }
         private void txtblood_Pressure_TextChanged(object sender, EventArgs e) { CalculateTriageScore(); }
 
-        // Empty events
         private void txtchief_Complaint_TextChanged(object sender, EventArgs e) { }
         private void label5_Click(object sender, EventArgs e) { }
         private void label19_Click(object sender, EventArgs e) { }
         private void guna2VSeparator2_Click(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void label4_Click(object sender, EventArgs e) { }
+        private void lblPriorityStatus_Click(object sender, EventArgs e) { }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void guna2Button4_Click_1(object sender, EventArgs e)
         {
+            // 1. I-refresh ang calculation para sure na updated ang priority status bago i-save
+            CalculateTriageScore();
 
-        }
+            string priorityLevel = lblPriorityStatus.Text;
+            string dept = (activeQueueType == "Diagnostics (Lab/Rad)") ? "Diagnostics (Lab/Rad)" : cmbDepartment.Text;
+            string physician = (activeQueueType == "Diagnostics (Lab/Rad)") ? "N/A" : cmbPhysician.Text;
 
-        private void label4_Click(object sender, EventArgs e)
-        {
+            // 2. Validation: Kung consultation, bawal ang blangkong department o complaint
+            if (activeQueueType != "Diagnostics (Lab/Rad)" && (cmbDepartment.SelectedIndex <= 0 || string.IsNullOrWhiteSpace(txtchief_Complaint.Text)))
+            {
+                MessageBox.Show("Please select a Department and enter the Chief Complaint.", "Incomplete Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        }
+            // 3. Confirmation Message
+            DialogResult confirm = MessageBox.Show($"Are you sure you want to send this patient to {dept}?", "Confirm Triage", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes) return;
 
-        private void lblPriorityStatus_Click(object sender, EventArgs e)
-        {
+            // 4. Ligtas na pag-convert ng Vitals (Para hindi mag-error kung blangko)
+            double.TryParse(txtWeight.Text, out double weight);
+            double.TryParse(txtHeight.Text, out double height);
+            double.TryParse(txtTemperature.Text, out double temp);
+            int.TryParse(txtHeartRate.Text, out int hr);
+            int.TryParse(txtSpO2.Text, out int oxy);
 
+            // 5. Database Saving & Updating
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // A. INSERT DATA SA TRIAGE_RECORDS TABLE
+                    string insertSql = @"INSERT INTO triage_records 
+                (patient_id, blood_pressure, heart_rate, oxygen_level, temperature, weight, height, chief_complaint, priority_level, assigned_department, assigned_physician) 
+                VALUES (@pid, @bp, @hr, @oxy, @temp, @w, @h, @comp, @prio, @dept, @doc)";
+
+                    using (MySqlCommand cmd = new MySqlCommand(insertSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@pid", activePatientId);
+                        cmd.Parameters.AddWithValue("@bp", txtblood_Pressure.Text.Trim());
+                        cmd.Parameters.AddWithValue("@hr", hr);
+                        cmd.Parameters.AddWithValue("@oxy", oxy);
+                        cmd.Parameters.AddWithValue("@temp", temp);
+                        cmd.Parameters.AddWithValue("@w", weight);
+                        cmd.Parameters.AddWithValue("@h", height);
+                        cmd.Parameters.AddWithValue("@comp", txtchief_Complaint.Text.Trim());
+                        cmd.Parameters.AddWithValue("@prio", priorityLevel);
+                        cmd.Parameters.AddWithValue("@dept", dept);
+                        cmd.Parameters.AddWithValue("@doc", physician);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // B. UPDATE STATUS SA PATIENT_REGISTRATION TABLE
+                    string status = (activeQueueType == "Diagnostics (Lab/Rad)") ? "Waiting for Lab" : "Waiting for Doctor";
+                    string updateSql = "UPDATE patient_registration SET status = @s WHERE patient_id = @id";
+
+                    using (MySqlCommand cmdUp = new MySqlCommand(updateSql, conn))
+                    {
+                        cmdUp.Parameters.AddWithValue("@s", status);
+                        cmdUp.Parameters.AddWithValue("@id", activePatientId);
+                        cmdUp.ExecuteNonQuery();
+                    }
+
+                    // 6. Success Message & Balik sa Queue Screen
+                    MessageBox.Show("Patient Triage Completed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    UC_Patient_Queue queueScreen = new UC_Patient_Queue();
+                    Control mainPanel = this.Parent;
+                    if (mainPanel != null)
+                    {
+                        mainPanel.Controls.Clear();
+                        queueScreen.Dock = DockStyle.Fill;
+                        mainPanel.Controls.Add(queueScreen);
+                        queueScreen.BringToFront();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
