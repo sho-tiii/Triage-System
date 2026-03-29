@@ -169,11 +169,13 @@ namespace Triage_System
         private void UpdatePatientStatus(string id, string newStatus, string queueCategory)
         {
             string prefix = "N"; // Default para sa "Consultation / Follow-Up"
+            string referralSource = "Internal Walk-in"; // <-- DEFAULT REFERRAL SOURCE
 
             // Workflow standard naming validation
             if (queueCategory == "Diagnostics (Lab/Rad)")
             {
                 prefix = "T";
+                referralSource = "External Recommendation"; // <-- AUTO-ASSUME EXTERNAL REFERRAL
             }
             else if (queueCategory == "Billing & Cashier")
             {
@@ -183,10 +185,12 @@ namespace Triage_System
             Random rnd = new Random();
             string queueNum = $"{prefix}-{rnd.Next(1000, 9999)}";
 
+            // UPDATED QUERY: Isinama ang referral_source
             string updateQuery = @"UPDATE patient_registration 
                                    SET status = @status, 
                                        queue_number = @qNum, 
-                                       queue_type = @qType 
+                                       queue_type = @qType,
+                                       referral_source = @refSource 
                                    WHERE patient_id = @id";
             try
             {
@@ -198,6 +202,7 @@ namespace Triage_System
                         cmd.Parameters.AddWithValue("@status", newStatus);
                         cmd.Parameters.AddWithValue("@qNum", queueNum);
                         cmd.Parameters.AddWithValue("@qType", queueCategory);
+                        cmd.Parameters.AddWithValue("@refSource", referralSource); // <-- ADDED PARAMETER
                         cmd.Parameters.AddWithValue("@id", id);
 
                         cmd.ExecuteNonQuery();

@@ -293,6 +293,16 @@ namespace Triage_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Hospital_Promo {
+            get {
+                object obj = ResourceManager.GetObject("Hospital Promo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logout {
             get {
                 object obj = ResourceManager.GetObject("Logout", resourceCulture);

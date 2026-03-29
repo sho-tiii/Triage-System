@@ -60,6 +60,8 @@
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.cmbPWD = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkPregnant = new Guna.UI2.WinForms.Guna2CheckBox();
             this.topBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -356,6 +358,7 @@
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(205, 36);
             this.cmbGender.TabIndex = 39;
+            this.cmbGender.SelectedIndexChanged += new System.EventHandler(this.cmbGender_SelectedIndexChanged);
             // 
             // guna2HtmlLabel9
             // 
@@ -527,6 +530,43 @@
             this.guna2HtmlLabel4.TabIndex = 28;
             this.guna2HtmlLabel4.Text = "First Name";
             // 
+            // cmbPWD
+            // 
+            this.cmbPWD.AutoSize = true;
+            this.cmbPWD.CheckedState.BorderColor = System.Drawing.Color.Black;
+            this.cmbPWD.CheckedState.BorderRadius = 0;
+            this.cmbPWD.CheckedState.BorderThickness = 1;
+            this.cmbPWD.CheckedState.FillColor = System.Drawing.Color.White;
+            this.cmbPWD.CheckMarkColor = System.Drawing.Color.Black;
+            this.cmbPWD.Location = new System.Drawing.Point(277, 107);
+            this.cmbPWD.Name = "cmbPWD";
+            this.cmbPWD.Size = new System.Drawing.Size(163, 17);
+            this.cmbPWD.TabIndex = 50;
+            this.cmbPWD.Text = "Person With Disability (PWD)";
+            this.cmbPWD.UncheckedState.BorderColor = System.Drawing.Color.Black;
+            this.cmbPWD.UncheckedState.BorderRadius = 0;
+            this.cmbPWD.UncheckedState.BorderThickness = 1;
+            this.cmbPWD.UncheckedState.FillColor = System.Drawing.Color.White;
+            // 
+            // chkPregnant
+            // 
+            this.chkPregnant.AutoSize = true;
+            this.chkPregnant.CheckedState.BorderColor = System.Drawing.Color.Black;
+            this.chkPregnant.CheckedState.BorderRadius = 0;
+            this.chkPregnant.CheckedState.BorderThickness = 1;
+            this.chkPregnant.CheckedState.FillColor = System.Drawing.Color.White;
+            this.chkPregnant.CheckMarkColor = System.Drawing.Color.Black;
+            this.chkPregnant.Location = new System.Drawing.Point(372, 388);
+            this.chkPregnant.Name = "chkPregnant";
+            this.chkPregnant.Size = new System.Drawing.Size(69, 17);
+            this.chkPregnant.TabIndex = 51;
+            this.chkPregnant.Text = "Pregnant";
+            this.chkPregnant.UncheckedState.BorderColor = System.Drawing.Color.Black;
+            this.chkPregnant.UncheckedState.BorderRadius = 0;
+            this.chkPregnant.UncheckedState.BorderThickness = 1;
+            this.chkPregnant.UncheckedState.FillColor = System.Drawing.Color.White;
+            this.chkPregnant.Visible = false;
+            // 
             // Edit_Profile_Patient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,6 +574,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(452, 712);
+            this.Controls.Add(this.chkPregnant);
+            this.Controls.Add(this.cmbPWD);
             this.Controls.Add(this.btnSave_Record);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.txtEmergencyNumber);
@@ -565,6 +607,7 @@
             this.topBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -601,5 +644,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2TextBox txtFirstName;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2CheckBox cmbPWD;
+        private Guna.UI2.WinForms.Guna2CheckBox chkPregnant;
     }
 }

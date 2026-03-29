@@ -15,12 +15,12 @@ namespace Triage_System
         // Dito natin ise-save yung pinili sa ComboBox para makuha ng UC_Search_Patient
         public string SelectedQueueCategory { get; private set; }
 
-        // Nagdagdag ako ng 'patientName' para pwede mong ilagay sa label (optional)
+        // Tumatanggap ito ng patientName mula sa Search panel
         public Add_To_Queue_Menu(string patientName)
         {
             InitializeComponent();
 
-            // I-set agad sa first item ("Consultation / Follow-Up") para hindi blanko pagkabukas
+            // I-set agad sa first item ("Consultation / Follow-Up") para hindi blanko
             if (cmbQueueCategory.Items.Count > 0)
             {
                 cmbQueueCategory.SelectedIndex = 0;

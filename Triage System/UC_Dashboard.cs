@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-
-// Guna UI & Charts
+﻿// Guna UI & Charts
 using Guna.Charts.WinForms;
 using Guna.UI2.WinForms;
-
+using iText.IO.Font.Constants; // Para sa StandardFonts
+using iText.Kernel.Font; // Para sa FontFactory
+using iText.Kernel.Geom;
 // iText 7 Core Libraries
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
-using iText.Kernel.Geom;
-using iText.Kernel.Font; // Para sa FontFactory
-using iText.IO.Font.Constants; // Para sa StandardFonts
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Triage_System
 {
@@ -259,5 +258,12 @@ namespace Triage_System
         private void btnQueue_Click(object sender, EventArgs e) { }
         private void guna2Panel2_Paint(object sender, PaintEventArgs e) { }
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e) { }
+
+        private void btnViewQueueMonitor_Click(object sender, EventArgs e)
+        {
+            // Dahil part na siya ng project, parang normal na Form na lang siya!
+            QueueMonitor monitor = new QueueMonitor();
+            monitor.Show(); // O kaya monitor.ShowDialog(); kung gusto mong i-lock ang main window
+        }
     }
-}
+    }

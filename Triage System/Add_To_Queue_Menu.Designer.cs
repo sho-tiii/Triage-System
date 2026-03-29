@@ -31,11 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.topBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cmbQueueCategory = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnSave_Record = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -45,6 +47,7 @@
             // 
             // guna2BorderlessForm1
             // 
+            this.guna2BorderlessForm1.AnimateWindow = true;
             this.guna2BorderlessForm1.AnimationInterval = 100;
             this.guna2BorderlessForm1.AnimationType = Guna.UI2.WinForms.Guna2BorderlessForm.AnimateWindowType.AW_HOR_NEGATIVE;
             this.guna2BorderlessForm1.BorderRadius = 15;
@@ -55,6 +58,7 @@
             // topBar
             // 
             this.topBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(171)))), ((int)(((byte)(239)))));
+            this.topBar.Controls.Add(this.guna2HtmlLabel14);
             this.topBar.Controls.Add(this.guna2HtmlLabel3);
             this.topBar.Controls.Add(this.guna2VSeparator1);
             this.topBar.Controls.Add(this.guna2HtmlLabel2);
@@ -63,19 +67,30 @@
             this.topBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.topBar.Location = new System.Drawing.Point(0, 0);
             this.topBar.Name = "topBar";
-            this.topBar.Size = new System.Drawing.Size(450, 96);
+            this.topBar.Size = new System.Drawing.Size(601, 96);
             this.topBar.TabIndex = 3;
+            // 
+            // guna2HtmlLabel14
+            // 
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel14.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel14.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel14.Location = new System.Drawing.Point(219, 53);
+            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
+            this.guna2HtmlLabel14.Size = new System.Drawing.Size(333, 24);
+            this.guna2HtmlLabel14.TabIndex = 10;
+            this.guna2HtmlLabel14.Text = "Choose where to direct the patient for their current visit.";
             // 
             // guna2HtmlLabel3
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(221, 36);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(219, 32);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(181, 30);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(115, 30);
             this.guna2HtmlLabel3.TabIndex = 9;
-            this.guna2HtmlLabel3.Text = "Add Patient To Queue";
+            this.guna2HtmlLabel3.Text = "Route Patient";
             // 
             // guna2VSeparator1
             // 
@@ -121,6 +136,17 @@
             this.guna2CirclePictureBox1.TabIndex = 3;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
+            // guna2HtmlLabel16
+            // 
+            this.guna2HtmlLabel16.AutoSize = false;
+            this.guna2HtmlLabel16.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel16.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel16.Location = new System.Drawing.Point(86, 127);
+            this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
+            this.guna2HtmlLabel16.Size = new System.Drawing.Size(162, 24);
+            this.guna2HtmlLabel16.TabIndex = 33;
+            this.guna2HtmlLabel16.Text = "Route To:";
+            // 
             // cmbQueueCategory
             // 
             this.cmbQueueCategory.BackColor = System.Drawing.Color.Transparent;
@@ -137,11 +163,11 @@
             "Consultation / Follow-Up",
             "Diagnostics (Lab/Rad)",
             "Billing & Cashier"});
-            this.cmbQueueCategory.Location = new System.Drawing.Point(12, 124);
+            this.cmbQueueCategory.Location = new System.Drawing.Point(86, 152);
             this.cmbQueueCategory.Name = "cmbQueueCategory";
-            this.cmbQueueCategory.Size = new System.Drawing.Size(426, 36);
+            this.cmbQueueCategory.Size = new System.Drawing.Size(429, 36);
             this.cmbQueueCategory.StartIndex = 0;
-            this.cmbQueueCategory.TabIndex = 18;
+            this.cmbQueueCategory.TabIndex = 32;
             // 
             // btnSave_Record
             // 
@@ -158,11 +184,11 @@
             this.btnSave_Record.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnSave_Record.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_Record.ForeColor = System.Drawing.Color.White;
-            this.btnSave_Record.Location = new System.Drawing.Point(305, 180);
+            this.btnSave_Record.Location = new System.Drawing.Point(363, 194);
             this.btnSave_Record.Name = "btnSave_Record";
-            this.btnSave_Record.Size = new System.Drawing.Size(133, 35);
-            this.btnSave_Record.TabIndex = 29;
-            this.btnSave_Record.Text = "Add To Queue";
+            this.btnSave_Record.Size = new System.Drawing.Size(152, 35);
+            this.btnSave_Record.TabIndex = 31;
+            this.btnSave_Record.Text = "Confirm";
             this.btnSave_Record.Click += new System.EventHandler(this.btnSave_Record_Click);
             // 
             // guna2Button1
@@ -180,10 +206,10 @@
             this.guna2Button1.FillColor = System.Drawing.Color.Gray;
             this.guna2Button1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(166, 180);
+            this.guna2Button1.Location = new System.Drawing.Point(210, 194);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(133, 35);
-            this.guna2Button1.TabIndex = 28;
+            this.guna2Button1.Size = new System.Drawing.Size(147, 35);
+            this.guna2Button1.TabIndex = 30;
             this.guna2Button1.Text = "Cancel";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
@@ -191,10 +217,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 227);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(601, 267);
+            this.Controls.Add(this.guna2HtmlLabel16);
+            this.Controls.Add(this.cmbQueueCategory);
             this.Controls.Add(this.btnSave_Record);
             this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.cmbQueueCategory);
             this.Controls.Add(this.topBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Add_To_Queue_Menu";
@@ -210,11 +238,13 @@
 
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2Panel topBar;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private Guna.UI2.WinForms.Guna2ComboBox cmbQueueCategory;
         private Guna.UI2.WinForms.Guna2Button btnSave_Record;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;

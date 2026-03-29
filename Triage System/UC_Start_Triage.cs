@@ -14,21 +14,24 @@ namespace Triage_System
     public partial class UC_Start_Triage : UserControl
     {
         // Holds the real database ID so we can save their vitals later
-        int activePatientId = 0;
+        // --- ADDED: Changed to string to handle "P-2026-XXXX" format ---
+        string activePatientId = "";
+        string activeQueueType = ""; // --- ADDED: To track if they are Diagnostics or Consultation ---
 
         // Updated Constructor to receive ALL patient details when opened
-        public UC_Start_Triage(int passedPatientId, string patientName, string queueId, string sex, int age)
+        // --- ADDED: Constructor now accepts string patientId and queueType ---
+        public UC_Start_Triage(string passedPatientId, string patientName, string queueId, string sex, int age, string queueType)
         {
             InitializeComponent();
 
-            // 1. Save the ID for your "Send to Doctor" button
+            // 1. Save the ID and Queue Type for your "Send to Doctor" button
             activePatientId = passedPatientId;
+            activeQueueType = queueType;
 
             // 2. Update the UI placeholders with the REAL data!
             lblPatientID.Text = "Patient ID: " + queueId;
             lblAge.Text = "Age: " + age.ToString();
-
-            // NOTE: Kung may lblSex ka, doon mo ilagay yung sex. 
+            // NOTE: Kung may lblPatientName at lblSex ka, doon mo ilagay yung name at sex dito.
         }
 
         private void UC_Start_Triage_Load(object sender, EventArgs e)
@@ -40,6 +43,42 @@ namespace Triage_System
             txtblood_Pressure.KeyPress += new KeyPressEventHandler(BloodPressure_KeyPress);
 
             CalculateTriageScore();
+
+            // --- ADDED: Run the setup to configure UI based on Queue Type ---
+            SetupTriageScreenBasedOnQueueType();
+        }
+
+        // --- ADDED: THE DYNAMIC UI LOGIC FOR DIAGNOSTICS ---
+        private void SetupTriageScreenBasedOnQueueType()
+        {
+            if (activeQueueType == "Diagnostics (Lab/Rad)")
+            {
+                // I-disable ang doctor fields
+                // NOTE: Replace 'cmbSpecialty' and 'cmbDoctor' with your actual control names if different
+                txtchief_Complaint.Enabled = false;
+                txtchief_Complaint.Text = "External Referral - For Diagnostics (Lab/Rad). No doctor consultation required.";
+
+                // If you have these combo boxes on your form, uncomment these lines:
+                // cmbSpecialty.Enabled = false;  
+                // cmbDoctor.Enabled = false;     
+
+                // Palitan ang button text (Assuming guna2Button4 is your 'Send' button)
+                guna2Button4.Text = "Send to Diagnostics";
+                guna2Button4.FillColor = Color.Orange; // Optional: Change color to indicate a different flow
+            }
+            else
+            {
+                // Normal Consultation Flow
+                txtchief_Complaint.Enabled = true;
+                txtchief_Complaint.Text = "";
+
+                // If you have these combo boxes on your form, uncomment these lines:
+                // cmbSpecialty.Enabled = true;
+                // cmbDoctor.Enabled = true;
+
+                guna2Button4.Text = "Send to Doctor";
+                guna2Button4.FillColor = Color.FromArgb(46, 204, 113); // Back to standard Green
+            }
         }
 
         // --- THE KEYPRESS VALIDATION LOGIC (FIXED FOR GUNA UI) ---
@@ -83,6 +122,13 @@ namespace Triage_System
             string priorityLevel = "Regular";
             string assignedDepartment = "General Medicine";
 
+            // --- ADDED: Modify assigned department if Diagnostics ---
+            if (activeQueueType == "Diagnostics (Lab/Rad)")
+            {
+                assignedDepartment = "Diagnostics (Lab/Rad)";
+                priorityLevel = "N/A"; // Priority isn't typically used for straight lab work
+            }
+
             int systolic = 120, diastolic = 80;
             if (txtblood_Pressure.Text.Contains("/"))
             {
@@ -95,43 +141,45 @@ namespace Triage_System
             int.TryParse(txtSpO2.Text, out int oxygen);
             double.TryParse(txtTemperature.Text, out double temp);
 
-            string idText = lblPatientID.Text.Replace("Patient ID:", "").Replace("N-", "").Trim();
-            int patientId = 0;
-            int.TryParse(idText, out patientId);
-
             string ageText = lblAge.Text.Replace("Age:", "").Trim();
             int age = 0;
             int.TryParse(ageText, out age);
 
-            if ((oxygen > 0 && oxygen < 90) ||
-                (heartRate > 130 || (heartRate > 0 && heartRate < 40)) ||
-                (systolic >= 180 || diastolic >= 120) ||
-                (temp >= 40.0))
+            // Calculate priority ONLY if it's a consultation
+            if (activeQueueType != "Diagnostics (Lab/Rad)")
             {
-                priorityLevel = "Emergency";
-            }
-            else if (priorityLevel != "Emergency")
-            {
-                if ((oxygen >= 90 && oxygen <= 94) ||
-                    (heartRate >= 110 && heartRate <= 130) ||
-                    (systolic >= 140 || diastolic >= 90) ||
-                    (temp >= 38.5) ||
-                    (age >= 60))
+                if ((oxygen > 0 && oxygen < 90) ||
+                    (heartRate > 130 || (heartRate > 0 && heartRate < 40)) ||
+                    (systolic >= 180 || diastolic >= 120) ||
+                    (temp >= 40.0))
                 {
-                    priorityLevel = "Priority";
+                    priorityLevel = "Emergency";
                 }
+                else if (priorityLevel != "Emergency")
+                {
+                    if ((oxygen >= 90 && oxygen <= 94) ||
+                        (heartRate >= 110 && heartRate <= 130) ||
+                        (systolic >= 140 || diastolic >= 90) ||
+                        (temp >= 38.5) ||
+                        (age >= 60))
+                    {
+                        priorityLevel = "Priority";
+                    }
+                }
+
+                string complaint = txtchief_Complaint.Text.ToLower();
+
+                if (complaint.Contains("chest pain") || complaint.Contains("heart") || complaint.Contains("palpitation")) { assignedDepartment = "Cardiology"; priorityLevel = "Emergency"; }
+                else if (complaint.Contains("breath") || complaint.Contains("asthma") || complaint.Contains("cough")) { assignedDepartment = "Pulmonology"; if (complaint.Contains("difficulty")) priorityLevel = "Emergency"; }
+                else if (complaint.Contains("dizzy") || complaint.Contains("headache") || complaint.Contains("stroke") || complaint.Contains("numb")) { assignedDepartment = "Neurology"; if (complaint.Contains("stroke")) priorityLevel = "Emergency"; }
+                else if (complaint.Contains("bone") || complaint.Contains("fracture") || complaint.Contains("sprain")) { assignedDepartment = "Orthopedics"; if (complaint.Contains("fracture")) priorityLevel = "Priority"; }
             }
 
-            string complaint = txtchief_Complaint.Text.ToLower();
-
-            if (complaint.Contains("chest pain") || complaint.Contains("heart") || complaint.Contains("palpitation")) { assignedDepartment = "Cardiology"; priorityLevel = "Emergency"; }
-            else if (complaint.Contains("breath") || complaint.Contains("asthma") || complaint.Contains("cough")) { assignedDepartment = "Pulmonology"; if (complaint.Contains("difficulty")) priorityLevel = "Emergency"; }
-            else if (complaint.Contains("dizzy") || complaint.Contains("headache") || complaint.Contains("stroke") || complaint.Contains("numb")) { assignedDepartment = "Neurology"; if (complaint.Contains("stroke")) priorityLevel = "Emergency"; }
-            else if (complaint.Contains("bone") || complaint.Contains("fracture") || complaint.Contains("sprain")) { assignedDepartment = "Orthopedics"; if (complaint.Contains("fracture")) priorityLevel = "Priority"; }
+            string targetDestination = (activeQueueType == "Diagnostics (Lab/Rad)") ? "Diagnostics (Lab/Rad)" : "Doctor's queue";
 
             string resultMessage = $"Calculated Priority: {priorityLevel.ToUpper()}\n" +
                                    $"Assigned Department: {assignedDepartment}\n\n" +
-                                   $"Send patient to the doctor's queue?";
+                                   $"Send patient to the {targetDestination}?";
 
             DialogResult confirm = MessageBox.Show(resultMessage, "Complete Triage", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
@@ -143,7 +191,9 @@ namespace Triage_System
                               (patient_id, blood_pressure, heart_rate, oxygen_level, temperature, weight, height, chief_complaint, priority_level, assigned_department) 
                               VALUES (@id, @bp, @hr, @oxy, @temp, @weight, @height, @complaint, @priority, @dept)";
 
-                string updateQuery = "UPDATE patient_registration SET status = 'Waiting for Doctor' WHERE patient_id = @id";
+                // --- ADDED: Determine next status based on Queue Type ---
+                string nextStatus = (activeQueueType == "Diagnostics (Lab/Rad)") ? "Waiting for Lab/Rad" : "Waiting for Doctor";
+                string updateQuery = "UPDATE patient_registration SET status = @nextStatus WHERE patient_id = @id";
 
                 try
                 {
@@ -153,7 +203,7 @@ namespace Triage_System
 
                         using (MySqlCommand cmdInsert = new MySqlCommand(insertQuery, conn))
                         {
-                            cmdInsert.Parameters.AddWithValue("@id", patientId);
+                            cmdInsert.Parameters.AddWithValue("@id", activePatientId); // --- FIXED: Using the string ID ---
                             cmdInsert.Parameters.AddWithValue("@bp", txtblood_Pressure.Text.Trim());
                             cmdInsert.Parameters.AddWithValue("@hr", heartRate);
                             cmdInsert.Parameters.AddWithValue("@oxy", oxygen);
@@ -171,7 +221,8 @@ namespace Triage_System
 
                         using (MySqlCommand cmdUpdate = new MySqlCommand(updateQuery, conn))
                         {
-                            cmdUpdate.Parameters.AddWithValue("@id", patientId);
+                            cmdUpdate.Parameters.AddWithValue("@id", activePatientId); // --- FIXED: Using the string ID ---
+                            cmdUpdate.Parameters.AddWithValue("@nextStatus", nextStatus);
                             cmdUpdate.ExecuteNonQuery();
                         }
                     }
@@ -195,6 +246,16 @@ namespace Triage_System
         // --- THE UPGRADED REAL-TIME TRIAGE CALCULATOR WITH COLORS ---
         private void CalculateTriageScore()
         {
+            // --- ADDED: Bypass color changing if it's just Diagnostics ---
+            if (activeQueueType == "Diagnostics (Lab/Rad)")
+            {
+                lblPriorityStatus.Text = "DIAGNOSTICS";
+                lblPriorityStatus.ForeColor = Color.Orange;
+                lblUrgencyScore.Text = "URGENCY SCALE: N/A";
+                pbUrgencyScale.Value = 0;
+                return; // Stop the rest of the calculation
+            }
+
             // --- 1. RESET ALL COLORS FIRST ---
             Color defaultBorder = Color.FromArgb(213, 218, 223); // Default Guna Gray
             Color defaultFill = Color.White;

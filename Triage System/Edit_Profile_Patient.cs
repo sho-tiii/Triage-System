@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,13 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient; // Importante para sa Database
 
 namespace Triage_System
 {
     public partial class Edit_Profile_Patient : Form
     {
-        private readonly string _patientId; // Taga-hawak ng Patient ID
+        private readonly string _patientId;
         string connString = "server=localhost;user=root;database=triage_system;password=;";
 
         public Edit_Profile_Patient()
@@ -21,14 +21,30 @@ namespace Triage_System
             InitializeComponent();
         }
 
-        // Constructor na tumatanggap ng Patient ID galing sa Search Form
         public Edit_Profile_Patient(string patientId) : this()
         {
             _patientId = patientId;
-            LoadPatientDetails(); // I-load agad ang data pagkabukas!
+
+            // --- ADDED: Manual Event Wiring for Gender logic ---
+            this.cmbGender.SelectedIndexChanged += new System.EventHandler(this.cmbGender_SelectedIndexChanged);
+
+            LoadPatientDetails();
         }
 
-        // --- METHOD: KUNIN ANG DATA SA DB AT ILAGAY SA TEXTBOXES ---
+        // --- ADDED: Logic para sa Visibility ng Pregnant Checkbox ---
+        private void cmbGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbGender.Text.Trim() == "Female")
+            {
+                chkPregnant.Visible = true;
+            }
+            else
+            {
+                chkPregnant.Visible = false;
+                chkPregnant.Checked = false;
+            }
+        }
+
         private void LoadPatientDetails()
         {
             using (MySqlConnection conn = new MySqlConnection(connString))
@@ -51,16 +67,36 @@ namespace Triage_System
                                 txtLastName.Text = reader["last_name"].ToString();
                                 txtSuffix.Text = reader["suffix"].ToString();
 
-                                // Para sa Date at ComboBox
                                 if (reader["birthdate"] != DBNull.Value)
                                     dtpBirthdate.Value = Convert.ToDateTime(reader["birthdate"]);
 
                                 cmbGender.Text = reader["gender"].ToString();
-
                                 txtAddress.Text = reader["address"].ToString();
                                 txtMobileNumber.Text = reader["mobile_number"].ToString();
                                 txtContactPerson.Text = reader["contact_person"].ToString();
                                 txtEmergencyNumber.Text = reader["contact_person_number"].ToString();
+
+                                // --- LOAD PRIORITY & PWD STATUS ---
+                                if (reader["priority"].ToString() == "PWD")
+                                {
+                                    cmbPWD.Checked = true;
+                                }
+                                else
+                                {
+                                    cmbPWD.Checked = false;
+                                }
+
+                                // --- ADDED: Load Pregnant Status ---
+                                if (reader["is_pregnant"] != DBNull.Value && Convert.ToInt32(reader["is_pregnant"]) == 1)
+                                {
+                                    chkPregnant.Checked = true;
+                                    chkPregnant.Visible = true; // Show immediately if already pregnant
+                                }
+                                else
+                                {
+                                    chkPregnant.Checked = false;
+                                    // Visibility will be handled by the cmbGender logic above
+                                }
                             }
                         }
                     }
@@ -72,16 +108,31 @@ namespace Triage_System
             }
         }
 
-        // --- METHOD: I-SAVE ANG MGA BINAGO SA DATABASE ---
         private void btnSave_Record_Click(object sender, EventArgs e)
         {
+            // --- CALCULATE PRIORITY & PREGNANCY ---
+            int age = DateTime.Today.Year - dtpBirthdate.Value.Year;
+            if (dtpBirthdate.Value.Date > DateTime.Today.AddYears(-age)) age--;
+
+            string priorityStatus = "Regular";
+            if (cmbPWD.Checked)
+            {
+                priorityStatus = "PWD";
+            }
+            else if (age >= 60)
+            {
+                priorityStatus = "Senior Citizen";
+            }
+
+            int isPregnant = chkPregnant.Checked ? 1 : 0;
+
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
                 try
                 {
                     conn.Open();
 
-                    // Gagamit tayo ng UPDATE imbes na INSERT
+                    // --- UPDATED: Isinama ang 'priority' at 'is_pregnant' sa UPDATE ---
                     string query = @"UPDATE patient_registration 
                                      SET first_name = @fname, 
                                          middle_name = @mname, 
@@ -92,32 +143,33 @@ namespace Triage_System
                                          address = @address, 
                                          mobile_number = @mobile, 
                                          contact_person = @cperson, 
-                                         contact_person_number = @cnumber 
+                                         contact_person_number = @cnumber,
+                                         priority = @priority,
+                                         is_pregnant = @isPregnant
                                      WHERE patient_id = @id";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        // Ipasa ang mga text galing sa UI papunta sa Database
                         cmd.Parameters.AddWithValue("@id", _patientId);
-                        cmd.Parameters.AddWithValue("@fname", txtFirstName.Text);
-                        cmd.Parameters.AddWithValue("@mname", txtMiddleName.Text);
-                        cmd.Parameters.AddWithValue("@lname", txtLastName.Text);
-                        cmd.Parameters.AddWithValue("@suffix", txtSuffix.Text);
+                        cmd.Parameters.AddWithValue("@fname", txtFirstName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@mname", txtMiddleName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@lname", txtLastName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@suffix", txtSuffix.Text.Trim());
                         cmd.Parameters.AddWithValue("@bdate", dtpBirthdate.Value.ToString("yyyy-MM-dd"));
                         cmd.Parameters.AddWithValue("@gender", cmbGender.Text);
-                        cmd.Parameters.AddWithValue("@address", txtAddress.Text);
-                        cmd.Parameters.AddWithValue("@mobile", txtMobileNumber.Text);
-                        cmd.Parameters.AddWithValue("@cperson", txtContactPerson.Text);
-                        cmd.Parameters.AddWithValue("@cnumber", txtEmergencyNumber.Text);
+                        cmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
+                        cmd.Parameters.AddWithValue("@mobile", txtMobileNumber.Text.Trim());
+                        cmd.Parameters.AddWithValue("@cperson", txtContactPerson.Text.Trim());
+                        cmd.Parameters.AddWithValue("@cnumber", txtEmergencyNumber.Text.Trim());
+
+                        cmd.Parameters.AddWithValue("@priority", priorityStatus);
+                        cmd.Parameters.AddWithValue("@isPregnant", isPregnant);
 
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Patient profile updated successfully!", "Update Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // I-set ang result para malaman ng Search form na kailangan nitong mag-refresh
                         this.DialogResult = DialogResult.OK;
-
-                        // I-trigger ang sliding out animation bago tuluyang mag-close
                         slideOutTimer.Start();
                     }
                 }
@@ -128,22 +180,16 @@ namespace Triage_System
             }
         }
 
-        // --- METHOD: CLOSE BUTTON (X) ---
-        private void guna2Button1_Click(object sender, EventArgs e) // Assuming ito yung X o Cancel button mo
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
             slideOutTimer.Start();
         }
 
-        // --- METHOD: SLIDE OUT ANIMATION ---
         private void slideOutTimer_Tick(object sender, EventArgs e)
         {
-            // 1. Move the form to the right by 25 pixels every split-second
             this.Left += 25;
-
-            // 2. Make it slightly transparent at the same time
             this.Opacity -= 0.1;
 
-            // 3. Once it is completely invisible, stop the timer and officially close the form
             if (this.Opacity <= 0)
             {
                 slideOutTimer.Stop();

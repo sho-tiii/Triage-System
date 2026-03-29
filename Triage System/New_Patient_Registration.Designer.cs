@@ -61,6 +61,10 @@
             this.btnSave_Record = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.slideOutTimer = new System.Windows.Forms.Timer(this.components);
+            this.cmbQueueCategory = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.cmbPWD = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkPregnant = new Guna.UI2.WinForms.Guna2CheckBox();
             this.topBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -358,6 +362,7 @@
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(205, 36);
             this.cmbGender.TabIndex = 17;
+            this.cmbGender.SelectedIndexChanged += new System.EventHandler(this.cmbGender_SelectedIndexChanged_1);
             // 
             // txtAddress
             // 
@@ -506,7 +511,7 @@
             this.btnSave_Record.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnSave_Record.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_Record.ForeColor = System.Drawing.Color.White;
-            this.btnSave_Record.Location = new System.Drawing.Point(288, 665);
+            this.btnSave_Record.Location = new System.Drawing.Point(263, 728);
             this.btnSave_Record.Name = "btnSave_Record";
             this.btnSave_Record.Size = new System.Drawing.Size(152, 35);
             this.btnSave_Record.TabIndex = 27;
@@ -528,7 +533,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.Gray;
             this.guna2Button1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(135, 665);
+            this.guna2Button1.Location = new System.Drawing.Point(110, 728);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(147, 35);
             this.guna2Button1.TabIndex = 26;
@@ -540,13 +545,87 @@
             this.slideOutTimer.Interval = 10;
             this.slideOutTimer.Tick += new System.EventHandler(this.slideOutTimer_Tick);
             // 
+            // cmbQueueCategory
+            // 
+            this.cmbQueueCategory.BackColor = System.Drawing.Color.Transparent;
+            this.cmbQueueCategory.BorderColor = System.Drawing.Color.DarkGray;
+            this.cmbQueueCategory.BorderRadius = 4;
+            this.cmbQueueCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbQueueCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbQueueCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbQueueCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbQueueCategory.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbQueueCategory.ForeColor = System.Drawing.Color.Black;
+            this.cmbQueueCategory.ItemHeight = 30;
+            this.cmbQueueCategory.Items.AddRange(new object[] {
+            "Consultation / Follow-Up",
+            "Diagnostics (Lab/Rad)",
+            "Billing & Cashier"});
+            this.cmbQueueCategory.Location = new System.Drawing.Point(11, 686);
+            this.cmbQueueCategory.Name = "cmbQueueCategory";
+            this.cmbQueueCategory.Size = new System.Drawing.Size(429, 36);
+            this.cmbQueueCategory.StartIndex = 0;
+            this.cmbQueueCategory.TabIndex = 28;
+            // 
+            // guna2HtmlLabel16
+            // 
+            this.guna2HtmlLabel16.AutoSize = false;
+            this.guna2HtmlLabel16.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel16.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel16.Location = new System.Drawing.Point(11, 661);
+            this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
+            this.guna2HtmlLabel16.Size = new System.Drawing.Size(162, 24);
+            this.guna2HtmlLabel16.TabIndex = 29;
+            this.guna2HtmlLabel16.Text = "Route To:";
+            // 
+            // cmbPWD
+            // 
+            this.cmbPWD.AutoSize = true;
+            this.cmbPWD.CheckedState.BorderColor = System.Drawing.Color.Black;
+            this.cmbPWD.CheckedState.BorderRadius = 0;
+            this.cmbPWD.CheckedState.BorderThickness = 1;
+            this.cmbPWD.CheckedState.FillColor = System.Drawing.Color.White;
+            this.cmbPWD.CheckMarkColor = System.Drawing.Color.Black;
+            this.cmbPWD.Location = new System.Drawing.Point(274, 107);
+            this.cmbPWD.Name = "cmbPWD";
+            this.cmbPWD.Size = new System.Drawing.Size(163, 17);
+            this.cmbPWD.TabIndex = 30;
+            this.cmbPWD.Text = "Person With Disability (PWD)";
+            this.cmbPWD.UncheckedState.BorderColor = System.Drawing.Color.Black;
+            this.cmbPWD.UncheckedState.BorderRadius = 0;
+            this.cmbPWD.UncheckedState.BorderThickness = 1;
+            this.cmbPWD.UncheckedState.FillColor = System.Drawing.Color.White;
+            // 
+            // chkPregnant
+            // 
+            this.chkPregnant.AutoSize = true;
+            this.chkPregnant.CheckedState.BorderColor = System.Drawing.Color.Black;
+            this.chkPregnant.CheckedState.BorderRadius = 0;
+            this.chkPregnant.CheckedState.BorderThickness = 1;
+            this.chkPregnant.CheckedState.FillColor = System.Drawing.Color.White;
+            this.chkPregnant.CheckMarkColor = System.Drawing.Color.Black;
+            this.chkPregnant.Location = new System.Drawing.Point(371, 385);
+            this.chkPregnant.Name = "chkPregnant";
+            this.chkPregnant.Size = new System.Drawing.Size(69, 17);
+            this.chkPregnant.TabIndex = 31;
+            this.chkPregnant.Text = "Pregnant";
+            this.chkPregnant.UncheckedState.BorderColor = System.Drawing.Color.Black;
+            this.chkPregnant.UncheckedState.BorderRadius = 0;
+            this.chkPregnant.UncheckedState.BorderThickness = 1;
+            this.chkPregnant.UncheckedState.FillColor = System.Drawing.Color.White;
+            this.chkPregnant.Visible = false;
+            // 
             // New_Patient_Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(452, 712);
+            this.ClientSize = new System.Drawing.Size(452, 775);
+            this.Controls.Add(this.chkPregnant);
+            this.Controls.Add(this.cmbPWD);
+            this.Controls.Add(this.guna2HtmlLabel16);
+            this.Controls.Add(this.cmbQueueCategory);
             this.Controls.Add(this.btnSave_Record);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.txtEmergencyNumber);
@@ -577,6 +656,7 @@
             this.topBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -614,5 +694,9 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbQueueCategory;
+        private Guna.UI2.WinForms.Guna2CheckBox cmbPWD;
+        private Guna.UI2.WinForms.Guna2CheckBox chkPregnant;
     }
 }
