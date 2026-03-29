@@ -124,11 +124,29 @@
     <Compile Include="Already_In_Queue.Designer.cs">
       <DependentUpon>Already_In_Queue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edit_Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Profile.Designer.cs">
+      <DependentUpon>Edit_Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotifications.Designer.cs">
+      <DependentUpon>frmNotifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generate_Triage_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generate_Triage_Report.Designer.cs">
+      <DependentUpon>Generate_Triage_Report.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -174,6 +192,12 @@
     <Compile Include="UC_Dashboard.Designer.cs">
       <DependentUpon>UC_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_Notifcation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Notifcation.Designer.cs">
+      <DependentUpon>UC_Notifcation.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Patient_Queue.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -207,8 +231,17 @@
     <EmbeddedResource Include="Already_In_Queue.resx">
       <DependentUpon>Already_In_Queue.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Profile.resx">
+      <DependentUpon>Edit_Profile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotifications.resx">
+      <DependentUpon>frmNotifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generate_Triage_Report.resx">
+      <DependentUpon>Generate_Triage_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -240,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Dashboard.resx">
       <DependentUpon>UC_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Notifcation.resx">
+      <DependentUpon>UC_Notifcation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Patient_Queue.resx">
       <DependentUpon>UC_Patient_Queue.cs</DependentUpon>
@@ -426,6 +462,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Add_To_Queue_Not.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hide Password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Show Password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NotificationMessage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

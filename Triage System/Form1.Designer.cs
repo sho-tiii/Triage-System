@@ -30,17 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.sideBar = new Guna.UI2.WinForms.Guna2Panel();
-            this.loginBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.triageHistoryBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.patientQueueBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.searchPatientBtn = new Guna.UI2.WinForms.Guna2Button();
             this.img_slide = new Guna.UI2.WinForms.Guna2Panel();
-            this.dashboardBtn = new Guna.UI2.WinForms.Guna2Button();
             this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -48,17 +42,23 @@
             this.topBar = new Guna.UI2.WinForms.Guna2Panel();
             this.redNotif = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.imgBell = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.lblDateTwo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblTime = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.loginBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.triageHistoryBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.patientQueueBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.searchPatientBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.dashboardBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.imgBell = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.sideBar.SuspendLayout();
             this.topBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBell)).BeginInit();
@@ -84,51 +84,6 @@
             this.sideBar.Name = "sideBar";
             this.sideBar.Size = new System.Drawing.Size(252, 658);
             this.sideBar.TabIndex = 1;
-            // 
-            // loginBtn
-            // 
-            this.loginBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.loginBtn.BackColor = System.Drawing.Color.Transparent;
-            this.loginBtn.BorderColor = System.Drawing.Color.White;
-            this.loginBtn.BorderRadius = 7;
-            this.loginBtn.BorderThickness = 2;
-            this.loginBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.loginBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.loginBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.loginBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.loginBtn.FillColor = System.Drawing.Color.Transparent;
-            this.loginBtn.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.ForeColor = System.Drawing.Color.White;
-            this.loginBtn.Image = global::Triage_System.Properties.Resources.Logout;
-            this.loginBtn.ImageOffset = new System.Drawing.Point(-5, -1);
-            this.loginBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.loginBtn.Location = new System.Drawing.Point(16, 582);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(221, 49);
-            this.loginBtn.TabIndex = 12;
-            this.loginBtn.Text = "Logout";
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2Button1.BorderRadius = 7;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
-            this.guna2Button1.Image = global::Triage_System.Properties.Resources.Edit;
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(-6, -2);
-            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(16, 527);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(221, 49);
-            this.guna2Button1.TabIndex = 11;
-            this.guna2Button1.Text = "Edit Profile";
-            this.guna2Button1.TextOffset = new System.Drawing.Point(0, 2);
             // 
             // guna2HtmlLabel5
             // 
@@ -181,105 +136,6 @@
             this.guna2CircleButton1.Text = "KC";
             this.guna2CircleButton1.TextOffset = new System.Drawing.Point(0, 2);
             // 
-            // triageHistoryBtn
-            // 
-            this.triageHistoryBtn.BackColor = System.Drawing.Color.Transparent;
-            this.triageHistoryBtn.BorderRadius = 13;
-            this.triageHistoryBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.triageHistoryBtn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(180)))), ((int)(((byte)(245)))));
-            this.triageHistoryBtn.CustomizableEdges.BottomRight = false;
-            this.triageHistoryBtn.CustomizableEdges.TopRight = false;
-            this.triageHistoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.triageHistoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.triageHistoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.triageHistoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.triageHistoryBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
-            this.triageHistoryBtn.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.triageHistoryBtn.ForeColor = System.Drawing.Color.White;
-            this.triageHistoryBtn.Image = global::Triage_System.Properties.Resources.Triage_History;
-            this.triageHistoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.triageHistoryBtn.ImageOffset = new System.Drawing.Point(10, 0);
-            this.triageHistoryBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.triageHistoryBtn.Location = new System.Drawing.Point(25, 236);
-            this.triageHistoryBtn.Name = "triageHistoryBtn";
-            this.triageHistoryBtn.ShadowDecoration.BorderRadius = 15;
-            this.triageHistoryBtn.ShadowDecoration.Depth = 15;
-            this.triageHistoryBtn.ShadowDecoration.Enabled = true;
-            this.triageHistoryBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.triageHistoryBtn.Size = new System.Drawing.Size(243, 50);
-            this.triageHistoryBtn.TabIndex = 4;
-            this.triageHistoryBtn.Text = "Triage History";
-            this.triageHistoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.triageHistoryBtn.TextOffset = new System.Drawing.Point(15, 2);
-            this.triageHistoryBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.triageHistoryBtn.Click += new System.EventHandler(this.triageBtn_Click);
-            // 
-            // patientQueueBtn
-            // 
-            this.patientQueueBtn.BackColor = System.Drawing.Color.Transparent;
-            this.patientQueueBtn.BorderRadius = 13;
-            this.patientQueueBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.patientQueueBtn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(180)))), ((int)(((byte)(245)))));
-            this.patientQueueBtn.CustomizableEdges.BottomRight = false;
-            this.patientQueueBtn.CustomizableEdges.TopRight = false;
-            this.patientQueueBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.patientQueueBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.patientQueueBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.patientQueueBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.patientQueueBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
-            this.patientQueueBtn.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientQueueBtn.ForeColor = System.Drawing.Color.White;
-            this.patientQueueBtn.Image = global::Triage_System.Properties.Resources.Patient_Queue;
-            this.patientQueueBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.patientQueueBtn.ImageOffset = new System.Drawing.Point(10, 0);
-            this.patientQueueBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.patientQueueBtn.Location = new System.Drawing.Point(25, 164);
-            this.patientQueueBtn.Name = "patientQueueBtn";
-            this.patientQueueBtn.ShadowDecoration.BorderRadius = 15;
-            this.patientQueueBtn.ShadowDecoration.Depth = 15;
-            this.patientQueueBtn.ShadowDecoration.Enabled = true;
-            this.patientQueueBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.patientQueueBtn.Size = new System.Drawing.Size(243, 50);
-            this.patientQueueBtn.TabIndex = 2;
-            this.patientQueueBtn.Text = "Patient Queue";
-            this.patientQueueBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.patientQueueBtn.TextOffset = new System.Drawing.Point(15, 2);
-            this.patientQueueBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.patientQueueBtn.Click += new System.EventHandler(this.patientqueueBtn_Click);
-            // 
-            // searchPatientBtn
-            // 
-            this.searchPatientBtn.BackColor = System.Drawing.Color.Transparent;
-            this.searchPatientBtn.BorderRadius = 13;
-            this.searchPatientBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.searchPatientBtn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(180)))), ((int)(((byte)(245)))));
-            this.searchPatientBtn.CustomizableEdges.BottomRight = false;
-            this.searchPatientBtn.CustomizableEdges.TopRight = false;
-            this.searchPatientBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.searchPatientBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.searchPatientBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.searchPatientBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.searchPatientBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
-            this.searchPatientBtn.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPatientBtn.ForeColor = System.Drawing.Color.White;
-            this.searchPatientBtn.Image = global::Triage_System.Properties.Resources.Search_Patient;
-            this.searchPatientBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.searchPatientBtn.ImageOffset = new System.Drawing.Point(10, 0);
-            this.searchPatientBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.searchPatientBtn.Location = new System.Drawing.Point(25, 98);
-            this.searchPatientBtn.Name = "searchPatientBtn";
-            this.searchPatientBtn.ShadowDecoration.BorderRadius = 15;
-            this.searchPatientBtn.ShadowDecoration.Depth = 15;
-            this.searchPatientBtn.ShadowDecoration.Enabled = true;
-            this.searchPatientBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.searchPatientBtn.Size = new System.Drawing.Size(243, 50);
-            this.searchPatientBtn.TabIndex = 1;
-            this.searchPatientBtn.Text = "Search Patient";
-            this.searchPatientBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.searchPatientBtn.TextOffset = new System.Drawing.Point(15, 2);
-            this.searchPatientBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.searchPatientBtn.Click += new System.EventHandler(this.searchpatientBtn_Click);
-            // 
             // img_slide
             // 
             this.img_slide.BorderRadius = 9;
@@ -290,39 +146,6 @@
             this.img_slide.Name = "img_slide";
             this.img_slide.Size = new System.Drawing.Size(5, 50);
             this.img_slide.TabIndex = 0;
-            // 
-            // dashboardBtn
-            // 
-            this.dashboardBtn.BackColor = System.Drawing.Color.Transparent;
-            this.dashboardBtn.BorderRadius = 13;
-            this.dashboardBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.dashboardBtn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(180)))), ((int)(((byte)(245)))));
-            this.dashboardBtn.CustomizableEdges.BottomRight = false;
-            this.dashboardBtn.CustomizableEdges.TopRight = false;
-            this.dashboardBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.dashboardBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.dashboardBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.dashboardBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.dashboardBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
-            this.dashboardBtn.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashboardBtn.ForeColor = System.Drawing.Color.White;
-            this.dashboardBtn.Image = global::Triage_System.Properties.Resources.Dashboard;
-            this.dashboardBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.dashboardBtn.ImageOffset = new System.Drawing.Point(10, 0);
-            this.dashboardBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.dashboardBtn.Location = new System.Drawing.Point(25, 32);
-            this.dashboardBtn.Name = "dashboardBtn";
-            this.dashboardBtn.ShadowDecoration.BorderRadius = 15;
-            this.dashboardBtn.ShadowDecoration.Depth = 15;
-            this.dashboardBtn.ShadowDecoration.Enabled = true;
-            this.dashboardBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.dashboardBtn.Size = new System.Drawing.Size(243, 50);
-            this.dashboardBtn.TabIndex = 0;
-            this.dashboardBtn.Text = "Dashboard";
-            this.dashboardBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.dashboardBtn.TextOffset = new System.Drawing.Point(15, 2);
-            this.dashboardBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.dashboardBtn.Click += new System.EventHandler(this.dashboardBtn_Click);
             // 
             // mainPanel
             // 
@@ -425,18 +248,6 @@
             this.guna2HtmlLabel3.TabIndex = 7;
             this.guna2HtmlLabel3.Text = "Triage Station";
             // 
-            // imgBell
-            // 
-            this.imgBell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgBell.Image = global::Triage_System.Properties.Resources.Notification;
-            this.imgBell.ImageRotate = 0F;
-            this.imgBell.Location = new System.Drawing.Point(1304, 42);
-            this.imgBell.Name = "imgBell";
-            this.imgBell.Size = new System.Drawing.Size(37, 37);
-            this.imgBell.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgBell.TabIndex = 19;
-            this.imgBell.TabStop = false;
-            // 
             // guna2VSeparator1
             // 
             this.guna2VSeparator1.BackColor = System.Drawing.Color.Transparent;
@@ -506,19 +317,6 @@
             this.lblDate.TabIndex = 16;
             this.lblDate.Text = "Tuesday";
             // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.Image = global::Triage_System.Properties.Resources.Triage_History1;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(12, 27);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox1.TabIndex = 3;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
             // lblTime
             // 
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -545,6 +343,209 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // loginBtn
+            // 
+            this.loginBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.loginBtn.BackColor = System.Drawing.Color.Transparent;
+            this.loginBtn.BorderColor = System.Drawing.Color.White;
+            this.loginBtn.BorderRadius = 7;
+            this.loginBtn.BorderThickness = 2;
+            this.loginBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.loginBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.loginBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.loginBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.loginBtn.FillColor = System.Drawing.Color.Transparent;
+            this.loginBtn.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.ForeColor = System.Drawing.Color.White;
+            this.loginBtn.Image = global::Triage_System.Properties.Resources.Logout;
+            this.loginBtn.ImageOffset = new System.Drawing.Point(-5, -1);
+            this.loginBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.loginBtn.Location = new System.Drawing.Point(16, 582);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(221, 49);
+            this.loginBtn.TabIndex = 12;
+            this.loginBtn.Text = "Logout";
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.guna2Button1.BorderRadius = 7;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
+            this.guna2Button1.Image = global::Triage_System.Properties.Resources.Edit;
+            this.guna2Button1.ImageOffset = new System.Drawing.Point(-6, -2);
+            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button1.Location = new System.Drawing.Point(16, 527);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(221, 49);
+            this.guna2Button1.TabIndex = 11;
+            this.guna2Button1.Text = "Edit Profile";
+            this.guna2Button1.TextOffset = new System.Drawing.Point(0, 2);
+            // 
+            // triageHistoryBtn
+            // 
+            this.triageHistoryBtn.BackColor = System.Drawing.Color.Transparent;
+            this.triageHistoryBtn.BorderRadius = 13;
+            this.triageHistoryBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.triageHistoryBtn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(180)))), ((int)(((byte)(245)))));
+            this.triageHistoryBtn.CustomizableEdges.BottomRight = false;
+            this.triageHistoryBtn.CustomizableEdges.TopRight = false;
+            this.triageHistoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.triageHistoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.triageHistoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.triageHistoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.triageHistoryBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
+            this.triageHistoryBtn.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.triageHistoryBtn.ForeColor = System.Drawing.Color.White;
+            this.triageHistoryBtn.Image = global::Triage_System.Properties.Resources.Triage_History;
+            this.triageHistoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.triageHistoryBtn.ImageOffset = new System.Drawing.Point(10, 0);
+            this.triageHistoryBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.triageHistoryBtn.Location = new System.Drawing.Point(25, 236);
+            this.triageHistoryBtn.Name = "triageHistoryBtn";
+            this.triageHistoryBtn.ShadowDecoration.BorderRadius = 15;
+            this.triageHistoryBtn.ShadowDecoration.Depth = 15;
+            this.triageHistoryBtn.ShadowDecoration.Enabled = true;
+            this.triageHistoryBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.triageHistoryBtn.Size = new System.Drawing.Size(243, 50);
+            this.triageHistoryBtn.TabIndex = 4;
+            this.triageHistoryBtn.Text = "Triage History";
+            this.triageHistoryBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.triageHistoryBtn.TextOffset = new System.Drawing.Point(15, 2);
+            this.triageHistoryBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.triageHistoryBtn.Click += new System.EventHandler(this.triageBtn_Click);
+            // 
+            // patientQueueBtn
+            // 
+            this.patientQueueBtn.BackColor = System.Drawing.Color.Transparent;
+            this.patientQueueBtn.BorderRadius = 13;
+            this.patientQueueBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.patientQueueBtn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(180)))), ((int)(((byte)(245)))));
+            this.patientQueueBtn.CustomizableEdges.BottomRight = false;
+            this.patientQueueBtn.CustomizableEdges.TopRight = false;
+            this.patientQueueBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.patientQueueBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.patientQueueBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.patientQueueBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.patientQueueBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
+            this.patientQueueBtn.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientQueueBtn.ForeColor = System.Drawing.Color.White;
+            this.patientQueueBtn.Image = global::Triage_System.Properties.Resources.Patient_Queue;
+            this.patientQueueBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.patientQueueBtn.ImageOffset = new System.Drawing.Point(10, 0);
+            this.patientQueueBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.patientQueueBtn.Location = new System.Drawing.Point(25, 164);
+            this.patientQueueBtn.Name = "patientQueueBtn";
+            this.patientQueueBtn.ShadowDecoration.BorderRadius = 15;
+            this.patientQueueBtn.ShadowDecoration.Depth = 15;
+            this.patientQueueBtn.ShadowDecoration.Enabled = true;
+            this.patientQueueBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.patientQueueBtn.Size = new System.Drawing.Size(243, 50);
+            this.patientQueueBtn.TabIndex = 2;
+            this.patientQueueBtn.Text = "Patient Queue";
+            this.patientQueueBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.patientQueueBtn.TextOffset = new System.Drawing.Point(15, 2);
+            this.patientQueueBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.patientQueueBtn.Click += new System.EventHandler(this.patientqueueBtn_Click);
+            // 
+            // searchPatientBtn
+            // 
+            this.searchPatientBtn.BackColor = System.Drawing.Color.Transparent;
+            this.searchPatientBtn.BorderRadius = 13;
+            this.searchPatientBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.searchPatientBtn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(180)))), ((int)(((byte)(245)))));
+            this.searchPatientBtn.CustomizableEdges.BottomRight = false;
+            this.searchPatientBtn.CustomizableEdges.TopRight = false;
+            this.searchPatientBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.searchPatientBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.searchPatientBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.searchPatientBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.searchPatientBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
+            this.searchPatientBtn.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchPatientBtn.ForeColor = System.Drawing.Color.White;
+            this.searchPatientBtn.Image = global::Triage_System.Properties.Resources.Search_Patient;
+            this.searchPatientBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.searchPatientBtn.ImageOffset = new System.Drawing.Point(10, 0);
+            this.searchPatientBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.searchPatientBtn.Location = new System.Drawing.Point(25, 98);
+            this.searchPatientBtn.Name = "searchPatientBtn";
+            this.searchPatientBtn.ShadowDecoration.BorderRadius = 15;
+            this.searchPatientBtn.ShadowDecoration.Depth = 15;
+            this.searchPatientBtn.ShadowDecoration.Enabled = true;
+            this.searchPatientBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.searchPatientBtn.Size = new System.Drawing.Size(243, 50);
+            this.searchPatientBtn.TabIndex = 1;
+            this.searchPatientBtn.Text = "Search Patient";
+            this.searchPatientBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.searchPatientBtn.TextOffset = new System.Drawing.Point(15, 2);
+            this.searchPatientBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.searchPatientBtn.Click += new System.EventHandler(this.searchpatientBtn_Click);
+            // 
+            // dashboardBtn
+            // 
+            this.dashboardBtn.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardBtn.BorderRadius = 13;
+            this.dashboardBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.dashboardBtn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(180)))), ((int)(((byte)(245)))));
+            this.dashboardBtn.CustomizableEdges.BottomRight = false;
+            this.dashboardBtn.CustomizableEdges.TopRight = false;
+            this.dashboardBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.dashboardBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.dashboardBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.dashboardBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.dashboardBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(110)))), ((int)(((byte)(164)))));
+            this.dashboardBtn.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashboardBtn.ForeColor = System.Drawing.Color.White;
+            this.dashboardBtn.Image = global::Triage_System.Properties.Resources.Dashboard;
+            this.dashboardBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.dashboardBtn.ImageOffset = new System.Drawing.Point(10, 0);
+            this.dashboardBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.dashboardBtn.Location = new System.Drawing.Point(25, 32);
+            this.dashboardBtn.Name = "dashboardBtn";
+            this.dashboardBtn.ShadowDecoration.BorderRadius = 15;
+            this.dashboardBtn.ShadowDecoration.Depth = 15;
+            this.dashboardBtn.ShadowDecoration.Enabled = true;
+            this.dashboardBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.dashboardBtn.Size = new System.Drawing.Size(243, 50);
+            this.dashboardBtn.TabIndex = 0;
+            this.dashboardBtn.Text = "Dashboard";
+            this.dashboardBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.dashboardBtn.TextOffset = new System.Drawing.Point(15, 2);
+            this.dashboardBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.dashboardBtn.Click += new System.EventHandler(this.dashboardBtn_Click);
+            // 
+            // imgBell
+            // 
+            this.imgBell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgBell.Image = global::Triage_System.Properties.Resources.Notification;
+            this.imgBell.ImageRotate = 0F;
+            this.imgBell.Location = new System.Drawing.Point(1304, 42);
+            this.imgBell.Name = "imgBell";
+            this.imgBell.Size = new System.Drawing.Size(37, 37);
+            this.imgBell.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgBell.TabIndex = 19;
+            this.imgBell.TabStop = false;
+            this.imgBell.Click += new System.EventHandler(this.imgBell_Click);
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CirclePictureBox1.Image = global::Triage_System.Properties.Resources.Triage_History1;
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(12, 27);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2CirclePictureBox1.TabIndex = 3;
+            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // Form1
             // 

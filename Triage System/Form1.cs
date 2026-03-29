@@ -7,14 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// Make sure you have this if using Guna
 using Guna.UI2.WinForms;
 
 namespace Triage_System
 {
     public partial class Form1 : Form
     {
-
         public static UserControl ActiveTriageSession = null;
 
         public Form1()
@@ -54,7 +52,6 @@ namespace Triage_System
             dashboardBtn.ShadowDecoration.Enabled = false;
             patientQueueBtn.ShadowDecoration.Enabled = false;
             searchPatientBtn.ShadowDecoration.Enabled = false;
-            doctorsBtn.ShadowDecoration.Enabled = false;
             triageHistoryBtn.ShadowDecoration.Enabled = false;
         }
 
@@ -73,7 +70,7 @@ namespace Triage_System
         {
             MoveIndicator(sender as Control);
 
-            // LOAD SEARCH SCREEN (Create UC_SearchPatient.cs first!)
+            // LOAD SEARCH SCREEN 
             UC_Search_Patient uc = new UC_Search_Patient();
             addUserControl(uc);
         }
@@ -96,28 +93,19 @@ namespace Triage_System
             else
             {
                 // NO: Load the normal Queue list
-                UC_Patient_Queue myQueue = new UC_Patient_Queue(); // <--- Create it
-                myQueue.Dock = DockStyle.Fill;                     // <--- Use the variable "myQueue"
-                mainPanel.Controls.Add(myQueue);                   // <--- Add the variable
+                UC_Patient_Queue myQueue = new UC_Patient_Queue();
+                myQueue.Dock = DockStyle.Fill;
+                mainPanel.Controls.Add(myQueue);
             }
-        }
-
-        private void doctorBtn_Click(object sender, EventArgs e)
-        {
-            MoveIndicator(sender as Control);
-
-            // LOAD DOCTORS SCREEN (Create UC_Doctors.cs first!)
-            // UC_Doctors uc = new UC_Doctors();
-            // addUserControl(uc);
         }
 
         private void triageBtn_Click(object sender, EventArgs e)
         {
             MoveIndicator(sender as Control);
 
-            // LOAD HISTORY SCREEN (Create UC_History.cs first!)
-            // UC_History uc = new UC_History();
-            // addUserControl(uc);
+            // LOAD HISTORY SCREEN 
+            UC_Triage_History uc = new UC_Triage_History();
+            addUserControl(uc);
         }
 
         // --- APP STARTUP ---
@@ -163,36 +151,28 @@ namespace Triage_System
                 // Setup ng Dark Overlay para mag-dim yung likod
                 darkOverlay.StartPosition = FormStartPosition.Manual;
                 darkOverlay.FormBorderStyle = FormBorderStyle.None;
-                darkOverlay.Opacity = 0.50; // 50% transparency. Pwede mong i-adjust (ex. 0.70)
+                darkOverlay.Opacity = 0.50;
                 darkOverlay.BackColor = System.Drawing.Color.Black;
-                darkOverlay.Size = this.Size;       // Same size as main form
-                darkOverlay.Location = this.Location; // Same position as main form
+                darkOverlay.Size = this.Size;
+                darkOverlay.Location = this.Location;
                 darkOverlay.ShowInTaskbar = false;
 
-                darkOverlay.Show(); // Ipakita yung dim background
+                darkOverlay.Show();
 
-                // I-open na natin yung Logout Modal mo
                 using (LogoutModal modal = new LogoutModal())
                 {
-                    // Siguraduhing nasa ibabaw ng dim overlay yung modal
                     modal.Owner = darkOverlay;
 
-                    // Ang ShowDialog ay i-pa-pause yung code dito hanggang sa mag-close yung modal
                     if (modal.ShowDialog() == DialogResult.Yes)
                     {
-                        // Kung nag "Yes" (Confirm Logout) ang user:
-                        this.Hide(); // Itago itong current dashboard/form
-
-                        // I-open ang LoginForm
+                        this.Hide();
                         LoginForm login = new LoginForm();
                         login.Show();
                     }
-                    // Kung nag "No" (Cancel), wala siyang gagawin. Magk-close lang yung modal.
                 }
             }
             finally
             {
-                // IMPORTANT: Siguraduhing ma-delete yung dark overlay kapag nag-close na yung modal
                 darkOverlay.Dispose();
             }
         }
@@ -204,14 +184,38 @@ namespace Triage_System
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // Update the time label (e.g., "10:45 AM")
+            // Update the time label 
             lblTime.Text = DateTime.Now.ToString("hh:mm tt");
 
-            // Update the day label (e.g., "Tuesday")
+            // Update the day label 
             lblDate.Text = DateTime.Now.ToString("dddd");
 
-            // Update the full date label (e.g., "March 25, 2026")
+            // Update the full date label 
             lblDateTwo.Text = DateTime.Now.ToString("MMMM dd, yyyy");
+        }
+
+        private void imgBell_Click(object sender, EventArgs e)
+        {
+            // Itago yung red notification dot pag na-click
+            redNotif.Visible = false;
+
+            frmNotifications notifForm = new frmNotifications();
+            notifForm.StartPosition = FormStartPosition.Manual;
+
+            // Kunin ang exact screen location ng bell icon
+            Point bellLocation = this.PointToScreen(imgBell.Location);
+
+            // PERFECT RIGHT-ALIGN FORMULA: 
+            // (X position ng bell + lapad ng bell) MINUS (lapad ng notification form)
+            int spawnX = (bellLocation.X + imgBell.Width) - notifForm.Width;
+
+            // Kung gusto mo pa siyang i-usog pakaliwa para may konting "margin" sa gilid ng screen:
+            // Pwede mong gawing: spawnX = spawnX - 10; 
+
+            int spawnY = bellLocation.Y + imgBell.Height + 5;
+
+            notifForm.Location = new Point(spawnX, spawnY);
+            notifForm.Show();
         }
     }
 }
