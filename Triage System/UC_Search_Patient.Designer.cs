@@ -38,6 +38,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Search_Patient));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
@@ -47,6 +48,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtSearchBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnTransfer = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.visitID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,8 +61,6 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTransfer = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -92,7 +92,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.62162F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.43243F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel1.Controls.Add(this.guna2Button2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel2, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.label11, 1, 2);
@@ -113,15 +113,38 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1028, 188);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(129)))), ((int)(((byte)(175)))));
+            this.guna2Button2.BorderRadius = 7;
+            this.guna2Button2.BorderThickness = 1;
+            this.guna2Button2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
+            this.guna2Button2.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Image = global::Triage_System.Properties.Resources.AddButton;
+            this.guna2Button2.Location = new System.Drawing.Point(10, 3);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(1, 14);
+            this.guna2Button2.TabIndex = 5;
+            this.guna2Button2.Text = "Add New Patient";
+            this.guna2Button2.TextOffset = new System.Drawing.Point(2, 1);
+            // 
             // guna2Panel2
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.guna2Panel2, 2);
             this.guna2Panel2.Controls.Add(this.tableLayoutPanel2);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(636, 94);
+            this.guna2Panel2.Location = new System.Drawing.Point(635, 94);
             this.guna2Panel2.Name = "guna2Panel2";
             this.tableLayoutPanel1.SetRowSpan(this.guna2Panel2, 2);
-            this.guna2Panel2.Size = new System.Drawing.Size(389, 91);
+            this.guna2Panel2.Size = new System.Drawing.Size(390, 91);
             this.guna2Panel2.TabIndex = 10;
             // 
             // tableLayoutPanel2
@@ -144,7 +167,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(389, 91);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(390, 91);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // guna2Button4
@@ -163,10 +186,10 @@
             this.guna2Button4.FillColor = System.Drawing.Color.White;
             this.guna2Button4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.Location = new System.Drawing.Point(279, 29);
+            this.guna2Button4.Location = new System.Drawing.Point(281, 29);
             this.guna2Button4.Margin = new System.Windows.Forms.Padding(3, 9, 3, 9);
             this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(107, 33);
+            this.guna2Button4.Size = new System.Drawing.Size(106, 33);
             this.guna2Button4.TabIndex = 10;
             this.guna2Button4.Text = "Completed";
             this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
@@ -187,7 +210,7 @@
             this.guna2Button3.FillColor = System.Drawing.Color.White;
             this.guna2Button3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.Location = new System.Drawing.Point(180, 29);
+            this.guna2Button3.Location = new System.Drawing.Point(182, 29);
             this.guna2Button3.Margin = new System.Windows.Forms.Padding(3, 9, 3, 9);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(93, 33);
@@ -211,10 +234,10 @@
             this.guna2Button1.FillColor = System.Drawing.Color.White;
             this.guna2Button1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(89, 29);
+            this.guna2Button1.Location = new System.Drawing.Point(90, 29);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 9, 3, 9);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(85, 33);
+            this.guna2Button1.Size = new System.Drawing.Size(86, 33);
             this.guna2Button1.TabIndex = 8;
             this.guna2Button1.Text = "Waiting";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
@@ -239,7 +262,7 @@
             this.guna2Button5.Location = new System.Drawing.Point(3, 29);
             this.guna2Button5.Margin = new System.Windows.Forms.Padding(3, 9, 3, 9);
             this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(80, 33);
+            this.guna2Button5.Size = new System.Drawing.Size(81, 33);
             this.guna2Button5.TabIndex = 7;
             this.guna2Button5.Text = "All";
             this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
@@ -294,8 +317,42 @@
             this.txtSearchBox.PlaceholderText = "Search by Patient ID, Full Name, or Date of Birth";
             this.tableLayoutPanel1.SetRowSpan(this.txtSearchBox, 2);
             this.txtSearchBox.SelectedText = "";
-            this.txtSearchBox.Size = new System.Drawing.Size(606, 47);
+            this.txtSearchBox.Size = new System.Drawing.Size(605, 47);
             this.txtSearchBox.TabIndex = 4;
+            this.txtSearchBox.TextChanged += new System.EventHandler(this.txtSearchBox_TextChanged);
+            // 
+            // btnTransfer
+            // 
+            this.btnTransfer.AnimatedGIF = true;
+            this.btnTransfer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(129)))), ((int)(((byte)(175)))));
+            this.btnTransfer.BorderRadius = 7;
+            this.btnTransfer.BorderThickness = 1;
+            this.tableLayoutPanel1.SetColumnSpan(this.btnTransfer, 2);
+            this.btnTransfer.CustomizableEdges.BottomRight = false;
+            this.btnTransfer.CustomizableEdges.TopRight = false;
+            this.btnTransfer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTransfer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTransfer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTransfer.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTransfer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTransfer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTransfer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
+            this.btnTransfer.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
+            this.btnTransfer.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransfer.ForeColor = System.Drawing.Color.White;
+            this.btnTransfer.Image = global::Triage_System.Properties.Resources.AddButton;
+            this.btnTransfer.ImageOffset = new System.Drawing.Point(0, 10);
+            this.btnTransfer.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnTransfer.Location = new System.Drawing.Point(902, 24);
+            this.btnTransfer.Margin = new System.Windows.Forms.Padding(270, 4, 0, 4);
+            this.btnTransfer.Name = "btnTransfer";
+            this.tableLayoutPanel1.SetRowSpan(this.btnTransfer, 2);
+            this.btnTransfer.Size = new System.Drawing.Size(126, 63);
+            this.btnTransfer.TabIndex = 9;
+            this.btnTransfer.Text = "Add New Patient";
+            this.btnTransfer.TextOffset = new System.Drawing.Point(0, 3);
+            this.btnTransfer.Tile = true;
+            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
             // 
             // guna2Panel6
             // 
@@ -476,62 +533,6 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.Width = 188;
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(129)))), ((int)(((byte)(175)))));
-            this.guna2Button2.BorderRadius = 7;
-            this.guna2Button2.BorderThickness = 1;
-            this.guna2Button2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
-            this.guna2Button2.CheckedState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Image = global::Triage_System.Properties.Resources.AddButton;
-            this.guna2Button2.Location = new System.Drawing.Point(10, 3);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(1, 14);
-            this.guna2Button2.TabIndex = 5;
-            this.guna2Button2.Text = "Add New Patient";
-            this.guna2Button2.TextOffset = new System.Drawing.Point(2, 1);
-            // 
-            // btnTransfer
-            // 
-            this.btnTransfer.AnimatedGIF = true;
-            this.btnTransfer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(129)))), ((int)(((byte)(175)))));
-            this.btnTransfer.BorderRadius = 7;
-            this.btnTransfer.BorderThickness = 1;
-            this.tableLayoutPanel1.SetColumnSpan(this.btnTransfer, 2);
-            this.btnTransfer.CustomizableEdges.BottomRight = false;
-            this.btnTransfer.CustomizableEdges.TopRight = false;
-            this.btnTransfer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTransfer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTransfer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTransfer.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTransfer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTransfer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTransfer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
-            this.btnTransfer.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
-            this.btnTransfer.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransfer.ForeColor = System.Drawing.Color.White;
-            this.btnTransfer.Image = global::Triage_System.Properties.Resources.AddButton;
-            this.btnTransfer.ImageOffset = new System.Drawing.Point(0, 10);
-            this.btnTransfer.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnTransfer.Location = new System.Drawing.Point(903, 24);
-            this.btnTransfer.Margin = new System.Windows.Forms.Padding(270, 4, 0, 4);
-            this.btnTransfer.Name = "btnTransfer";
-            this.tableLayoutPanel1.SetRowSpan(this.btnTransfer, 2);
-            this.btnTransfer.Size = new System.Drawing.Size(125, 63);
-            this.btnTransfer.TabIndex = 9;
-            this.btnTransfer.Text = "Add New Patient";
-            this.btnTransfer.TextOffset = new System.Drawing.Point(0, 3);
-            this.btnTransfer.Tile = true;
-            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
             // 
             // UC_Search_Patient
             // 
