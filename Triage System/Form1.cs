@@ -21,7 +21,7 @@ namespace Triage_System
         }
 
         // --- CORE NAVIGATION ENGINE (Adds the screens) ---
-        private void addUserControl(UserControl userControl)
+        public void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
             mainPanel.Controls.Clear();
@@ -221,6 +221,13 @@ namespace Triage_System
         private void redNotif_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void SwitchToSearchPatient()
+        {
+            // 1. Tawagin mo yung button click event ng Search Patient button mo
+            // Halimbawa, kung 'btnSearchPatient' ang pangalan ng button mo sa Sidebar:
+            searchPatientBtn.PerformClick();
         }
     }
 }

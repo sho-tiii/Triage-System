@@ -34,9 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Search_Patient));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -56,14 +56,14 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.btnTransfer = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.visitID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.treatment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addToQueue = new System.Windows.Forms.DataGridViewImageColumn();
             this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.addToQueue = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.treatment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.visitID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -495,63 +495,6 @@
             this.btnTransfer.Tile = true;
             this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
             // 
-            // visitID
-            // 
-            this.visitID.HeaderText = "Patient ID";
-            this.visitID.MinimumWidth = 6;
-            this.visitID.Name = "visitID";
-            this.visitID.ReadOnly = true;
-            // 
-            // studentName
-            // 
-            this.studentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.studentName.HeaderText = "Full Name";
-            this.studentName.MinimumWidth = 6;
-            this.studentName.Name = "studentName";
-            this.studentName.ReadOnly = true;
-            // 
-            // dateTime
-            // 
-            this.dateTime.HeaderText = "Date of Birth";
-            this.dateTime.MinimumWidth = 6;
-            this.dateTime.Name = "dateTime";
-            this.dateTime.ReadOnly = true;
-            // 
-            // reason
-            // 
-            this.reason.HeaderText = "Contact No.";
-            this.reason.MinimumWidth = 6;
-            this.reason.Name = "reason";
-            this.reason.ReadOnly = true;
-            // 
-            // treatment
-            // 
-            this.treatment.HeaderText = "Last Visit";
-            this.treatment.MinimumWidth = 6;
-            this.treatment.Name = "treatment";
-            this.treatment.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Status";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // addToQueue
-            // 
-            this.addToQueue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            this.addToQueue.DefaultCellStyle = dataGridViewCellStyle3;
-            this.addToQueue.HeaderText = "Action";
-            this.addToQueue.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.addToQueue.MinimumWidth = 65;
-            this.addToQueue.Name = "addToQueue";
-            this.addToQueue.ReadOnly = true;
-            this.addToQueue.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.addToQueue.Width = 89;
-            // 
             // colEdit
             // 
             this.colEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -567,6 +510,63 @@
             this.colEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colEdit.Width = 23;
+            // 
+            // addToQueue
+            // 
+            this.addToQueue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
+            this.addToQueue.DefaultCellStyle = dataGridViewCellStyle3;
+            this.addToQueue.HeaderText = "Action";
+            this.addToQueue.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.addToQueue.MinimumWidth = 55;
+            this.addToQueue.Name = "addToQueue";
+            this.addToQueue.ReadOnly = true;
+            this.addToQueue.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.addToQueue.Width = 89;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Status";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // treatment
+            // 
+            this.treatment.HeaderText = "Last Visit";
+            this.treatment.MinimumWidth = 6;
+            this.treatment.Name = "treatment";
+            this.treatment.ReadOnly = true;
+            // 
+            // reason
+            // 
+            this.reason.HeaderText = "Contact No.";
+            this.reason.MinimumWidth = 6;
+            this.reason.Name = "reason";
+            this.reason.ReadOnly = true;
+            // 
+            // dateTime
+            // 
+            this.dateTime.HeaderText = "Date of Birth";
+            this.dateTime.MinimumWidth = 6;
+            this.dateTime.Name = "dateTime";
+            this.dateTime.ReadOnly = true;
+            // 
+            // studentName
+            // 
+            this.studentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.studentName.HeaderText = "Full Name";
+            this.studentName.MinimumWidth = 6;
+            this.studentName.Name = "studentName";
+            this.studentName.ReadOnly = true;
+            // 
+            // visitID
+            // 
+            this.visitID.HeaderText = "Patient ID";
+            this.visitID.MinimumWidth = 6;
+            this.visitID.Name = "visitID";
+            this.visitID.ReadOnly = true;
             // 
             // UC_Search_Patient
             // 

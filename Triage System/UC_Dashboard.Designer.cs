@@ -29,50 +29,54 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.Charts.WinForms.ChartFont chartFont1 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont2 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont3 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont4 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid1 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick1 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont5 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid2 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick2 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont6 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid3 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel1 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont7 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont9 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont10 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont11 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont12 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid4 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick4 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont13 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid5 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick5 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont14 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid6 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel2 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont65 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont66 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont67 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont68 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid25 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick25 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont69 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid26 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick26 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont70 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid27 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel9 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont71 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick27 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont72 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont73 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont74 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont75 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont76 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid28 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick28 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont77 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid29 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick29 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont78 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid30 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel10 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont79 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick30 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont80 = new Guna.Charts.WinForms.ChartFont();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.a = new System.Windows.Forms.Label();
+            this.lblPatientsToday = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblCompletedToday = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblServing = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblWaiting = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.label13 = new System.Windows.Forms.Label();
@@ -90,23 +94,24 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2GradientButton3 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnTransfer = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             this.guna2Panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel8.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -116,10 +121,6 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.guna2Panel9.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -168,8 +169,8 @@
             this.guna2Panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
             this.guna2Panel5.BorderRadius = 20;
             this.guna2Panel5.Controls.Add(this.guna2PictureBox4);
-            this.guna2Panel5.Controls.Add(this.label7);
-            this.guna2Panel5.Controls.Add(this.label8);
+            this.guna2Panel5.Controls.Add(this.a);
+            this.guna2Panel5.Controls.Add(this.lblPatientsToday);
             this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
             this.guna2Panel5.Location = new System.Drawing.Point(603, 103);
@@ -178,29 +179,43 @@
             this.guna2Panel5.Size = new System.Drawing.Size(173, 106);
             this.guna2Panel5.TabIndex = 3;
             // 
-            // label7
+            // guna2PictureBox4
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(14, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 28);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Doctors on Duty";
+            this.guna2PictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox4.Image = global::Triage_System.Properties.Resources.DoctorsDuty;
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.Location = new System.Drawing.Point(102, 46);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.Size = new System.Drawing.Size(64, 48);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox4.TabIndex = 0;
+            this.guna2PictureBox4.TabStop = false;
             // 
-            // label8
+            // a
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(6, 34);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 84);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "45";
+            this.a.AutoSize = true;
+            this.a.BackColor = System.Drawing.Color.Transparent;
+            this.a.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.a.ForeColor = System.Drawing.Color.White;
+            this.a.Location = new System.Drawing.Point(16, 17);
+            this.a.Name = "a";
+            this.a.Size = new System.Drawing.Size(147, 23);
+            this.a.TabIndex = 2;
+            this.a.Text = "Total Patients Today";
+            // 
+            // lblPatientsToday
+            // 
+            this.lblPatientsToday.AutoSize = true;
+            this.lblPatientsToday.BackColor = System.Drawing.Color.Transparent;
+            this.lblPatientsToday.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientsToday.ForeColor = System.Drawing.Color.White;
+            this.lblPatientsToday.Location = new System.Drawing.Point(6, 34);
+            this.lblPatientsToday.Name = "lblPatientsToday";
+            this.lblPatientsToday.Size = new System.Drawing.Size(98, 84);
+            this.lblPatientsToday.TabIndex = 1;
+            this.lblPatientsToday.Text = "45";
             // 
             // guna2Panel4
             // 
@@ -208,7 +223,7 @@
             this.guna2Panel4.BorderRadius = 20;
             this.guna2Panel4.Controls.Add(this.guna2PictureBox3);
             this.guna2Panel4.Controls.Add(this.label5);
-            this.guna2Panel4.Controls.Add(this.label6);
+            this.guna2Panel4.Controls.Add(this.lblCompletedToday);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
             this.guna2Panel4.Location = new System.Drawing.Point(410, 103);
@@ -216,6 +231,19 @@
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(173, 106);
             this.guna2Panel4.TabIndex = 2;
+            // 
+            // guna2PictureBox3
+            // 
+            this.guna2PictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PictureBox3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox3.Image = global::Triage_System.Properties.Resources.CompletedToday;
+            this.guna2PictureBox3.ImageRotate = 0F;
+            this.guna2PictureBox3.Location = new System.Drawing.Point(102, 46);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.Size = new System.Drawing.Size(64, 48);
+            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox3.TabIndex = 0;
+            this.guna2PictureBox3.TabStop = false;
             // 
             // label5
             // 
@@ -228,16 +256,16 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Completed Today";
             // 
-            // label6
+            // lblCompletedToday
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(6, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 84);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "45";
+            this.lblCompletedToday.AutoSize = true;
+            this.lblCompletedToday.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompletedToday.ForeColor = System.Drawing.Color.White;
+            this.lblCompletedToday.Location = new System.Drawing.Point(6, 34);
+            this.lblCompletedToday.Name = "lblCompletedToday";
+            this.lblCompletedToday.Size = new System.Drawing.Size(98, 84);
+            this.lblCompletedToday.TabIndex = 1;
+            this.lblCompletedToday.Text = "45";
             // 
             // guna2Panel3
             // 
@@ -245,7 +273,7 @@
             this.guna2Panel3.BorderRadius = 20;
             this.guna2Panel3.Controls.Add(this.guna2PictureBox2);
             this.guna2Panel3.Controls.Add(this.label3);
-            this.guna2Panel3.Controls.Add(this.label4);
+            this.guna2Panel3.Controls.Add(this.lblServing);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(83)))), ((int)(((byte)(79)))));
             this.guna2Panel3.Location = new System.Drawing.Point(217, 103);
@@ -253,6 +281,19 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(173, 106);
             this.guna2Panel3.TabIndex = 1;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PictureBox2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox2.Image = global::Triage_System.Properties.Resources.PatientsServing;
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(102, 46);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(64, 48);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox2.TabIndex = 0;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // label3
             // 
@@ -265,16 +306,16 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Patients Serving";
             // 
-            // label4
+            // lblServing
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(6, 34);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 84);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "45";
+            this.lblServing.AutoSize = true;
+            this.lblServing.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServing.ForeColor = System.Drawing.Color.White;
+            this.lblServing.Location = new System.Drawing.Point(6, 34);
+            this.lblServing.Name = "lblServing";
+            this.lblServing.Size = new System.Drawing.Size(98, 84);
+            this.lblServing.TabIndex = 1;
+            this.lblServing.Text = "45";
             // 
             // guna2Panel2
             // 
@@ -282,7 +323,7 @@
             this.guna2Panel2.BorderRadius = 20;
             this.guna2Panel2.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel2.Controls.Add(this.label2);
-            this.guna2Panel2.Controls.Add(this.label1);
+            this.guna2Panel2.Controls.Add(this.lblWaiting);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.guna2Panel2.Location = new System.Drawing.Point(24, 103);
@@ -292,6 +333,19 @@
             this.guna2Panel2.Size = new System.Drawing.Size(173, 106);
             this.guna2Panel2.TabIndex = 0;
             this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::Triage_System.Properties.Resources.PatientsWaiting1;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(100, 46);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(64, 48);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -304,16 +358,16 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Patients Waiting";
             // 
-            // label1
+            // lblWaiting
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 84);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "45";
+            this.lblWaiting.AutoSize = true;
+            this.lblWaiting.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaiting.ForeColor = System.Drawing.Color.White;
+            this.lblWaiting.Location = new System.Drawing.Point(0, 34);
+            this.lblWaiting.Name = "lblWaiting";
+            this.lblWaiting.Size = new System.Drawing.Size(98, 84);
+            this.lblWaiting.TabIndex = 1;
+            this.lblWaiting.Text = "45";
             // 
             // label10
             // 
@@ -391,7 +445,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.12285F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.87715F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.Controls.Add(this.guna2Panel7, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.guna2Panel6, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -413,10 +467,10 @@
             this.guna2Panel7.Controls.Add(this.label12);
             this.guna2Panel7.Controls.Add(this.gunaChart2);
             this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel7.Location = new System.Drawing.Point(318, 18);
+            this.guna2Panel7.Location = new System.Drawing.Point(396, 23);
             this.guna2Panel7.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.guna2Panel7.Name = "guna2Panel7";
-            this.guna2Panel7.Size = new System.Drawing.Size(351, 388);
+            this.guna2Panel7.Size = new System.Drawing.Size(350, 388);
             this.guna2Panel7.TabIndex = 1;
             // 
             // label12
@@ -428,7 +482,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(399, 37);
             this.label12.TabIndex = 4;
-            this.label12.Text = "Department Efficiency";
+            this.label12.Text = "Triage Completion Rate";
             this.label12.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // gunaChart2
@@ -438,37 +492,37 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaChart2.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
             this.gunaDoughnutDataset1});
-            chartFont1.FontName = "Arial";
-            this.gunaChart2.Legend.LabelFont = chartFont1;
+            chartFont65.FontName = "Arial";
+            this.gunaChart2.Legend.LabelFont = chartFont65;
             this.gunaChart2.Location = new System.Drawing.Point(15, 51);
             this.gunaChart2.Name = "gunaChart2";
-            this.gunaChart2.Size = new System.Drawing.Size(323, 321);
+            this.gunaChart2.Size = new System.Drawing.Size(322, 321);
             this.gunaChart2.TabIndex = 1;
-            chartFont2.FontName = "Arial";
-            chartFont2.Size = 12;
-            chartFont2.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.gunaChart2.Title.Font = chartFont2;
-            chartFont3.FontName = "Arial";
-            this.gunaChart2.Tooltips.BodyFont = chartFont3;
-            chartFont4.FontName = "Arial";
-            chartFont4.Size = 9;
-            chartFont4.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.gunaChart2.Tooltips.TitleFont = chartFont4;
-            this.gunaChart2.XAxes.GridLines = grid1;
-            chartFont5.FontName = "Arial";
-            tick1.Font = chartFont5;
-            this.gunaChart2.XAxes.Ticks = tick1;
-            this.gunaChart2.YAxes.GridLines = grid2;
-            chartFont6.FontName = "Arial";
-            tick2.Font = chartFont6;
-            this.gunaChart2.YAxes.Ticks = tick2;
-            this.gunaChart2.ZAxes.GridLines = grid3;
-            chartFont7.FontName = "Arial";
-            pointLabel1.Font = chartFont7;
-            this.gunaChart2.ZAxes.PointLabels = pointLabel1;
-            chartFont8.FontName = "Arial";
-            tick3.Font = chartFont8;
-            this.gunaChart2.ZAxes.Ticks = tick3;
+            chartFont66.FontName = "Arial";
+            chartFont66.Size = 12;
+            chartFont66.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.gunaChart2.Title.Font = chartFont66;
+            chartFont67.FontName = "Arial";
+            this.gunaChart2.Tooltips.BodyFont = chartFont67;
+            chartFont68.FontName = "Arial";
+            chartFont68.Size = 9;
+            chartFont68.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.gunaChart2.Tooltips.TitleFont = chartFont68;
+            this.gunaChart2.XAxes.GridLines = grid25;
+            chartFont69.FontName = "Arial";
+            tick25.Font = chartFont69;
+            this.gunaChart2.XAxes.Ticks = tick25;
+            this.gunaChart2.YAxes.GridLines = grid26;
+            chartFont70.FontName = "Arial";
+            tick26.Font = chartFont70;
+            this.gunaChart2.YAxes.Ticks = tick26;
+            this.gunaChart2.ZAxes.GridLines = grid27;
+            chartFont71.FontName = "Arial";
+            pointLabel9.Font = chartFont71;
+            this.gunaChart2.ZAxes.PointLabels = pointLabel9;
+            chartFont72.FontName = "Arial";
+            tick27.Font = chartFont72;
+            this.gunaChart2.ZAxes.Ticks = tick27;
             // 
             // gunaDoughnutDataset1
             // 
@@ -485,7 +539,7 @@
             this.guna2Panel6.Location = new System.Drawing.Point(25, 23);
             this.guna2Panel6.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Size = new System.Drawing.Size(282, 310);
+            this.guna2Panel6.Size = new System.Drawing.Size(351, 388);
             this.guna2Panel6.TabIndex = 0;
             // 
             // label9
@@ -507,37 +561,37 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaChart1.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
             this.gunaSplineAreaDataset1});
-            chartFont9.FontName = "Arial";
-            this.gunaChart1.Legend.LabelFont = chartFont9;
+            chartFont73.FontName = "Arial";
+            this.gunaChart1.Legend.LabelFont = chartFont73;
             this.gunaChart1.Location = new System.Drawing.Point(16, 51);
             this.gunaChart1.Name = "gunaChart1";
-            this.gunaChart1.Size = new System.Drawing.Size(252, 243);
+            this.gunaChart1.Size = new System.Drawing.Size(321, 321);
             this.gunaChart1.TabIndex = 0;
-            chartFont10.FontName = "Arial";
-            chartFont10.Size = 12;
-            chartFont10.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.gunaChart1.Title.Font = chartFont10;
-            chartFont11.FontName = "Arial";
-            this.gunaChart1.Tooltips.BodyFont = chartFont11;
-            chartFont12.FontName = "Arial";
-            chartFont12.Size = 9;
-            chartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.gunaChart1.Tooltips.TitleFont = chartFont12;
-            this.gunaChart1.XAxes.GridLines = grid4;
-            chartFont13.FontName = "Arial";
-            tick4.Font = chartFont13;
-            this.gunaChart1.XAxes.Ticks = tick4;
-            this.gunaChart1.YAxes.GridLines = grid5;
-            chartFont14.FontName = "Arial";
-            tick5.Font = chartFont14;
-            this.gunaChart1.YAxes.Ticks = tick5;
-            this.gunaChart1.ZAxes.GridLines = grid6;
-            chartFont15.FontName = "Arial";
-            pointLabel2.Font = chartFont15;
-            this.gunaChart1.ZAxes.PointLabels = pointLabel2;
-            chartFont16.FontName = "Arial";
-            tick6.Font = chartFont16;
-            this.gunaChart1.ZAxes.Ticks = tick6;
+            chartFont74.FontName = "Arial";
+            chartFont74.Size = 12;
+            chartFont74.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.gunaChart1.Title.Font = chartFont74;
+            chartFont75.FontName = "Arial";
+            this.gunaChart1.Tooltips.BodyFont = chartFont75;
+            chartFont76.FontName = "Arial";
+            chartFont76.Size = 9;
+            chartFont76.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.gunaChart1.Tooltips.TitleFont = chartFont76;
+            this.gunaChart1.XAxes.GridLines = grid28;
+            chartFont77.FontName = "Arial";
+            tick28.Font = chartFont77;
+            this.gunaChart1.XAxes.Ticks = tick28;
+            this.gunaChart1.YAxes.GridLines = grid29;
+            chartFont78.FontName = "Arial";
+            tick29.Font = chartFont78;
+            this.gunaChart1.YAxes.Ticks = tick29;
+            this.gunaChart1.ZAxes.GridLines = grid30;
+            chartFont79.FontName = "Arial";
+            pointLabel10.Font = chartFont79;
+            this.gunaChart1.ZAxes.PointLabels = pointLabel10;
+            chartFont80.FontName = "Arial";
+            tick30.Font = chartFont80;
+            this.gunaChart1.ZAxes.Ticks = tick30;
             // 
             // gunaSplineAreaDataset1
             // 
@@ -598,20 +652,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(285, 411);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 20;
-            // 
-            // guna2Elipse3
-            // 
-            this.guna2Elipse3.BorderRadius = 20;
-            this.guna2Elipse3.TargetControl = this.guna2Panel6;
-            // 
-            // guna2Elipse4
-            // 
-            this.guna2Elipse4.BorderRadius = 20;
-            this.guna2Elipse4.TargetControl = this.guna2Panel7;
-            // 
             // guna2GradientButton3
             // 
             this.guna2GradientButton3.AnimatedGIF = true;
@@ -641,6 +681,7 @@
             this.guna2GradientButton3.TabIndex = 10;
             this.guna2GradientButton3.Text = "Generate Daily Report";
             this.guna2GradientButton3.Tile = true;
+            this.guna2GradientButton3.Click += new System.EventHandler(this.guna2GradientButton3_Click);
             // 
             // guna2GradientButton2
             // 
@@ -701,6 +742,7 @@
             this.guna2GradientButton1.TabIndex = 10;
             this.guna2GradientButton1.Text = "Search Patient";
             this.guna2GradientButton1.Tile = true;
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
             // btnTransfer
             // 
@@ -731,59 +773,25 @@
             this.btnTransfer.TabIndex = 9;
             this.btnTransfer.Text = "New Patient Record";
             this.btnTransfer.Tile = true;
+            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
             // 
-            // guna2PictureBox4
+            // guna2Elipse1
             // 
-            this.guna2PictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.Image = global::Triage_System.Properties.Resources.DoctorsDuty;
-            this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(102, 46);
-            this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(64, 48);
-            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox4.TabIndex = 0;
-            this.guna2PictureBox4.TabStop = false;
+            this.guna2Elipse1.BorderRadius = 20;
             // 
-            // guna2PictureBox3
+            // guna2Elipse3
             // 
-            this.guna2PictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2PictureBox3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox3.Image = global::Triage_System.Properties.Resources.CompletedToday;
-            this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(102, 46);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(64, 48);
-            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox3.TabIndex = 0;
-            this.guna2PictureBox3.TabStop = false;
+            this.guna2Elipse3.BorderRadius = 20;
+            this.guna2Elipse3.TargetControl = this.guna2Panel6;
             // 
-            // guna2PictureBox2
+            // guna2Elipse4
             // 
-            this.guna2PictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2PictureBox2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.Image = global::Triage_System.Properties.Resources.PatientsServing;
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(102, 46);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(64, 48);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox2.TabIndex = 0;
-            this.guna2PictureBox2.TabStop = false;
+            this.guna2Elipse4.BorderRadius = 20;
+            this.guna2Elipse4.TargetControl = this.guna2Panel7;
             // 
-            // guna2PictureBox1
+            // timer1
             // 
-            this.guna2PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::Triage_System.Properties.Resources.PatientsWaiting1;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(100, 46);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(64, 48);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // UC_Dashboard
             // 
@@ -798,12 +806,16 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel8.ResumeLayout(false);
             this.guna2Panel8.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
@@ -814,10 +826,6 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.guna2Panel9.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -833,20 +841,20 @@
         private Guna.Charts.WinForms.GunaSplineAreaDataset gunaSplineAreaDataset1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label a;
+        private System.Windows.Forms.Label lblPatientsToday;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCompletedToday;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblServing;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblWaiting;
         private Guna.Charts.WinForms.GunaDoughnutDataset gunaDoughnutDataset1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -867,5 +875,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton3;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

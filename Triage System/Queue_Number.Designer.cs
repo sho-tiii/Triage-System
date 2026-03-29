@@ -32,10 +32,10 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.patientID = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.queueNumber = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTime = new System.Windows.Forms.Label();
@@ -43,7 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +70,6 @@
             this.guna2Panel2.Controls.Add(this.label11);
             this.guna2Panel2.Controls.Add(this.label9);
             this.guna2Panel2.Controls.Add(this.patientID);
-            this.guna2Panel2.Controls.Add(this.label6);
             this.guna2Panel2.Controls.Add(this.queueNumber);
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Controls.Add(this.dateTime);
@@ -84,6 +82,16 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(456, 599);
             this.guna2Panel2.TabIndex = 0;
+            // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.Black;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(411, 0);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 41);
+            this.guna2ControlBox3.TabIndex = 15;
             // 
             // label11
             // 
@@ -118,20 +126,8 @@
             this.patientID.Name = "patientID";
             this.patientID.Size = new System.Drawing.Size(456, 46);
             this.patientID.TabIndex = 11;
-            this.patientID.Text = "Your New Patient ID: P-2026-0001";
+            this.patientID.Text = "Patient ID: P-2026-0001";
             this.patientID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Poppins", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.label6.Location = new System.Drawing.Point(0, 377);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(456, 46);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "NEW PATIENT REGISTRATION";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // queueNumber
             // 
@@ -215,16 +211,6 @@
             this.label10.Text = "NORTH METRO GENERAL HOSPITAL";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2ControlBox3
-            // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(411, 0);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 41);
-            this.guna2ControlBox3.TabIndex = 15;
-            // 
             // Queue_Number
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,7 +238,6 @@
         internal System.Windows.Forms.Label label4;
         internal System.Windows.Forms.Label dateTime;
         internal System.Windows.Forms.Label queueNumber;
-        internal System.Windows.Forms.Label label6;
         internal System.Windows.Forms.Label patientID;
         internal System.Windows.Forms.Label label11;
         internal System.Windows.Forms.Label label9;

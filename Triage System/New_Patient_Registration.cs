@@ -18,21 +18,75 @@ namespace Triage_System
             InitializeComponent();
         }
 
-        private void guna2HtmlLabel9_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            // Wag muna i-close! I-start muna natin ang pag-slide.
             slideOutTimer.Start();
         }
-        
+
+        // --- VALIDATION LOGIC ---
+        private bool IsFormValid()
+        {
+            // I-check kung blangko ang mga REQUIRED fields
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                string.IsNullOrWhiteSpace(txtAddress.Text) ||
+                string.IsNullOrWhiteSpace(txtMobileNumber.Text) ||
+                cmbGender.SelectedIndex == -1) // Walang pinili sa Gender
+            {
+                MessageBox.Show("Please fill out all required fields (Name, Gender, Address, and Mobile Number).",
+                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Optional: I-check kung 11 digits ang phone number
+            if (txtMobileNumber.Text.Trim().Length < 11)
+            {
+                MessageBox.Show("Please enter a valid 11-digit mobile number.",
+                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
 
         private void btnSave_Record_Click(object sender, EventArgs e)
         {
-            // 1. Connection String para maka-connect sa XAMPP MySQL mo
+            // 1. Patakbuhin muna ang Validation
+            if (!IsFormValid()) return;
+
+            // 2. Confirmation Prompt (Iwas accidental click)
+            DialogResult confirm = MessageBox.Show("Are you sure you want to save this patient record?",
+                                                   "Confirm Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm == DialogResult.No) return;
+
+            // ===============================================================
+            // 3. TAWAGIN ANG QUEUE MENU PARA TANUNGIN KUNG SAAN PUPUNTA
+            // ===============================================================
+            string patientFullName = txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim();
+            string queueCategory = "";
+            string prefix = "N"; // Default
+
+            using (Add_To_Queue_Menu queueMenu = new Add_To_Queue_Menu(patientFullName))
+            {
+                queueMenu.StartPosition = FormStartPosition.CenterScreen;
+                if (queueMenu.ShowDialog() == DialogResult.Yes)
+                {
+                    queueCategory = queueMenu.SelectedQueueCategory;
+                }
+                else
+                {
+                    // Kung kinancel ng nurse yung pamimili ng department, i-abort ang pag-save
+                    return;
+                }
+            }
+
+            // 4. Tukuyin ang tamang Prefix base sa pinili
+            if (queueCategory == "Diagnostics (Lab/Rad)") prefix = "T";
+            else if (queueCategory == "Billing & Cashier") prefix = "A";
+
+            // ===============================================================
+            // 5. DATABASE SAVING LOGIC
+            // ===============================================================
             string connString = "server=localhost;user=root;database=triage_system;password=;";
 
             using (MySqlConnection conn = new MySqlConnection(connString))
@@ -41,55 +95,53 @@ namespace Triage_System
                 {
                     conn.Open();
 
-                    // 2. Generate natin yung P-2026-XXXXXX na Patient ID!
+                    // Generate Patient ID at Queue Number
                     string currentYear = DateTime.Now.Year.ToString();
                     Random rnd = new Random();
                     string newPatientID = $"P-{currentYear}-{rnd.Next(100000, 999999)}";
+                    string queueNum = $"{prefix}-{rnd.Next(1000, 9999)}";
 
-                    // 3. I-handa ang SQL Query (Gumagamit tayo ng @parameters para iwas hack/SQL Injection)
+                    // IN-UPDATE KO YUNG SQL QUERY PARA ISAMA YUNG queue_number AT queue_type
                     string query = @"INSERT INTO patient_registration 
-                            (patient_id, first_name, middle_name, last_name, suffix, birthdate, gender, address, mobile_number, contact_person, contact_person_number, status) 
-                            VALUES 
-                            (@id, @fname, @mname, @lname, @suffix, @bdate, @gender, @address, @mobile, @cperson, @cnumber, 'Waiting')";
+                    (patient_id, first_name, middle_name, last_name, suffix, birthdate, gender, address, mobile_number, contact_person, contact_person_number, status, queue_number, queue_type) 
+                    VALUES 
+                    (@id, @fname, @mname, @lname, @suffix, @bdate, @gender, @address, @mobile, @cperson, @cnumber, 'Waiting', @qNum, @qType)";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        // 4. Ipasa ang mga text galing sa UI papunta sa Database
-                        // PALITAN ANG MGA "txtFirstName.Text", etc. NG MGA TOTOONG NAMES NG TEXTBOX MO SA DESIGNER
-
                         cmd.Parameters.AddWithValue("@id", newPatientID);
-                        cmd.Parameters.AddWithValue("@fname", txtFirstName.Text);
-                        cmd.Parameters.AddWithValue("@mname", txtMiddleName.Text);
-                        cmd.Parameters.AddWithValue("@lname", txtLastName.Text);
-                        cmd.Parameters.AddWithValue("@suffix", txtSuffix.Text);
-
-                        // Para sa DateTimePicker (Kunin lang natin ang date part)
+                        cmd.Parameters.AddWithValue("@fname", txtFirstName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@mname", txtMiddleName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@lname", txtLastName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@suffix", txtSuffix.Text.Trim());
                         cmd.Parameters.AddWithValue("@bdate", dtpBirthdate.Value.ToString("yyyy-MM-dd"));
-
-                        // Para sa Gender (Kung gumamit ka ng ComboBox)
                         cmd.Parameters.AddWithValue("@gender", cmbGender.Text);
+                        cmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
+                        cmd.Parameters.AddWithValue("@mobile", txtMobileNumber.Text.Trim());
+                        cmd.Parameters.AddWithValue("@cperson", txtContactPerson.Text.Trim());
+                        cmd.Parameters.AddWithValue("@cnumber", txtEmergencyNumber.Text.Trim());
 
-                        cmd.Parameters.AddWithValue("@address", txtAddress.Text);
-                        cmd.Parameters.AddWithValue("@mobile", txtMobileNumber.Text);
-                        cmd.Parameters.AddWithValue("@cperson", txtContactPerson.Text);
-                        cmd.Parameters.AddWithValue("@cnumber", txtEmergencyNumber.Text);
+                        // Mga bagong parameters para sa Queue
+                        cmd.Parameters.AddWithValue("@qNum", queueNum);
+                        cmd.Parameters.AddWithValue("@qType", queueCategory);
 
-                        // 5. Patakbuhin ang Query!
                         cmd.ExecuteNonQuery();
 
-                        // 6. Ipakita ang Success Message
-                        MessageBox.Show($"Patient Registration Successful!\n\nAssigned ID: {newPatientID}",
-                                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // ===============================================================
+                        // 6. IPAKITA ANG MAGANDANG QUEUE RECEIPT IMBES NA MESSAGEBOX!
+                        // ===============================================================
+                        using (Queue_Number receiptModal = new Queue_Number(queueNum, newPatientID))
+                        {
+                            receiptModal.ShowDialog(); // Magsasara ito automatic after 5 seconds dahil sa timer mo!
+                        }
 
-                        // 7. (Optional) Linisin ang form pagkatapos mag-save
-                        // txtFirstName.Clear();
-                        // txtLastName.Clear();
-                        // atbp...
+                        // 7. I-set ang result at simulan ang slide out animation
+                        this.DialogResult = DialogResult.OK;
+                        slideOutTimer.Start();
                     }
                 }
                 catch (Exception ex)
                 {
-                    // Kung may error sa database connection o syntax, dito lalabas
                     MessageBox.Show("May error sa pag-save: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -97,18 +149,28 @@ namespace Triage_System
 
         private void slideOutTimer_Tick(object sender, EventArgs e)
         {
-            // 1. Move the form to the right by 25 pixels every split-second
             this.Left += 25;
-
-            // 2. Make it slightly transparent at the same time
             this.Opacity -= 0.1;
 
-            // 3. Once it is completely invisible, stop the timer and officially close the form
             if (this.Opacity <= 0)
             {
                 slideOutTimer.Stop();
                 this.Close();
             }
+        }
+
+        private void ClearForm()
+        {
+            txtFirstName.Clear();
+            txtMiddleName.Clear();
+            txtLastName.Clear();
+            txtSuffix.Clear();
+            txtAddress.Clear();
+            txtMobileNumber.Clear();
+            txtContactPerson.Clear();
+            txtEmergencyNumber.Clear();
+            dtpBirthdate.Value = DateTime.Now;
+            cmbGender.SelectedIndex = -1;
         }
     }
 }

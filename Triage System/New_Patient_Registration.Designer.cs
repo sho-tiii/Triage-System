@@ -337,7 +337,6 @@
             this.guna2HtmlLabel9.Size = new System.Drawing.Size(107, 24);
             this.guna2HtmlLabel9.TabIndex = 16;
             this.guna2HtmlLabel9.Text = "Gender";
-            this.guna2HtmlLabel9.Click += new System.EventHandler(this.guna2HtmlLabel9_Click);
             // 
             // cmbGender
             // 

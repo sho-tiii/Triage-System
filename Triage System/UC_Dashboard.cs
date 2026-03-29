@@ -1,9 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
-using Guna.UI2.WinForms;
-using Guna.Charts.WinForms; // Ensure this is here for the chart
 using MySql.Data.MySqlClient;
+
+// Guna UI & Charts
+using Guna.Charts.WinForms;
+using Guna.UI2.WinForms;
+
+// iText 7 Core Libraries
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Kernel.Geom;
+using iText.Kernel.Font; // Para sa FontFactory
+using iText.IO.Font.Constants; // Para sa StandardFonts
 
 namespace Triage_System
 {
@@ -18,97 +30,234 @@ namespace Triage_System
 
         private void UC_Dashboard_Load(object sender, EventArgs e)
         {
-            // Load the visuals as soon as the dashboard opens
-            SetupQueueVolumeChart();
-            SetupEfficiencyDoughnutChart(); // Now calling the new Doughnut Chart method
+            LoadDashboardMetrics();
+            LoadQueueVolumeChart();
+            LoadEfficiencyDoughnutChart();
         }
 
-        private void SetupQueueVolumeChart()
+        // --- 1. LIVE NUMBERS ---
+        public void LoadDashboardMetrics()
         {
-            // 1. Clear default data
-            gunaChart1.Datasets.Clear();
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"SELECT 
+                                        SUM(CASE WHEN status = 'Waiting' THEN 1 ELSE 0 END) AS waiting_count,
+                                        SUM(CASE WHEN status = 'Serving' THEN 1 ELSE 0 END) AS serving_count,
+                                        SUM(CASE WHEN status = 'Completed' AND DATE(created_at) = CURDATE() THEN 1 ELSE 0 END) AS completed_today,
+                                        SUM(CASE WHEN DATE(created_at) = CURDATE() THEN 1 ELSE 0 END) AS total_today
+                                     FROM patient_registration";
 
-            // 2. Create the Spline Area Dataset
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            lblWaiting.Text = reader["waiting_count"] != DBNull.Value ? reader["waiting_count"].ToString() : "0";
+                            lblServing.Text = reader["serving_count"] != DBNull.Value ? reader["serving_count"].ToString() : "0";
+                            lblCompletedToday.Text = reader["completed_today"] != DBNull.Value ? reader["completed_today"].ToString() : "0";
+                            lblPatientsToday.Text = reader["total_today"] != DBNull.Value ? reader["total_today"].ToString() : "0";
+                        }
+                    }
+                }
+                catch (Exception ex) { Console.WriteLine("Error metrics: " + ex.Message); }
+            }
+        }
+
+        // --- 2. LIVE QUEUE VOLUME CHART ---
+        private void LoadQueueVolumeChart()
+        {
+            gunaChart1.Datasets.Clear();
             var volumeDataset = new GunaSplineAreaDataset();
             volumeDataset.Label = "Queue Volume";
-
-            // 3. Apply Styling 
             volumeDataset.BorderColor = Color.FromArgb(24, 87, 135);
             volumeDataset.FillColor = Color.FromArgb(80, 150, 200, 250);
+            volumeDataset.PointRadius = 4;
 
-            // Hide the colored dots on the line (Removed the HoverRadius line that caused the error)
-            volumeDataset.PointRadius = 0;
+            Dictionary<string, int> hourlyData = new Dictionary<string, int>()
+            {
+                {"8 AM", 0}, {"9 AM", 0}, {"10 AM", 0}, {"11 AM", 0}, {"12 PM", 0},
+                {"1 PM", 0}, {"2 PM", 0}, {"3 PM", 0}, {"4 PM", 0}, {"5 PM", 0}
+            };
 
-            // 4. Add Sample Data 
-            volumeDataset.DataPoints.Add("8AM", 15);
-            volumeDataset.DataPoints.Add("9AM", 35);
-            volumeDataset.DataPoints.Add("10AM", 20);
-            volumeDataset.DataPoints.Add("12PM", 95);
-            volumeDataset.DataPoints.Add("1PM", 40);
-            volumeDataset.DataPoints.Add("2PM", 65);
-            volumeDataset.DataPoints.Add("3PM", 30);
-            volumeDataset.DataPoints.Add("4PM", 60);
+            string query = @"SELECT HOUR(created_at) AS hr, COUNT(*) AS patient_count 
+                             FROM patient_registration 
+                             WHERE DATE(created_at) = CURDATE() 
+                             GROUP BY HOUR(created_at) 
+                             ORDER BY hr ASC";
 
-            // 5. Add dataset to chart and clean up the UI
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int hour24 = Convert.ToInt32(reader["hr"]);
+                            int count = Convert.ToInt32(reader["patient_count"]);
+                            string amPm = hour24 >= 12 ? "PM" : "AM";
+                            int displayHour = hour24 > 12 ? hour24 - 12 : (hour24 == 0 ? 12 : hour24);
+                            string timeLabel = $"{displayHour} {amPm}";
+                            if (hourlyData.ContainsKey(timeLabel)) hourlyData[timeLabel] = count;
+                        }
+                    }
+                }
+                catch (Exception ex) { Console.WriteLine("Chart error: " + ex.Message); }
+            }
+
+            foreach (var item in hourlyData) { volumeDataset.DataPoints.Add(item.Key, item.Value); }
             gunaChart1.Datasets.Add(volumeDataset);
-
             gunaChart1.Legend.Display = false;
-            gunaChart1.YAxes.GridLines.Display = false;
-            gunaChart1.XAxes.GridLines.Display = true;
-
             gunaChart1.Update();
         }
 
-        private void SetupEfficiencyDoughnutChart()
+        // --- 3. LIVE EFFICIENCY CHART ---
+        private void LoadEfficiencyDoughnutChart()
         {
-            // 1. Clear any default data
             gunaChart2.Datasets.Clear();
-
-            // 2. Create the Doughnut Dataset
             var efficiencyDataset = new GunaDoughnutDataset();
+            string query = @"SELECT 
+                                SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) AS done_count,
+                                SUM(CASE WHEN status IN ('Waiting', 'Serving') THEN 1 ELSE 0 END) AS remaining_count
+                             FROM patient_registration 
+                             WHERE DATE(created_at) = CURDATE()";
 
-            // 3. Add the Data (85% Progress, 15% Remaining space)
-            efficiencyDataset.DataPoints.Add("Done", 85);
-            efficiencyDataset.DataPoints.Add("Remaining", 15);
-
-            // 4. Set the Colors (Green for progress, Light Gray for the track)
-            efficiencyDataset.FillColors.Clear();
-            efficiencyDataset.FillColors.Add(Color.FromArgb(46, 204, 113));  // Green
-            efficiencyDataset.FillColors.Add(Color.FromArgb(235, 235, 235)); // Light Gray
-
-            // 5. Add to the chart
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int done = reader["done_count"] != DBNull.Value ? Convert.ToInt32(reader["done_count"]) : 0;
+                            int remaining = reader["remaining_count"] != DBNull.Value ? Convert.ToInt32(reader["remaining_count"]) : 0;
+                            if (done == 0 && remaining == 0)
+                            {
+                                efficiencyDataset.DataPoints.Add("No Patients", 1);
+                                efficiencyDataset.FillColors.Add(Color.FromArgb(235, 235, 235));
+                            }
+                            else
+                            {
+                                efficiencyDataset.DataPoints.Add("Done", done);
+                                efficiencyDataset.DataPoints.Add("Remaining", remaining);
+                                efficiencyDataset.FillColors.Add(Color.FromArgb(46, 204, 113));
+                                efficiencyDataset.FillColors.Add(Color.FromArgb(235, 235, 235));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex) { Console.WriteLine("Doughnut error: " + ex.Message); }
+            }
             gunaChart2.Datasets.Add(efficiencyDataset);
-
-            // 6. Clean up the Chart UI
-            gunaChart2.Legend.Display = false;
+            gunaChart2.Legend.Position = Guna.Charts.WinForms.LegendPosition.Bottom;
             gunaChart2.Update();
         }
 
-        // --- Your existing empty event handlers below ---
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
+            LoadDashboardMetrics();
+            LoadQueueVolumeChart();
+            LoadEfficiencyDoughnutChart();
         }
 
-        private void btnQueue_Click(object sender, EventArgs e)
-        {
+        // --- QUICK ACTIONS ---
 
+        // ADD NEW PATIENT
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+            using (New_Patient_Registration regPanel = new New_Patient_Registration())
+            {
+                regPanel.StartPosition = FormStartPosition.Manual;
+                System.Drawing.Point absLoc = this.PointToScreen(System.Drawing.Point.Empty);
+                regPanel.Location = new System.Drawing.Point(absLoc.X + this.Width - regPanel.Width, absLoc.Y);
+                regPanel.Height = this.Height;
+                if (regPanel.ShowDialog() == DialogResult.OK) timer1_Tick(null, null);
+            }
         }
 
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        // SEARCH PATIENT
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-
+            var mainForm = this.FindForm() as Form1; // Palitan ang Form1 kung iba ang pangalan ng Main Form mo
+            if (mainForm != null) mainForm.SwitchToSearchPatient();
         }
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        // GENERATE DAILY REPORT (PDF)
+        private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "PDF Files (*.pdf)|*.pdf";
+            sfd.FileName = "Daily_Triage_Report_" + DateTime.Now.ToString("yyyy-MM-dd") + ".pdf";
 
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // Siguraduhin na sarado ang file bago simulan
+                    FileInfo file = new FileInfo(sfd.FileName);
+
+                    using (PdfWriter writer = new PdfWriter(file.FullName))
+                    {
+                        using (PdfDocument pdf = new PdfDocument(writer))
+                        {
+                            Document document = new Document(pdf);
+
+                            // Simpleng text lang muna
+                            document.Add(new Paragraph("NORTH METRO GENERAL HOSPITAL DAILY REPORT"));
+                            document.Add(new Paragraph("Date: " + DateTime.Now.ToShortDateString()));
+                            document.Add(new Paragraph("--------------------------------------------------"));
+
+                            Table table = new Table(4); // 4 columns muna para simple
+                            table.AddHeaderCell("ID");
+                            table.AddHeaderCell("Name");
+                            table.AddHeaderCell("Time");
+                            table.AddHeaderCell("Status");
+
+                            using (MySqlConnection conn = new MySqlConnection(connectionString))
+                            {
+                                conn.Open();
+                                string query = "SELECT patient_id, first_name, last_name, created_at, status FROM patient_registration WHERE DATE(created_at) = CURDATE()";
+
+                                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                                using (MySqlDataReader reader = cmd.ExecuteReader())
+                                {
+                                    while (reader.Read())
+                                    {
+                                        table.AddCell(reader["patient_id"].ToString());
+                                        table.AddCell(reader["first_name"].ToString() + " " + reader["last_name"].ToString());
+                                        table.AddCell(Convert.ToDateTime(reader["created_at"]).ToString("hh:mm tt"));
+                                        table.AddCell(reader["status"].ToString());
+                                    }
+                                }
+                            }
+
+                            document.Add(table);
+                            document.Close();
+                        }
+                    }
+
+                    MessageBox.Show("Report Saved!", "Success");
+                }
+                catch (Exception ex)
+                {
+                    // Dito natin makikita ang totoong error details
+                    MessageBox.Show("Details: " + ex.ToString(), "Error Found");
+                }
+            }
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        // Designer-generated stubs (Wag burahin kung naka-bind sa UI)
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e) { }
+        private void btnQueue_Click(object sender, EventArgs e) { }
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e) { }
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e) { }
     }
 }
