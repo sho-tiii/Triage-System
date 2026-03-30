@@ -63,7 +63,7 @@
             this.lblNotifMessage.ForeColor = System.Drawing.Color.Black;
             this.lblNotifMessage.Location = new System.Drawing.Point(45, 0);
             this.lblNotifMessage.Name = "lblNotifMessage";
-            this.lblNotifMessage.Size = new System.Drawing.Size(187, 58);
+            this.lblNotifMessage.Size = new System.Drawing.Size(187, 72);
             this.lblNotifMessage.TabIndex = 12;
             this.lblNotifMessage.Text = "Notification Message";
             this.lblNotifMessage.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -84,7 +84,7 @@
             // guna2Separator1
             // 
             this.guna2Separator1.FillColor = System.Drawing.Color.Black;
-            this.guna2Separator1.Location = new System.Drawing.Point(-21, 59);
+            this.guna2Separator1.Location = new System.Drawing.Point(-21, 67);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(410, 10);
             this.guna2Separator1.TabIndex = 14;
@@ -114,7 +114,7 @@
             this.Controls.Add(this.lblNotifMessage);
             this.Controls.Add(this.guna2PictureBox1);
             this.Name = "UC_Notifcation";
-            this.Size = new System.Drawing.Size(300, 70);
+            this.Size = new System.Drawing.Size(300, 75);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 

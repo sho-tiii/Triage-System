@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Triage_System
 {
-    // Pinalitan ko yung 'Form' ng 'UserControl' para sumakto sa FlowLayoutPanel natin!
     public partial class UC_Notifcation : UserControl
     {
         public UC_Notifcation()
@@ -32,7 +26,7 @@ namespace Triage_System
             set { lblNotifTime.Text = value; }
         }
 
-        // Property para sa Bell Icon (assuming pictureBox1 ang name ng PictureBox mo)
+        // Property para sa Bell Icon (assuming guna2PictureBox1 ang name ng PictureBox mo)
         public Image NotifIcon
         {
             get { return guna2PictureBox1.Image; }
@@ -41,12 +35,12 @@ namespace Triage_System
 
         private void guna2Separator1_Click(object sender, EventArgs e)
         {
-
+            // Pwedeng walang laman kung design lang 'to
         }
 
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
-            // Papasabugin/Buburahin ng UserControl na 'to ang sarili niya
+            // Kapag kinlick yung "X" icon/label, ididispose (buburahin) niya sarili niya sa flow layout panel
             this.Dispose();
         }
     }

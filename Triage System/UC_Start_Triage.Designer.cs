@@ -790,13 +790,14 @@
             // 
             this.lblAge.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblAge.AutoSize = true;
             this.lblAge.BackColor = System.Drawing.Color.Transparent;
             this.lblAge.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAge.ForeColor = System.Drawing.Color.White;
-            this.lblAge.Location = new System.Drawing.Point(242, 74);
+            this.lblAge.Location = new System.Drawing.Point(244, 83);
             this.lblAge.Margin = new System.Windows.Forms.Padding(7, 0, 3, 0);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(74, 37);
+            this.lblAge.Size = new System.Drawing.Size(57, 23);
             this.lblAge.TabIndex = 19;
             this.lblAge.Text = "Age: 45";
             this.lblAge.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -819,13 +820,14 @@
             // 
             this.lblGender.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblGender.AutoSize = true;
             this.lblGender.BackColor = System.Drawing.Color.Transparent;
             this.lblGender.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGender.ForeColor = System.Drawing.Color.White;
-            this.lblGender.Location = new System.Drawing.Point(142, 74);
+            this.lblGender.Location = new System.Drawing.Point(144, 84);
             this.lblGender.Margin = new System.Windows.Forms.Padding(7, 0, 3, 0);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(74, 37);
+            this.lblGender.Size = new System.Drawing.Size(68, 23);
             this.lblGender.TabIndex = 17;
             this.lblGender.Text = "Sex: Male";
             this.lblGender.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -848,13 +850,14 @@
             // 
             this.lblPatientID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblPatientID.AutoSize = true;
             this.lblPatientID.BackColor = System.Drawing.Color.Transparent;
             this.lblPatientID.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPatientID.ForeColor = System.Drawing.Color.White;
             this.lblPatientID.Location = new System.Drawing.Point(118, 54);
             this.lblPatientID.Margin = new System.Windows.Forms.Padding(7, 0, 3, 0);
             this.lblPatientID.Name = "lblPatientID";
-            this.lblPatientID.Size = new System.Drawing.Size(150, 20);
+            this.lblPatientID.Size = new System.Drawing.Size(150, 23);
             this.lblPatientID.TabIndex = 15;
             this.lblPatientID.Text = "Patient ID:  2025-C-105";
             this.lblPatientID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -863,13 +866,14 @@
             // 
             this.lblName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(114, 14);
             this.lblName.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(225, 45);
+            this.lblName.Size = new System.Drawing.Size(225, 48);
             this.lblName.TabIndex = 14;
             this.lblName.Text = "Juan Dela Cruz";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -878,6 +882,7 @@
             // 
             this.guna2CircleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2CircleButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton1.DefaultAutoSize = true;
             this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -885,10 +890,10 @@
             this.guna2CircleButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.guna2CircleButton1.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.Location = new System.Drawing.Point(28, 26);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(29, 40);
             this.guna2CircleButton1.Name = "guna2CircleButton1";
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(60, 60);
+            this.guna2CircleButton1.Size = new System.Drawing.Size(58, 38);
             this.guna2CircleButton1.TabIndex = 13;
             this.guna2CircleButton1.Text = "KC";
             this.guna2CircleButton1.TextOffset = new System.Drawing.Point(0, 2);
@@ -1323,21 +1328,21 @@
             "--Select Department--",
             "General Medicine",
             "Cardiology (Heart)",
-            "Pulmonology (Lungs)",
-            "Neurology (Brain & Nerves)",
-            "Orthopedics (Bones & Joints)",
             "Pediatrics (Children)",
+            "Neurology (Brain & Nerves)",
+            "General Surgery",
+            "Pulmonology (Lungs)",
+            "Orthopedics (Bones & Joints)",
             "Gastroenterology (Stomach & Digestion)",
-            "Ophthalmology (Eyes)",
-            "ENT / Otolaryngology (Ear, Nose, Throat)",
             "OB-GYN (Women\'s Health)",
-            "General Surgery"});
+            "ENT / Otolaryngology"});
             this.cmbDepartment.Location = new System.Drawing.Point(3, 23);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(442, 26);
             this.cmbDepartment.StartIndex = 0;
             this.cmbDepartment.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.cmbDepartment.TabIndex = 19;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged_1);
             // 
             // cmbPhysician
             // 

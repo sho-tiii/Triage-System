@@ -1,6 +1,6 @@
 ﻿namespace Triage_System
 {
-    partial class UC_Search_Patient
+    partial class UC_LabQueue
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,9 +35,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Search_Patient));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_LabQueue));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -58,10 +59,7 @@
             this.treatment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addToQueue = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.btnTransfer = new Guna.UI2.WinForms.Guna2GradientButton();
             this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
@@ -72,6 +70,10 @@
             this.guna2Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 20;
             // 
             // guna2Panel1
             // 
@@ -85,7 +87,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1028, 690);
-            this.guna2Panel1.TabIndex = 2;
+            this.guna2Panel1.TabIndex = 3;
             // 
             // tableLayoutPanel1
             // 
@@ -173,7 +175,6 @@
             this.btnCompleted.Size = new System.Drawing.Size(110, 33);
             this.btnCompleted.TabIndex = 10;
             this.btnCompleted.Text = "Completed";
-            this.btnCompleted.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
             // btnServing
             // 
@@ -197,7 +198,6 @@
             this.btnServing.Size = new System.Drawing.Size(95, 33);
             this.btnServing.TabIndex = 9;
             this.btnServing.Text = "Serving";
-            this.btnServing.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // btnWaiting
             // 
@@ -221,7 +221,6 @@
             this.btnWaiting.Size = new System.Drawing.Size(88, 33);
             this.btnWaiting.TabIndex = 8;
             this.btnWaiting.Text = "Waiting";
-            this.btnWaiting.Click += new System.EventHandler(this.guna2Button1_Click_1);
             // 
             // btnAll
             // 
@@ -246,7 +245,6 @@
             this.btnAll.Size = new System.Drawing.Size(83, 33);
             this.btnAll.TabIndex = 7;
             this.btnAll.Text = "All";
-            this.btnAll.Click += new System.EventHandler(this.guna2Button5_Click);
             // 
             // label11
             // 
@@ -258,8 +256,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(599, 23);
             this.label11.TabIndex = 3;
-            this.label11.Text = "Locate existing patient profiles or onboard new arrivals for triage assessment.\r\n" +
-    "";
+            this.label11.Text = "Patient Worklist and Diagnostic Processing";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
@@ -272,7 +269,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(458, 37);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Patient Search and Registration";
+            this.label10.Text = "Diagnostics & Laboratory Management";
             this.label10.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // txtSearchBox
@@ -300,7 +297,6 @@
             this.txtSearchBox.SelectedText = "";
             this.txtSearchBox.Size = new System.Drawing.Size(595, 47);
             this.txtSearchBox.TabIndex = 4;
-            this.txtSearchBox.TextChanged += new System.EventHandler(this.txtSearchBox_TextChanged);
             // 
             // guna2Panel6
             // 
@@ -400,8 +396,6 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 40;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.guna2DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
-            this.guna2DataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentDoubleClick);
             // 
             // visitID
             // 
@@ -460,48 +454,21 @@
             this.addToQueue.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.addToQueue.Width = 89;
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this.guna2DataGridView1;
-            // 
-            // guna2ContextMenuStrip1
-            // 
-            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
-            this.guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
-            this.guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
-            this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // dataGridViewImageColumn1
             // 
-            this.dataGridViewImageColumn1.HeaderText = "Action";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 188;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle8.NullValue")));
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::Triage_System.Properties.Resources.EditProfilePatient;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 18;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn2.Width = 23;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Triage_System.Properties.Resources.EditProfile;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 18;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 23;
             // 
             // guna2Button2
             // 
@@ -554,7 +521,7 @@
             this.tableLayoutPanel1.SetRowSpan(this.btnTransfer, 2);
             this.btnTransfer.Size = new System.Drawing.Size(136, 63);
             this.btnTransfer.TabIndex = 9;
-            this.btnTransfer.Text = "Add New Patient";
+            this.btnTransfer.Text = "Referral";
             this.btnTransfer.TextOffset = new System.Drawing.Point(0, 3);
             this.btnTransfer.Tile = true;
             this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
@@ -575,12 +542,12 @@
             this.colEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colEdit.Width = 23;
             // 
-            // UC_Search_Patient
+            // UC_LabQueue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2Panel1);
-            this.Name = "UC_Search_Patient";
+            this.Name = "UC_LabQueue";
             this.Size = new System.Drawing.Size(1028, 690);
             this.guna2Panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -594,25 +561,22 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
-        internal Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        internal System.Windows.Forms.Label label11;
-        internal System.Windows.Forms.Label label10;
-        private Guna.UI2.WinForms.Guna2TextBox txtSearchBox;
-        private Guna.UI2.WinForms.Guna2GradientButton btnTransfer;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Button btnCompleted;
         private Guna.UI2.WinForms.Guna2Button btnServing;
         private Guna.UI2.WinForms.Guna2Button btnWaiting;
         private Guna.UI2.WinForms.Guna2Button btnAll;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        internal System.Windows.Forms.Label label11;
+        internal System.Windows.Forms.Label label10;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearchBox;
+        private Guna.UI2.WinForms.Guna2GradientButton btnTransfer;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        internal Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn visitID;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateTime;
@@ -621,5 +585,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewImageColumn addToQueue;
         private System.Windows.Forms.DataGridViewImageColumn colEdit;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }

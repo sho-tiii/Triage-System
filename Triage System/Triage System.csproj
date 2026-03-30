@@ -207,6 +207,18 @@
     <Compile Include="Already_In_Queue.Designer.cs">
       <DependentUpon>Already_In_Queue.cs</DependentUpon>
     </Compile>
+    <Compile Include="DiagnosticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiagnosticForm.Designer.cs">
+      <DependentUpon>DiagnosticForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiagnosticStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiagnosticStation.Designer.cs">
+      <DependentUpon>DiagnosticStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Edit_Profile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +293,12 @@
     <Compile Include="UC_Dashboard.Designer.cs">
       <DependentUpon>UC_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_LabQueue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_LabQueue.Designer.cs">
+      <DependentUpon>UC_LabQueue.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Notifcation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -322,6 +340,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Already_In_Queue.resx">
       <DependentUpon>Already_In_Queue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiagnosticForm.resx">
+      <DependentUpon>DiagnosticForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiagnosticStation.resx">
+      <DependentUpon>DiagnosticStation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Profile.resx">
       <DependentUpon>Edit_Profile.cs</DependentUpon>
@@ -368,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Dashboard.resx">
       <DependentUpon>UC_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_LabQueue.resx">
+      <DependentUpon>UC_LabQueue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Notifcation.resx">
       <DependentUpon>UC_Notifcation.cs</DependentUpon>

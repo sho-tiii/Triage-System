@@ -17,13 +17,12 @@ namespace Triage_System
         {
             InitializeComponent();
 
-            // I-set ang default na Queue Category para hindi mag-error kung makalimutan
+
             if (cmbQueueCategory.Items.Count > 0)
             {
-                cmbQueueCategory.SelectedIndex = 0; // "Consultation / Follow-Up"
+                cmbQueueCategory.SelectedIndex = 0;
             }
 
-            // --- ADDED: Itago muna ang Pregnant checkbox by default ---
             chkPregnant.Visible = false;
         }
 
@@ -32,7 +31,7 @@ namespace Triage_System
             slideOutTimer.Start();
         }
 
-        // --- ADDED: Event handler para lumabas lang ang Pregnant checkbox kung Female ang pinili ---
+
         private void cmbGender_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbGender.Text == "Female")

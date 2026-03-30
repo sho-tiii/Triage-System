@@ -27,8 +27,27 @@ namespace Triage_System
             activePatientId = passedPatientId;
             activeQueueType = queueType;
 
-            lblPatientID.Text = "Patient ID: " + queueId;
+            // --- FIXED: Bind the passed variables to your UI Labels ---
+            lblPatientID.Text = "Patient ID: " + passedPatientId;
+            lblName.Text = patientName;
+            lblGender.Text = "Sex: " + sex;
             lblAge.Text = "Age: " + age.ToString();
+
+            // (Optional) Update the last visit to current date so it's not hardcoded
+            lblLastVisit.Text = "Triage Date: " + DateTime.Now.ToString("MMMM dd, yyyy");
+
+            // --- ADDED: Extract initials for the avatar circle ---
+            if (!string.IsNullOrWhiteSpace(patientName))
+            {
+                var nameParts = patientName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                string initials = "";
+                if (nameParts.Length > 0) initials += nameParts[0][0]; // First initial
+                if (nameParts.Length > 1) initials += nameParts[nameParts.Length - 1][0]; // Last initial
+                guna2CircleButton1.Text = initials.ToUpper();
+            }
+
+            // --- FIXED: Wire up the event handler so the Department Dropdown actually triggers ---
+            cmbDepartment.SelectedIndexChanged += cmbDepartment_SelectedIndexChanged;
         }
 
         private void UC_Start_Triage_Load(object sender, EventArgs e)
@@ -50,28 +69,42 @@ namespace Triage_System
         // --- ADDED: DYNAMIC DOCTOR LOADING BASED SA DEPARTMENT ---
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // 1. Clear existing items and reset the default placeholder
+            cmbPhysician.Items.Clear();
+            cmbPhysician.Items.Add("--Select Doctor--");
+            cmbPhysician.SelectedIndex = 0;
+
+            // 2. If they picked "--Select Department--", just stop here
             if (cmbDepartment.SelectedIndex <= 0) return;
 
-            cmbPhysician.Items.Clear(); // Linisin muna
+            // 3. Fetch doctors from the database
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    string query = "SELECT doctor_name FROM doctors WHERE specialization = @dept AND status = 'Available'";
+
+                    // DITO YUNG BAGONG QUERY (staffaccounts ang gamit)
+                    string query = "SELECT FullName FROM staffaccounts WHERE DepartmentSector = @dept AND Role = 'Doctor' AND Status = 'Active'";
+
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@dept", cmbDepartment.Text);
+
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                cmbPhysician.Items.Add(reader["doctor_name"].ToString());
+                                // DITO YUNG READER: FullName na ang kinukuha imbes na doctor_name
+                                cmbPhysician.Items.Add(reader["FullName"].ToString());
                             }
                         }
                     }
                 }
-                catch (Exception ex) { Console.WriteLine("Error loading doctors: " + ex.Message); }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error loading doctors: " + ex.Message);
+                }
             }
         }
 
@@ -491,8 +524,31 @@ namespace Triage_System
                 {
                     conn.Open();
 
+                    string insertSql = @"INSERT INTO patient_queue
+(patient_id, fullname, sex, age, blood_pressure, heart_rate, oxygen_level, temperature, weight, height, chief_complaint, priority_level, assigned_department, assigned_physician) 
+VALUES (@pid, @fullname, @sex, @age, @bp, @hr, @oxy, @temp, @w, @h, @comp, @prio, @dept, @doc)";
+                    using (MySqlCommand cmd = new MySqlCommand(insertSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@pid", activePatientId);
+                        cmd.Parameters.AddWithValue("@bp", txtblood_Pressure.Text.Trim());
+                        cmd.Parameters.AddWithValue("@hr", hr);
+                        cmd.Parameters.AddWithValue("@oxy", oxy);
+                        cmd.Parameters.AddWithValue("@temp", temp);
+                        cmd.Parameters.AddWithValue("@w", weight);
+                        cmd.Parameters.AddWithValue("@h", height);
+                        cmd.Parameters.AddWithValue("@comp", txtchief_Complaint.Text.Trim());
+                        cmd.Parameters.AddWithValue("@prio", priorityLevel);
+                        cmd.Parameters.AddWithValue("@dept", dept);
+                        cmd.Parameters.AddWithValue("@doc", physician);
+
+                        cmd.Parameters.AddWithValue("@fullname", lblName.Text);
+                        cmd.Parameters.AddWithValue("@sex", lblGender.Text);
+                        cmd.Parameters.AddWithValue("@age", lblAge.Text);
+                        cmd.ExecuteNonQuery();
+                    }
+
                     // A. INSERT DATA SA TRIAGE_RECORDS TABLE
-                    string insertSql = @"INSERT INTO triage_records 
+                    insertSql = @"INSERT INTO triage_records 
                 (patient_id, blood_pressure, heart_rate, oxygen_level, temperature, weight, height, chief_complaint, priority_level, assigned_department, assigned_physician) 
                 VALUES (@pid, @bp, @hr, @oxy, @temp, @w, @h, @comp, @prio, @dept, @doc)";
 
@@ -539,6 +595,42 @@ namespace Triage_System
                 catch (Exception ex)
                 {
                     MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cmbDepartment_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            // 1. Clear existing items and reset the default placeholder
+            cmbPhysician.Items.Clear();
+            cmbPhysician.Items.Add("--Select Doctor--");
+            cmbPhysician.SelectedIndex = 0;
+
+            // 2. If they picked "--Select Department--", just stop here
+            if (cmbDepartment.SelectedIndex <= 0) return;
+
+            // 3. Fetch doctors from the database
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT doctor_name FROM doctors WHERE specialization = @dept AND status = 'Available'";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@dept", cmbDepartment.Text);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                cmbPhysician.Items.Add(reader["doctor_name"].ToString());
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading doctors: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
